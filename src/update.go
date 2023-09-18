@@ -5,7 +5,7 @@ import "github.com/gen2brain/raylib-go/raylib"
 func update() {
 	run = !rl.WindowShouldClose()
 
-	player.playerSrc.X = player.playerSrc.Width * float32(player.playerFrame)
+	player.playerSrc.Y = player.playerSrc.Width * float32(player.playerFrame)
 
 	if player.playerMoving {
 		if player.playerUp { player.playerDest.Y -= player.playerSpeed }
@@ -13,16 +13,14 @@ func update() {
 		if player.playerLeft { player.playerDest.X -= player.playerSpeed }
 		if player.playerRight { player.playerDest.X += player.playerSpeed }
 		if framCount % 8 == 1 { player.playerFrame++ }
-	} else if framCount % 45 == 1 {
-		player.playerFrame++
 	}
 
 	framCount++
 	if player.playerFrame > 3 { player.playerFrame = 0 }
 	if !player.playerMoving && player.playerFrame > 1 { player.playerFrame = 0 }
 
-	player.playerSrc.X = player.playerSrc.Width * float32(player.playerFrame)
-	player.playerSrc.Y = player.playerSrc.Height * float32(player.playerDir)
+	player.playerSrc.Y = player.playerSrc.Width * float32(player.playerFrame)
+	player.playerSrc.X = player.playerSrc.Height * float32(player.playerDir)
 
 	rl.UpdateMusicStream(music)
 	if musicPaused {

@@ -7,9 +7,9 @@ func init() {
 	rl.SetExitKey(0)
 	rl.SetTargetFPS(60)
 
-	player.playerSprite = rl.LoadTexture("../res/Characters/Basic Charakter Spritesheet.png")
-	player.playerSrc = rl.NewRectangle(0, 0, 48, 48)
-	player.playerDest = rl.NewRectangle(200, 200, 100, 100)
+	player.playerSprite = rl.LoadTexture("../GodotProject/World/Actor/Player/GreenNinja/SpriteSheet.png")
+	player.playerSrc = rl.NewRectangle(0, 0, 16, 16)
+	player.playerDest = rl.NewRectangle(100, 100, 30, 30)
 
 	player.playerSpeed = 3
 
@@ -23,6 +23,6 @@ func init() {
 	musicPaused = false
 	rl.PlayMusicStream(music)
 
-	cam = rl.NewCamera2D(rl.NewVector2(float32(screenWidth/2), float32(screenHeight/2)), rl.NewVector2(float32(player.playerDest.X - (player.playerDest.Width / 2)), float32(player.playerDest.Y - (player.playerDest.Height/2))), 0.0, 1.0)
+	cam = rl.NewCamera2D(rl.NewVector2(float32(screenWidth/2), float32(screenHeight/2)), rl.NewVector2(float32(player.playerDest.X - (player.playerDest.Width / 2)), float32(player.playerDest.Y - (player.playerDest.Height/2))), 0.0, 2.0)
 
 }
