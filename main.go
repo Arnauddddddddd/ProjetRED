@@ -1,6 +1,10 @@
 package main
 
-import "github.com/gen2brain/raylib-go/raylib"
+import (
+	"strconv"
+
+	"github.com/gen2brain/raylib-go/raylib"
+)
 
 const (
 	screenWidth = 1000
@@ -31,11 +35,15 @@ var (
 
 	cam rl.Camera2D
 
+    buttonMenu rl.Texture2D
+    buttonMenuPressed rl.Texture2D
+
 )
 
 func drawScene() {
 	rl.DrawTexture(grassSprite, 100, 50, rl.White)
 	rl.DrawTexturePro(playerSprite, playerSrc, playerDest, rl.NewVector2(playerDest.Width, playerDest.Height), 0, rl.White)
+    rl.DrawText(strconv.Itoa(int(rl.GetMouseX())) + " " + strconv.Itoa(int(rl.GetMouseY())), 0, 0, 20, rl.Black)
 		
 }
 
@@ -119,16 +127,20 @@ func init() {
 
 	grassSprite = rl.LoadTexture("res/Tilesets/Grass.png")
 	playerSprite = rl.LoadTexture("res/Characters/Basic Charakter Spritesheet.png")
+    buttonMenu = rl.LoadTexture("button_menu/png/Buttons/Rect-Text-Blue/Play-Idle.png")
+    buttonMenuPressed = rl.LoadTexture("button_menu/png/Buttons/Rect-Text-Blue/Play-Click.png")
 
 	playerSrc = rl.NewRectangle(0, 0, 48, 48)
 	playerDest = rl.NewRectangle(200, 200, 100, 100)
+
+
 
 	rl.InitAudioDevice()
 	music = rl.LoadMusicStream("res/music.mp3")
 	musicPaused = false
 	rl.PlayMusicStream(music)
 
-	cam = rl.NewCamera2D(rl.NewVector2(float32(screenWidth/2), float32(screenHeight/2)), rl.NewVector2(float32(playerDest.X - (playerDest.Width / 2)), float32(playerDest.Y - (playerDest.Height/2))), 0.0, 1.5)
+	cam = rl.NewCamera2D(rl.NewVector2(float32(screenWidth/2), float32(screenHeight/2)), rl.NewVector2(float32(playerDest.X - (playerDest.Width / 2)), float32(playerDest.Y - (playerDest.Height/2))), 0.0, 1.0)
 
 }
 
@@ -144,16 +156,22 @@ func quit() {
 
 func menu() {
 	rl.BeginDrawing()
-
+    if screenWidth/2 - buttonMenu.Width/2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth/2 + buttonMenu.Width/2 && screenHeight/2 - buttonMenu.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/2 + buttonMenu.Height/2 {
+        rl.DrawTexture(buttonMenuPressed, screenWidth/2 - buttonMenuPressed.Width/2, screenHeight/2 - buttonMenu.Height/2, rl.White)
+    } else {
+        rl.DrawTexture(buttonMenu, screenWidth/2 - buttonMenu.Width/2, screenHeight/2 - buttonMenu.Height/2, rl.White)
+    }
+    
 	rl.ClearBackground(bgColor)
-	rl.DrawText(" Press T to Play ", 400, 20, 20, rl.Black)
+	rl.DrawText("Play ", 400, 20, 20, rl.Black)
+    rl.DrawText(strconv.Itoa(int(rl.GetMouseX())) + " " + strconv.Itoa(int(rl.GetMouseY())), 0, 0, 20, rl.Black)
 
 	rl.EndDrawing()
 }
 
 func main() {
 
-	for !rl.IsKeyDown(rl.KeyT) {
+	for !(rl.IsMouseButtonDown(rl.MouseLeftButton) && (screenWidth/2 - buttonMenu.Width/2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth/2 + buttonMenu.Width/2 && screenHeight/2 - buttonMenu.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/2 + buttonMenu.Height/2)) {
 		menu()
 	}
 
