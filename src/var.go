@@ -7,11 +7,7 @@ const (
 	screenHeight = 480
 )
 
-var (
-	run = true
-	bgColor = rl.NewColor(147, 211, 196, 255)
-
-	grassSprite rl.Texture2D
+type playerStruct struct {
 	playerSprite rl.Texture2D
 
 	playerSrc rl.Rectangle
@@ -22,9 +18,18 @@ var (
 	playerUp, playerDown, playerRight, playerLeft bool
 	playerFrame int
 
-	framCount int
+	playerSpeed float32 
+}
 
-	playerSpeed float32 = 3
+var (
+	run = true
+	bgColor = rl.NewColor(147, 211, 196, 255)
+
+	player playerStruct
+
+	grassSprite rl.Texture2D
+
+	framCount int
 
 	musicPaused bool
 	music rl.Music
@@ -35,3 +40,4 @@ var (
     buttonMenuPressed rl.Texture2D
 
 )
+
