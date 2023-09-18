@@ -16,7 +16,8 @@ func init() {
 	grassSprite = rl.LoadTexture("../res/Tilesets/Grass.png")
     buttonMenu = rl.LoadTexture("../button_menu/png/Buttons/Rect-Text-Blue/Play-Idle.png")
     buttonMenuPressed = rl.LoadTexture("../button_menu/png/Buttons/Rect-Text-Blue/Play-Click.png")
-
+	buttonPlay = rl.LoadTexture("../button_menu/png/Buttons/Rect-Icon-Blue/Play-Click.png")
+	buttonPlayPressed = rl.LoadTexture("../button_menu/png/Buttons/Rect-Icon-Blue/Play-Idle.png")
 
 	rl.InitAudioDevice()
 	music = rl.LoadMusicStream("res/music.mp3")

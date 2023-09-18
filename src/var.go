@@ -39,5 +39,8 @@ var (
     buttonMenu rl.Texture2D
     buttonMenuPressed rl.Texture2D
 
+	buttonPlay rl.Texture2D
+	buttonPlayPressed rl.Texture2D
+
 )
 
