@@ -1,26 +1,32 @@
 package main
 
-import "github.com/gen2brain/raylib-go/raylib"
+import (
+	//"fmt"
+
+	"github.com/gen2brain/raylib-go/raylib"
+)
 
 func update() {
 	run = !rl.WindowShouldClose()
 
-	player.playerSrc.Y = player.playerSrc.Width * float32(player.playerFrame)
+	player.Src.Y = player.Src.Width * float32(player.Frame)
 
-	if player.playerMoving {
-		if player.playerUp { player.playerDest.Y -= player.playerSpeed }
-		if player.playerDown { player.playerDest.Y += player.playerSpeed }
-		if player.playerLeft { player.playerDest.X -= player.playerSpeed }
-		if player.playerRight { player.playerDest.X += player.playerSpeed }
-		if framCount % 8 == 1 { player.playerFrame++ }
+	if player.Moving {
+		if player.Up { player.Dest.Y -= player.Speed }
+		if player.Down { player.Dest.Y += player.Speed }
+		if player.Left { player.Dest.X -= player.Speed }
+		if player.Right { player.Dest.X += player.Speed }
+		if framCount % 8 == 1 { player.Frame++ }
 	}
 
 	framCount++
-	if player.playerFrame > 3 { player.playerFrame = 0 }
-	if !player.playerMoving && player.playerFrame > 1 { player.playerFrame = 0 }
+	if player.Frame > 3 { player.Frame = 0 }
+	if !player.Moving && player.Frame > 1 { player.Frame = 0 }
 
-	player.playerSrc.Y = player.playerSrc.Width * float32(player.playerFrame)
-	player.playerSrc.X = player.playerSrc.Height * float32(player.playerDir)
+	player.Src.Y = player.Src.Width * float32(player.Frame)
+	player.Src.X = player.Src.Height * float32(player.Dir)
+
+	//fmt.Println(player.Dest.X)
 
 	rl.UpdateMusicStream(music)
 	if musicPaused {
@@ -29,8 +35,8 @@ func update() {
 		rl.ResumeMusicStream(music)
 	}
 
-	cam.Target = rl.NewVector2(float32(player.playerDest.X - (player.playerDest.Width / 2)), float32(player.playerDest.Y - (player.playerDest.Height/2)))
+	cam.Target = rl.NewVector2(float32(player.Dest.X - (player.Dest.Width / 2)), float32(player.Dest.Y - (player.Dest.Height/2)))
 
-	player.playerMoving = false
-	player.playerUp, player.playerDown, player.playerRight, player.playerLeft = false, false, false, false
+	player.Moving = false
+	player.Up, player.Down, player.Right, player.Left = false, false, false, false
 }

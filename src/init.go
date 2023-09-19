@@ -7,13 +7,18 @@ func init() {
 	rl.SetExitKey(0)
 	rl.SetTargetFPS(60)
 
-	player.playerSprite = rl.LoadTexture("../GodotProject/World/Actor/Player/GreenNinja/SpriteSheet.png")
-	player.playerSrc = rl.NewRectangle(0, 0, 16, 16)
-	player.playerDest = rl.NewRectangle(100, 100, 30, 30)
+	player.Sprite = rl.LoadTexture("../GodotProject/World/Actor/Player/GreenNinja/SpriteSheet.png")
+	player.Src = rl.NewRectangle(0, 0, 16, 16)
+	player.Dest = rl.NewRectangle(100, 100, 16, 16)
 
-	player.playerSpeed = 2.5
+	player.Speed = 1
 
-	grassSprite = rl.LoadTexture("../res/Tilesets/Grass.png")
+	sprite.grass = rl.LoadTexture("../res/Tilesets/Grass.png")
+	sprite.hill = rl.LoadTexture("../res/Tilesets/Hills.png")
+	sprite.fence = rl.LoadTexture("../res/Tilesets/Fences.png")
+	sprite.house = rl.LoadTexture("../res/Tilesets/Wooden House.png")
+	sprite.water = rl.LoadTexture("../res/Tilesets/Water.png")
+	sprite.tilled = rl.LoadTexture("../res/Tilesets/Tilled Dirt.png")
 
 	bord.tileDest = rl.NewRectangle(0, 0, 16, 16)
 	bord.tileSrc = rl.NewRectangle(0, 0, 16, 16)
@@ -29,7 +34,7 @@ func init() {
 	musicPaused = false
 	rl.PlayMusicStream(music)
 
-	cam = rl.NewCamera2D(rl.NewVector2(float32(screenWidth/2), float32(screenHeight/2)), rl.NewVector2(float32(player.playerDest.X - (player.playerDest.Width / 2)), float32(player.playerDest.Y - (player.playerDest.Height/2))), 0.0, 2.0)
+	cam = rl.NewCamera2D(rl.NewVector2(float32(screenWidth/2), float32(screenHeight/2)), rl.NewVector2(float32(player.Dest.X - (player.Dest.Width / 2)), float32(player.Dest.Y - (player.Dest.Height/2))), 0.0, 3.5)
 
 	loadMap("../map.txt")
 }

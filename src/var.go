@@ -8,17 +8,17 @@ const (
 )
 
 type playerStruct struct {
-	playerSprite rl.Texture2D
+	Sprite rl.Texture2D
 
-	playerSrc rl.Rectangle
-	playerDest rl.Rectangle
+	Src rl.Rectangle
+	Dest rl.Rectangle
 
-	playerMoving bool
-	playerDir int
-	playerUp, playerDown, playerRight, playerLeft bool
-	playerFrame int
+	Moving bool
+	Dir int
+	Up, Down, Right, Left bool
+	Frame int
 
-	playerSpeed float32 
+	Speed float32 
 }
 
 type mapStruct struct {
@@ -29,14 +29,30 @@ type mapStruct struct {
 	mapW, mapH int 
 }
 
+type spriteStruct struct {
+	grass rl.Texture2D
+	hill rl.Texture2D
+	fence rl.Texture2D
+	house rl.Texture2D
+	water rl.Texture2D
+	tilled rl.Texture2D
+}
+/*
+type monsterStruct struct {
+	name string
+	hp int
+	damage int
+	alive bool
+}*/
+
 var (
 	run = true
 	bgColor = rl.NewColor(147, 211, 196, 255)
 
 	player playerStruct
 	bord mapStruct
+	sprite spriteStruct
 
-	grassSprite rl.Texture2D
 	texture rl.Texture2D
 
 	buttonPlay rl.Texture2D
