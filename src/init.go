@@ -7,6 +7,9 @@ func init() {
 	rl.SetExitKey(0)
 	rl.SetTargetFPS(60)
 
+	engine.run = true
+	engine.bgColor = rl.NewColor(147, 211, 196, 255)
+
 	player.Sprite = rl.LoadTexture("../GodotProject/World/Actor/Player/GreenNinja/SpriteSheet.png")
 	player.Src = rl.NewRectangle(0, 0, 16, 16)
 	player.Dest = rl.NewRectangle(100, 100, 16, 16)
@@ -23,18 +26,18 @@ func init() {
 	bord.tileDest = rl.NewRectangle(0, 0, 16, 16)
 	bord.tileSrc = rl.NewRectangle(0, 0, 16, 16)
 
-    buttonMenu = rl.LoadTexture("../button_menu/png/Buttons/Rect-Text-Blue/Play-Idle.png")
-    buttonMenuPressed = rl.LoadTexture("../button_menu/png/Buttons/Rect-Text-Blue/Play-Click.png")
+    sprite.buttonMenu = rl.LoadTexture("../button_menu/png/Buttons/Rect-Text-Blue/Play-Idle.png")
+    sprite.buttonMenuPressed = rl.LoadTexture("../button_menu/png/Buttons/Rect-Text-Blue/Play-Click.png")
 
-	buttonPlay = rl.LoadTexture("../button_menu/png/Buttons/Rect-Icon-Blue/Play-Click.png")
-	buttonPlayPressed = rl.LoadTexture("../button_menu/png/Buttons/Rect-Icon-Blue/Play-Idle.png")
+	sprite.buttonPlay = rl.LoadTexture("../button_menu/png/Buttons/Rect-Icon-Blue/Play-Click.png")
+	sprite.buttonPlayPressed = rl.LoadTexture("../button_menu/png/Buttons/Rect-Icon-Blue/Play-Idle.png")
 
 	rl.InitAudioDevice()
-	music = rl.LoadMusicStream("res/music.mp3")
-	musicPaused = false
-	rl.PlayMusicStream(music)
+	engine.music = rl.LoadMusicStream("res/music.mp3")
+	engine.musicPaused = false
+	rl.PlayMusicStream(engine.music)
 
-	cam = rl.NewCamera2D(rl.NewVector2(float32(screenWidth/2), float32(screenHeight/2)), rl.NewVector2(float32(player.Dest.X - (player.Dest.Width / 2)), float32(player.Dest.Y - (player.Dest.Height/2))), 0.0, 3.5)
+	engine.cam = rl.NewCamera2D(rl.NewVector2(float32(screenWidth/2), float32(screenHeight/2)), rl.NewVector2(float32(player.Dest.X - (player.Dest.Width / 2)), float32(player.Dest.Y - (player.Dest.Height/2))), 0.0, 3.5)
 
 	loadMap("../map.txt")
 }

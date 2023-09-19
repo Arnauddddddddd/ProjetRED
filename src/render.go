@@ -4,9 +4,9 @@ import "github.com/gen2brain/raylib-go/raylib"
 
 func render() {
 	rl.BeginDrawing()
-	rl.ClearBackground(bgColor)
+	rl.ClearBackground(engine.bgColor)
 
-	rl.BeginMode2D(cam)
+	rl.BeginMode2D(engine.cam)
 
 	drawScene()
 

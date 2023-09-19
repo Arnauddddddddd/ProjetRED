@@ -5,7 +5,7 @@ import (
 )
 
 func update() {
-	run = !rl.WindowShouldClose()
+	engine.run = !rl.WindowShouldClose()
 
 	player.Src.Y = player.Src.Width * float32(player.Frame)
 
@@ -41,10 +41,10 @@ func update() {
 		if player.Down { player.Dest.Y += player.Speed }
 		if player.Left { player.Dest.X -= player.Speed }
 		if player.Right { player.Dest.X += player.Speed }
-		if framCount % 8 == 1 { player.Frame++ }
+		if engine.framCount % 8 == 1 { player.Frame++ }
 	}
 
-	framCount++
+	engine.framCount++
 	if player.Frame > 3 { player.Frame = 0 }
 	if !player.Moving && player.Frame > 1 { player.Frame = 0 }
 
@@ -53,14 +53,14 @@ func update() {
 
 	//fmt.Println(player.Dest.X)
 
-	rl.UpdateMusicStream(music)
-	if musicPaused {
-		rl.PauseMusicStream(music)
+	rl.UpdateMusicStream(engine.music)
+	if engine.musicPaused {
+		rl.PauseMusicStream(engine.music)
 	} else {
-		rl.ResumeMusicStream(music)
+		rl.ResumeMusicStream(engine.music)
 	}
 
-	cam.Target = rl.NewVector2(float32(player.Dest.X - (player.Dest.Width / 2)), float32(player.Dest.Y - (player.Dest.Height/2)))
+	engine.cam.Target = rl.NewVector2(float32(player.Dest.X - (player.Dest.Width / 2)), float32(player.Dest.Y - (player.Dest.Height/2)))
 
 	player.Moving = false
 	player.Up, player.Down, player.Right, player.Left = false, false, false, false

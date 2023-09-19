@@ -24,6 +24,6 @@ func input() {
 		player.Right = true
 	}
 	if rl.IsKeyPressed(rl.KeyQ) {
-		musicPaused = !musicPaused
+		engine.musicPaused = !engine.musicPaused
 	}
 }

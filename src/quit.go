@@ -17,7 +17,7 @@ func quit() {
 
 	rl.UnloadTexture(player.Sprite)
 
-	rl.UnloadMusicStream(music)
+	rl.UnloadMusicStream(engine.music)
 	rl.CloseAudioDevice()
 	
 	rl.CloseWindow()

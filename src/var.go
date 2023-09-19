@@ -37,29 +37,24 @@ type spriteStruct struct {
 	house rl.Texture2D
 	water rl.Texture2D
 	tilled rl.Texture2D
+	texture rl.Texture2D
+	buttonPlay rl.Texture2D
+	buttonPlayPressed rl.Texture2D
+	buttonMenu rl.Texture2D
+    buttonMenuPressed rl.Texture2D
 }
-/*
+
 type monsterStruct struct {
 	name string
 	hp int
 	damage int
 	alive bool
-}*/
+	coord []int
+}
 
-
-
-var (
-	run = true
-	bgColor = rl.NewColor(147, 211, 196, 255)
-
-	player playerStruct
-	bord mapStruct
-	sprite spriteStruct
-
-	texture rl.Texture2D
-
-	buttonPlay rl.Texture2D
-	buttonPlayPressed rl.Texture2D
+type engineStruct struct {
+	run bool
+	bgColor rl.Color
 
 	framCount int
 
@@ -67,9 +62,16 @@ var (
 	music rl.Music
 
 	cam rl.Camera2D
+}
 
-    buttonMenu rl.Texture2D
-    buttonMenuPressed rl.Texture2D
+
+var (
+	
+	player playerStruct
+	bord mapStruct
+	sprite spriteStruct
+	engine engineStruct
+	monster []monsterStruct
 
 )
 
