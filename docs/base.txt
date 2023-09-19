@@ -1,0 +1,56 @@
+PROJET RED
+
+
+
+idée scénario : 
+	Monde controllé par (une secte de créature (mechants))
+
+
+
+PERSO :
+il choisit un pouvoir 
+	orgueil       avarice	   paresse
+	
+	
+variables : 
+
+stats par pouvoir = santé, dégats, vitesse
+	
+	
+orgueil : 
+	  combat : 
+	  	+20% de dégats de base 
+	  	vie : 120
+	  	
+	  Capacité qui lui permet de gagner des dégats en se ventant
+	  
+	  
+
+avarice : Combat : qui lui permet d'avoir + d'or après un combat (+20%), 
+	  	vie : 150
+	  hors combat : va plus vite eventuellement
+	
+
+paresse : Combat : 
+		Plus lent, tappe + fort
+		vie : 230	
+	  Hors combat : enventuellement plus lent (-10%)
+	  Capacité : (skip un tour, mais fait des dégats tour d'après)
+
+
+//////
+
+Terrain 
+	Map : route tracé, faudra suivre le chemin       bonus : passage secrets
+	Système : on gagne de l'or uniquement en gagnant en tuant les créatures
+	pour avancer dans la prograssion : il faudra un certain nombre d'or donc battre un certain nombre de creatures
+	                
+
+
+ON doit CODER : 
+	
+	menu
+	map 
+	perso
+	
+

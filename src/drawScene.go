@@ -42,6 +42,6 @@ func drawScene() {
 	rl.DrawText(strconv.Itoa(character.gold), int32(player.Dest.X) + 105, int32(player.Dest.Y) - 74, 10, rl.Black)
 	rl.DrawTexture(sprite.money, int32(player.Dest.X) + 115, int32(player.Dest.Y) - 79, rl.White)
 	rl.DrawTexture(sprite.heart, int32(player.Dest.X) - 152, int32(player.Dest.Y) - 78, rl.White)
-	rl.DrawTexture(sprite.heartContainer, int32(player.Dest.X) - 152, int32(player.Dest.Y) - 78, rl.White)
+	//rl.DrawTexture(sprite.heartContainer, int32(player.Dest.X) - 152, int32(player.Dest.Y) - 78, rl.White)
 	if character.showInventory { rl.DrawTexture(sprite.invBar, int32(player.Dest.X) - sprite.invBar.Width/2, int32(player.Dest.Y) - sprite.invBar.Height/2, rl.White) }
 }

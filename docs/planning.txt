@@ -1,0 +1,19 @@
+Lundi 18 : Réaliser : Menu + Menu classe, + déplacement personnage, début création de la map(implémentation des textures), dépot github
+
+
+Mardi 19: Objectif : Collision
+	  Réaliser : Collisions très fonctionnels, inventaire(avec interface)(pas encore d'objet), agrandissement de la map
+
+
+Mercredi 20: Objectif : Ajout monstre(struct, une fonction "combat" aura en appel la structure du monstre(hp, dégats, visuel sur la map), 
+
+
+Jeudi 21: Objectif : Système de combat(scene(visuel ninja,  monstre)),     système d'argent
+
+
+Vendredi : Objectif : Ajout shop
+
+
+
+
+Collisions, Ajout des monstres, Ajout shop, Inventaire, système d'argent, système de combat
