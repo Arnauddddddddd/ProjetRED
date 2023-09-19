@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
@@ -11,12 +9,13 @@ func classSelector() {
 	rl.BeginDrawing()
 
     if rl.IsMouseButtonDown(rl.MouseLeftButton) && (sprite.buttonPlay.Width < rl.GetMouseX() && rl.GetMouseX() < sprite.buttonPlay.Width*2 && screenHeight/4 - sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - sprite.buttonPlay.Height/2 + sprite.buttonPlay.Height) {
-        fmt.Println("A")
         engine.menuSelector = false
     }
     if rl.IsMouseButtonDown(rl.MouseLeftButton) && (screenWidth/2 - sprite.buttonPlay.Width/2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth/2 + sprite.buttonPlay.Width/2 && screenHeight/4 - sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - sprite.buttonPlay.Height/2 +  sprite.buttonPlay.Height) {
-        fmt.Println("B")
         engine.menuSelector = false
+        character.name = "MOI"
+        character.hp = 150
+        character.gold = 15
     }
     if rl.IsMouseButtonDown(rl.MouseLeftButton) && (screenWidth - sprite.buttonPlay.Width*2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth - sprite.buttonPlay.Width && screenHeight/4 - sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - sprite.buttonPlay.Height/2 +  sprite.buttonPlay.Height) {
         engine.menuSelector = false

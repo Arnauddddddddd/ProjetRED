@@ -1,6 +1,8 @@
 package main
 
 import (
+	"strconv"
+
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
@@ -36,4 +38,7 @@ func drawScene() {
 		}
 	}
 	rl.DrawTexturePro(player.Sprite, player.Src, player.Dest, rl.NewVector2(player.Dest.Width, player.Dest.Height), 0, rl.White)
+	rl.DrawText(strconv.Itoa(character.hp), int32(player.Dest.X) - 140, int32(player.Dest.Y) - 75, 10, rl.Black)
+	rl.DrawText(strconv.Itoa(character.gold), int32(player.Dest.X) - 140, int32(player.Dest.Y) - 65, 10, rl.Black)
+	if character.showInventory { rl.DrawTexture(sprite.invBar, int32(player.Dest.X) - sprite.invBar.Width/2, int32(player.Dest.Y) - sprite.invBar.Height/2, rl.White) }
 }

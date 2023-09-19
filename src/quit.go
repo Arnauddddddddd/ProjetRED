@@ -14,6 +14,7 @@ func quit() {
 	rl.UnloadTexture(sprite.house)
 	rl.UnloadTexture(sprite.water)
 	rl.UnloadTexture(sprite.tilled)
+	rl.UnloadTexture(sprite.invBar)
 
 	rl.UnloadTexture(player.Sprite)
 

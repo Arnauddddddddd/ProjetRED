@@ -21,10 +21,6 @@ type playerStruct struct {
 	Speed float32 
 }
 
-
-
-
-
 type mapStruct struct {
 	tileDest rl.Rectangle // où sur l'écran
 	tileSrc rl.Rectangle // où sur l'image
@@ -46,6 +42,7 @@ type spriteStruct struct {
 	buttonPlayPressed rl.Texture2D
 	buttonMenu rl.Texture2D
     buttonMenuPressed rl.Texture2D
+	invBar rl.Texture2D
 }
 
 type monsterStruct struct {
@@ -54,6 +51,27 @@ type monsterStruct struct {
 	damage int
 	alive bool
 	coord []int
+}
+
+type itemStruct struct {
+	name string
+	gender string
+	description string
+	sprite rl.Texture2D
+	damageUp int
+	hpUp int
+	speedUp int
+}
+
+type charcacterStruct struct {
+	name string
+	hp int
+	damage int
+	speed int
+	class string
+	gold int
+	inventory []itemStruct
+	showInventory bool
 }
 
 type engineStruct struct {
@@ -77,6 +95,6 @@ var (
 	sprite spriteStruct
 	engine engineStruct
 	monster []monsterStruct
+	character charcacterStruct
 
 )
-
