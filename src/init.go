@@ -13,7 +13,7 @@ func init() {
 
 	player.Sprite = rl.LoadTexture("../GodotProject/World/Actor/Player/GreenNinja/SpriteSheet.png")
 	player.Src = rl.NewRectangle(0, 0, 16, 16)
-	player.Dest = rl.NewRectangle(100, 100, 16, 16)
+	player.Dest = rl.NewRectangle(470, 400, 16, 16)
 
 	player.Speed = 1
 
