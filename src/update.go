@@ -1,8 +1,6 @@
 package main
 
 import (
-	//"fmt"
-
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
@@ -10,6 +8,33 @@ func update() {
 	run = !rl.WindowShouldClose()
 
 	player.Src.Y = player.Src.Width * float32(player.Frame)
+
+	for i := range bord.colisionList {
+		if player.Up {
+			nextBlock := []float32{player.Dest.X, player.Dest.Y+player.Src.Height-17}
+			if (bord.colisionList[i][0] <= nextBlock[0] && nextBlock[0] <= bord.colisionList[i][0]+16) && (bord.colisionList[i][1] <= nextBlock[1] && nextBlock[1] <= bord.colisionList[i][1]+16) {
+				player.Moving = false
+			}
+		}
+		if player.Down {
+			nextBlock := []float32{player.Dest.X, player.Dest.Y+18}
+			if (bord.colisionList[i][0] <= nextBlock[0] && nextBlock[0] <= bord.colisionList[i][0]+16) && (bord.colisionList[i][1] <= nextBlock[1] && nextBlock[1] <= bord.colisionList[i][1]+16) {
+				player.Moving = false
+			}
+		}
+		if player.Left {
+			nextBlock := []float32{player.Dest.X+player.Src.Width-17, player.Dest.Y}
+			if (bord.colisionList[i][0] <= nextBlock[0] && nextBlock[0] <= bord.colisionList[i][0]+16) && (bord.colisionList[i][1] <= nextBlock[1] && nextBlock[1] <= bord.colisionList[i][1]+16) {
+				player.Moving = false
+			}
+		}
+		if player.Right {
+			nextBlock := []float32{player.Dest.X+16, player.Dest.Y}
+			if (bord.colisionList[i][0] <= nextBlock[0] && nextBlock[0] <= bord.colisionList[i][0]+16) && (bord.colisionList[i][1] <= nextBlock[1] && nextBlock[1] <= bord.colisionList[i][1]+16) {
+				player.Moving = false
+			}
+		}
+	}
 
 	if player.Moving {
 		if player.Up { player.Dest.Y -= player.Speed }

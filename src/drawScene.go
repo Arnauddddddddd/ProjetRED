@@ -7,6 +7,7 @@ import (
 )
 
 func drawScene() {
+	bord.colisionList = [][]float32{}
 	for i := 0; i < len(bord.tileMap); i++ {
 		if bord.tileMap[i] != 0 {
 			bord.tileDest.X = bord.tileDest.Width * float32(i % bord.mapW)
@@ -14,11 +15,14 @@ func drawScene() {
 			
 			if bord.srcMap[i] == "g" { texture = sprite.grass }
 			if bord.srcMap[i] == "i" { texture = sprite.hill }
-			if bord.srcMap[i] == "f" { texture = sprite.fence }
+			if bord.srcMap[i] == "f" {
+				texture = sprite.fence
+				bord.colisionList = append(bord.colisionList, []float32{bord.tileDest.X, bord.tileDest.Y})
+			}
 			if bord.srcMap[i] == "h" { texture = sprite.house }
 			if bord.srcMap[i] == "w" { 
 				texture = sprite.water
-				//stop = append(stop, []float32{bord.tileDest.X, bord.tileDest.Y})
+				bord.colisionList = append(bord.colisionList, []float32{bord.tileDest.X, bord.tileDest.Y})
 			}
 			if bord.srcMap[i] == "t" { texture = sprite.tilled }
 

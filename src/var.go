@@ -26,7 +26,8 @@ type mapStruct struct {
 	tileSrc rl.Rectangle // où sur l'image
 	tileMap []int
 	srcMap []string
-	mapW, mapH int 
+	mapW, mapH int
+	colisionList [][]float32
 }
 
 type spriteStruct struct {
@@ -44,6 +45,8 @@ type monsterStruct struct {
 	damage int
 	alive bool
 }*/
+
+
 
 var (
 	run = true
