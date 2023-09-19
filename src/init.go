@@ -24,6 +24,9 @@ func init() {
 	sprite.water = rl.LoadTexture("../res/Tilesets/Water.png")
 	sprite.tilled = rl.LoadTexture("../res/Tilesets/Tilled Dirt.png")
 	sprite.invBar = rl.LoadTexture("../Free Inventory/Inventory_Bar.png")
+	sprite.heart = rl.LoadTexture("../PropsInPixels_16x/heart.png")
+	sprite.heartContainer = rl.LoadTexture("../PropsInPixels_16x/heartContainer.png")
+	sprite.money = rl.LoadTexture("../PropsInPixels_16x/money.png")
 
 	bord.tileDest = rl.NewRectangle(0, 0, 16, 16)
 	bord.tileSrc = rl.NewRectangle(0, 0, 16, 16)

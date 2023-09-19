@@ -43,6 +43,9 @@ type spriteStruct struct {
 	buttonMenu rl.Texture2D
     buttonMenuPressed rl.Texture2D
 	invBar rl.Texture2D
+	heart rl.Texture2D
+	heartContainer rl.Texture2D
+	money rl.Texture2D
 }
 
 type monsterStruct struct {
