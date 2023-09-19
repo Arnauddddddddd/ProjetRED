@@ -21,6 +21,10 @@ type playerStruct struct {
 	Speed float32 
 }
 
+
+
+
+
 type mapStruct struct {
 	tileDest rl.Rectangle // où sur l'écran
 	tileSrc rl.Rectangle // où sur l'image
@@ -62,6 +66,7 @@ type engineStruct struct {
 	music rl.Music
 
 	cam rl.Camera2D
+	menuSelector bool
 }
 
 
