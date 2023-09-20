@@ -3,8 +3,8 @@ package main
 import "github.com/gen2brain/raylib-go/raylib"
 
 const (
-	screenWidth = 1000
-	screenHeight = 480
+	screenWidth = 1600
+	screenHeight = 900
 )
 
 type playerStruct struct {
@@ -46,6 +46,7 @@ type spriteStruct struct {
 	heart rl.Texture2D
 	heartContainer rl.Texture2D
 	money rl.Texture2D
+	layer rl.Texture2D
 }
 
 type monsterStruct struct {

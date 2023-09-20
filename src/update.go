@@ -5,8 +5,8 @@ import (
 )
 
 func update() {
+	engine.run = !rl.WindowShouldClose()
 	if !character.showInventory {
-		engine.run = !rl.WindowShouldClose()
 
 		player.Src.Y = player.Src.Width * float32(player.Frame)
 
@@ -58,8 +58,6 @@ func update() {
 
 		player.Src.Y = player.Src.Width * float32(player.Frame)
 		player.Src.X = player.Src.Height * float32(player.Dir)
-
-		//fmt.Println(player.Dest.X)
 
 		rl.UpdateMusicStream(engine.music)
 		if engine.musicPaused {
