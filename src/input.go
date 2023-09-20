@@ -26,7 +26,9 @@ func input() {
 	if rl.IsKeyPressed(rl.KeyQ) {
 		engine.musicPaused = !engine.musicPaused
 	}
-	if rl.IsKeyPressed(rl.KeyE) {
-		character.showInventory = !character.showInventory
+	if !engine.battle {
+		if rl.IsKeyPressed(rl.KeyE) {
+			character.showInventory = !character.showInventory
+		}
 	}
 }

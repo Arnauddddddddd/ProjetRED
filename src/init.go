@@ -19,7 +19,7 @@ func init() {
 
 	player.Speed = 1
 
-	monster = append(monster, monsterStruct{"slime", 180, 30, 0, true, rl.LoadTexture("../texture/res/Characters/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(520, 700, 32, 32), 0})
+	monster = append(monster, monsterStruct{"slime", 180, 200, 30, 0, true, rl.LoadTexture("../texture/res/Characters/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(520, 700, 32, 32), 0, 0})
 
 	sprite.grass = rl.LoadTexture("../texture/res/Tilesets/Grass.png")
 	sprite.hill = rl.LoadTexture("../texture/res/Tilesets/Hills.png")

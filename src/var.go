@@ -55,6 +55,7 @@ type spriteStruct struct {
 type monsterStruct struct {
 	name string
 	hp int
+	hpMax int
 	damage int
 	speed int
 	alive bool
@@ -62,6 +63,7 @@ type monsterStruct struct {
 	Src rl.Rectangle
 	Dest rl.Rectangle
 	frameCount int
+	deadTime int
 }
 
 type itemStruct struct {

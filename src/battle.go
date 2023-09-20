@@ -20,13 +20,13 @@ func battle() {
 			engine.battle = false
 			engine.cam.Zoom = 3.5
 		}
-	} else {
-		character.hp -= monster[engine.monsterBattle].damage
 		if character.hp <= 0 {
 			character.alive = false
 			engine.battle = false
 			engine.cam.Zoom = 3.5
 		}
+	} else {
+		character.hp -= monster[engine.monsterBattle].damage
 		engine.playerTurn = true
 	}
 }

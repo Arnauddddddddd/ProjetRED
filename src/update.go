@@ -9,6 +9,13 @@ func update() {
 	if !character.showInventory {
 		if !engine.battle {
 
+			if !character.alive {
+				character.gold /= 2
+				character.hp = character.hpMax
+				character.alive = true
+				player.Dest = rl.NewRectangle(570, 700, 16, 16)
+			}
+
 			player.Src.Y = player.Src.Width * float32(player.Frame)
 
 			for i := range bord.colisionList {
@@ -64,6 +71,14 @@ func update() {
 				if engine.framCount % 8 == 1 { monster[i].frameCount++ }
 				if monster[i].frameCount > 3 { monster[i].frameCount = 0 }
 				monster[i].Src.X = monster[i].Src.Width * float32(monster[i].frameCount)
+				if !monster[i].alive {
+					monster[i].deadTime++
+					if monster[i].deadTime >= 1000 {
+						monster[i].alive = true
+						monster[i].hp = monster[i].hpMax
+						monster[i].deadTime = 0
+					}
+				}
 				if rl.CheckCollisionRecs(player.Dest, monster[i].Dest) && monster[i].alive {
 					engine.battle = true
 					engine.monsterBattle = i

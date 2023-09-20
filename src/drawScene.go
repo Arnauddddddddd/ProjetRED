@@ -53,6 +53,7 @@ func drawScene() {
 		rl.DrawTexture(sprite.bgForest, int32(player.Dest.X) - 808, int32(player.Dest.Y) - 458, rl.White)
 		rl.DrawText(strconv.Itoa(character.hp), int32(player.Dest.X) - 800, int32(player.Dest.Y) - 430, 30, rl.Black)
 		rl.DrawText(strconv.Itoa(monster[engine.monsterBattle].hp), int32(player.Dest.X) + 700, int32(player.Dest.Y) - 430, 30, rl.Black)
+		rl.DrawTexturePro(monster[engine.monsterBattle].sprite, monster[engine.monsterBattle].Src, monster[engine.monsterBattle].Dest, rl.NewVector2(monster[engine.monsterBattle].Dest.Width, monster[engine.monsterBattle].Dest.Height), 0, rl.White)
 	}
 
 	if character.showInventory {
