@@ -11,6 +11,7 @@ func init() {
 	engine.bgColor = rl.NewColor(147, 211, 196, 255)
 	engine.menuSelector = true
 	engine.battle = false
+	engine.playerTurn = true
 
 	player.Sprite = rl.LoadTexture("../texture/GodotProject/World/Actor/Player/GreenNinja/SpriteSheet.png")
 	player.Src = rl.NewRectangle(0, 0, 16, 16)

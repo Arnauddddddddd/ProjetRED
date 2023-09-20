@@ -1,18 +1,32 @@
 package main
 
-/*
-func battle(monster monsterStruct) {
-	play := "player"
-	rl.BeginDrawing()
-	for {
-		engine.run = !rl.WindowShouldClose()
+import (
+	"github.com/gen2brain/raylib-go/raylib"
+)
 
-		rl.ClearBackground(engine.bgColor)
-
-		rl.DrawTexture(sprite.heart, 0, 0, rl.White)
-
-		
+func battle() {
+			
+	if monster[engine.monsterBattle].speed > character.speed {
+		engine.playerTurn = false
 	}
-	rl.EndDrawing()
+
+	if engine.playerTurn {
+		if rl.IsMouseButtonPressed(rl.MouseLeftButton) {
+			monster[engine.monsterBattle].hp -= character.damage
+			engine.playerTurn = false
+		}
+		if monster[engine.monsterBattle].hp <= 0 {
+			monster[engine.monsterBattle].alive = false
+			engine.battle = false
+			engine.cam.Zoom = 3.5
+		}
+	} else {
+		character.hp -= monster[engine.monsterBattle].damage
+		if character.hp <= 0 {
+			character.alive = false
+			engine.battle = false
+			engine.cam.Zoom = 3.5
+		}
+		engine.playerTurn = true
+	}
 }
-*/

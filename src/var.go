@@ -103,6 +103,8 @@ type engineStruct struct {
 
 	battle bool
 	monsterBattle int
+
+	playerTurn bool
 }
 
 

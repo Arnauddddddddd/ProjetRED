@@ -1,8 +1,6 @@
 package main
 
 import (
-	"time"
-
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
@@ -78,52 +76,7 @@ func update() {
 			player.Moving = false
 			player.Up, player.Down, player.Right, player.Left = false, false, false, false
 		} else {
-			if rl.IsKeyPressed(rl.KeyU) {
-				engine.battle = false
-			}
-			play := "player"
-			
-			if monster[engine.monsterBattle].speed > character.speed {
-				play = "monster"
-			}
-
-			if play == "player" {
-				/*
-				for !rl.IsMouseButtonDown(rl.MouseLeftButton) {
-					time.Sleep(2 * time.Second)
-				}*/
-				time.Sleep(2 * time.Second)
-				monster[engine.monsterBattle].hp -= character.damage
-				if monster[engine.monsterBattle].hp <= 0 {
-					monster[engine.monsterBattle].alive = false
-					engine.battle = false
-					engine.cam.Zoom = 3.5
-				}
-				character.hp -= monster[engine.monsterBattle].damage
-				if character.hp <= 0 {
-					character.alive = false
-					engine.battle = false
-					engine.cam.Zoom = 3.5
-				}
-			} else {
-				character.hp -= monster[engine.monsterBattle].damage
-				if character.hp <= 0 {
-					character.alive = false
-					engine.battle = false
-					engine.cam.Zoom = 3.5
-				}
-				time.Sleep(2 * time.Second)
-				/*
-				for !rl.IsMouseButtonDown(rl.MouseLeftButton) {
-					time.Sleep(2 * time.Second)
-				}*/
-				monster[engine.monsterBattle].hp -= character.damage
-				if monster[engine.monsterBattle].hp <= 0 {
-					monster[engine.monsterBattle].alive = false
-					engine.battle = false
-					engine.cam.Zoom = 3.5
-				}
-			}
+			battle()
 		}
 	} else {
 		inventorySelector()
