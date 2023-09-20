@@ -100,6 +100,9 @@ type engineStruct struct {
 
 	cam rl.Camera2D
 	menuSelector bool
+
+	battle bool
+	monsterBattle monsterStruct
 }
 
 
