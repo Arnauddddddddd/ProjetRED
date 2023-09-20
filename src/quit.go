@@ -1,13 +1,10 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
 func quit() {
-	fmt.Println(bord.colisionList)
 	rl.UnloadTexture(sprite.grass)
 	rl.UnloadTexture(sprite.hill)
 	rl.UnloadTexture(sprite.fence)

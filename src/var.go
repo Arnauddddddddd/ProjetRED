@@ -93,6 +93,8 @@ type engineStruct struct {
 
 
 var (
+
+	//healPotion = itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../PropsInPixels_16x/potion.png"), 0, 40, 0}
 	
 	player playerStruct
 	bord mapStruct

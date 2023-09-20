@@ -46,5 +46,8 @@ func drawScene() {
 	if character.showInventory {
 		rl.DrawTexture(sprite.layer, int32(player.Dest.X) - 300, int32(player.Dest.Y) - 300, rl.White)
 		rl.DrawTexture(sprite.invBar, int32(player.Dest.X) - sprite.invBar.Width/2, int32(player.Dest.Y) - sprite.invBar.Height/2, rl.White)
+		for i := 0; i < len(character.inventory); i++ {
+			rl.DrawTexture(character.inventory[i].sprite, (int32(player.Dest.X) - sprite.invBar.Width/2)+9+int32(19*i), (int32(player.Dest.Y) - sprite.invBar.Height/2)+8, rl.White)
+		}
 	}
 }

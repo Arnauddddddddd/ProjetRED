@@ -16,6 +16,10 @@ func classSelector() {
         character.name = "MOI"
         character.hp = 150
         character.gold = 15
+        character.inventory = append(character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../PropsInPixels_16x/potion.png"), 0, 40, 0})
+        character.inventory = append(character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../PropsInPixels_16x/RedBull.png"), 0, 40, 0})
+        character.inventory = append(character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../PropsInPixels_16x/potion.png"), 0, 40, 0})
+        character.inventory = append(character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../PropsInPixels_16x/star.png"), 0, 40, 0})
     }
     if rl.IsMouseButtonDown(rl.MouseLeftButton) && (screenWidth - sprite.buttonPlay.Width*2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth - sprite.buttonPlay.Width && screenHeight/4 - sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - sprite.buttonPlay.Height/2 +  sprite.buttonPlay.Height) {
         engine.menuSelector = false
