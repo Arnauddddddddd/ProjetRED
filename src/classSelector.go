@@ -15,8 +15,10 @@ func classSelector() {
         engine.menuSelector = false
         character.name = "MOI"
         character.hp = 150
+        character.speed = 10
         character.hpMax = 200
         character.gold = 15
+        character.alive = true
         character.inventory = append(character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 40, 0, true, true})
         character.inventory = append(character.inventory, itemStruct{"Red Bull", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/RedBull.png"), 0, 0, 1, true, false})
         character.inventory = append(character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 40, 0, true, true})

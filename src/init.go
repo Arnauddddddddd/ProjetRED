@@ -17,7 +17,7 @@ func init() {
 
 	player.Speed = 1
 
-	monster = append(monster, monsterStruct{"slime", 180, 30, true, rl.LoadTexture("../texture/res/Characters/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(720, 600, 32, 32), 0})
+	monster = append(monster, monsterStruct{"slime", 180, 30, 0, true, rl.LoadTexture("../texture/res/Characters/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(720, 600, 32, 32), 0})
 
 	sprite.grass = rl.LoadTexture("../texture/res/Tilesets/Grass.png")
 	sprite.hill = rl.LoadTexture("../texture/res/Tilesets/Hills.png")
@@ -30,6 +30,7 @@ func init() {
 	sprite.heartContainer = rl.LoadTexture("../texture/PropsInPixels_16x/heartContainer.png")
 	sprite.money = rl.LoadTexture("../texture/PropsInPixels_16x/money.png")
 	sprite.layer = rl.LoadTexture("../texture/calque.png")
+	sprite.bgForest = rl.LoadTexture("../texture/battle/PNG/game_background_4/game_background_4.png")
 
 	bord.tileDest = rl.NewRectangle(0, 0, 16, 16)
 	bord.tileSrc = rl.NewRectangle(0, 0, 16, 16)

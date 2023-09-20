@@ -49,12 +49,14 @@ type spriteStruct struct {
 	heartContainer rl.Texture2D
 	money rl.Texture2D
 	layer rl.Texture2D
+	bgForest rl.Texture2D
 }
 
 type monsterStruct struct {
 	name string
 	hp int
 	damage int
+	speed int
 	alive bool
 	sprite rl.Texture2D
 	Src rl.Rectangle
@@ -84,6 +86,7 @@ type charcacterStruct struct {
 	gold int
 	inventory []itemStruct
 	showInventory bool
+	alive bool
 }
 
 type engineStruct struct {

@@ -64,7 +64,9 @@ func update() {
 			if monster[i].frameCount > 3 { monster[i].frameCount = 0 }
 			monster[i].Src.X = monster[i].Src.Width * float32(monster[i].frameCount)
 			if rl.CheckCollisionRecs(player.Dest, monster[i].Dest) {
-				//battle(monster[i])
+				for character.alive || monster[i].alive {
+					battle(monster[i])
+				}
 			}
 		}
 
