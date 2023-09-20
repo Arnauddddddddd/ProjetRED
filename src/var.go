@@ -65,11 +65,14 @@ type itemStruct struct {
 	damageUp int
 	hpUp int
 	speedUp int
+	outBattle bool
+	battle bool
 }
 
 type charcacterStruct struct {
 	name string
 	hp int
+	hpMax int
 	damage int
 	speed int
 	class string
