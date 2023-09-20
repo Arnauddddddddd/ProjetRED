@@ -11,7 +11,7 @@ func battle() {
 	}
 
 	if engine.playerTurn {
-		if rl.IsMouseButtonPressed(rl.MouseLeftButton) {
+		if rl.IsMouseButtonPressed(rl.MouseRightButton) {
 			monster[engine.monsterBattle].hp -= character.damage
 			engine.playerTurn = false
 		}

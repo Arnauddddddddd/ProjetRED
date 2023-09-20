@@ -5,7 +5,7 @@ import (
 )
 
 func inventorySelector() {
-	for i := 0; i < 10; i++ {
+	for i := 0; i < len(character.inventory); i++ {
 		if rl.IsMouseButtonPressed(rl.MouseLeftButton) && (int32(497 + 67*i) < rl.GetMouseX() && rl.GetMouseX() < int32(497 + 67*i)+67) && 450 < rl.GetMouseY() && 
 		rl.GetMouseY() < int32(520) {
 			if len(character.inventory) >= i {
