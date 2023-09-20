@@ -102,7 +102,7 @@ type engineStruct struct {
 	menuSelector bool
 
 	battle bool
-	monsterBattle monsterStruct
+	monsterBattle int
 }
 
 

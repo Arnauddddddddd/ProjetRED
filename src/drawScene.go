@@ -47,13 +47,12 @@ func drawScene() {
 		//rl.DrawTexture(sprite.heartContainer, int32(player.Dest.X) - 152, int32(player.Dest.Y) - 78, rl.White)
 
 		for i := 0; i < len(monster); i++ {
-			rl.DrawTexturePro(monster[i].sprite, monster[i].Src, monster[i].Dest, rl.NewVector2(monster[i].Dest.Width, monster[i].Dest.Height), 0, rl.White)
+			if monster[i].alive { rl.DrawTexturePro(monster[i].sprite, monster[i].Src, monster[i].Dest, rl.NewVector2(monster[i].Dest.Width, monster[i].Dest.Height), 0, rl.White) }
 		}
 	} else {
-		engine.cam.Zoom = 1.0
-		rl.DrawTexture(sprite.bgForest, int32(player.Dest.X) - 300, int32(player.Dest.Y) - 150, rl.White)
-		rl.DrawText(strconv.Itoa(character.hp), int32(player.Dest.X) - 218, int32(player.Dest.Y) - 134, 10, rl.Black)
-		rl.DrawText(strconv.Itoa(engine.monsterBattle.hp), int32(player.Dest.X) + 189, int32(player.Dest.Y) - 133, 10, rl.Black)
+		rl.DrawTexture(sprite.bgForest, int32(player.Dest.X) - 808, int32(player.Dest.Y) - 458, rl.White)
+		rl.DrawText(strconv.Itoa(character.hp), int32(player.Dest.X) - 800, int32(player.Dest.Y) - 430, 30, rl.Black)
+		rl.DrawText(strconv.Itoa(monster[engine.monsterBattle].hp), int32(player.Dest.X) + 700, int32(player.Dest.Y) - 430, 30, rl.Black)
 	}
 
 	if character.showInventory {

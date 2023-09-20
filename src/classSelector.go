@@ -15,6 +15,7 @@ func classSelector() {
         engine.menuSelector = false
         character.name = "MOI"
         character.hp = 150
+        character.damage = 50
         character.speed = 10
         character.hpMax = 200
         character.gold = 15

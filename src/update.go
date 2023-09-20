@@ -1,6 +1,8 @@
 package main
 
 import (
+	"time"
+
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
@@ -64,17 +66,11 @@ func update() {
 				if engine.framCount % 8 == 1 { monster[i].frameCount++ }
 				if monster[i].frameCount > 3 { monster[i].frameCount = 0 }
 				monster[i].Src.X = monster[i].Src.Width * float32(monster[i].frameCount)
-				if rl.CheckCollisionRecs(player.Dest, monster[i].Dest) {
+				if rl.CheckCollisionRecs(player.Dest, monster[i].Dest) && monster[i].alive {
 					engine.battle = true
-					engine.monsterBattle = monster[i]
+					engine.monsterBattle = i
+					engine.cam.Zoom = 1.0
 				}
-			}
-
-			rl.UpdateMusicStream(engine.music)
-			if engine.musicPaused {
-				rl.PauseMusicStream(engine.music)
-			} else {
-				rl.ResumeMusicStream(engine.music)
 			}
 
 			engine.cam.Target = rl.NewVector2(float32(player.Dest.X - (player.Dest.Width / 2)), float32(player.Dest.Y - (player.Dest.Height/2)))
@@ -85,37 +81,57 @@ func update() {
 			if rl.IsKeyPressed(rl.KeyU) {
 				engine.battle = false
 			}
-			//play := "player"
-			/*
-			if engine.monsterBattle.speed > character.speed {
+			play := "player"
+			
+			if monster[engine.monsterBattle].speed > character.speed {
 				play = "monster"
 			}
 
 			if play == "player" {
+				/*
 				for !rl.IsMouseButtonDown(rl.MouseLeftButton) {
 					time.Sleep(2 * time.Second)
-				}
-				engine.monsterBattle.hp -= character.damage
-				if engine.monsterBattle.hp <= 0 {
-					engine.monsterBattle.alive = false
+				}*/
+				time.Sleep(2 * time.Second)
+				monster[engine.monsterBattle].hp -= character.damage
+				if monster[engine.monsterBattle].hp <= 0 {
+					monster[engine.monsterBattle].alive = false
 					engine.battle = false
-					character.hp += engine.monsterBattle.damage
+					engine.cam.Zoom = 3.5
 				}
-				character.hp -= engine.monsterBattle.damage
-			} else {
-				character.hp -= engine.monsterBattle.damage
+				character.hp -= monster[engine.monsterBattle].damage
 				if character.hp <= 0 {
 					character.alive = false
 					engine.battle = false
-					engine.monsterBattle.hp += character.damage
+					engine.cam.Zoom = 3.5
 				}
+			} else {
+				character.hp -= monster[engine.monsterBattle].damage
+				if character.hp <= 0 {
+					character.alive = false
+					engine.battle = false
+					engine.cam.Zoom = 3.5
+				}
+				time.Sleep(2 * time.Second)
+				/*
 				for !rl.IsMouseButtonDown(rl.MouseLeftButton) {
-					continue
+					time.Sleep(2 * time.Second)
+				}*/
+				monster[engine.monsterBattle].hp -= character.damage
+				if monster[engine.monsterBattle].hp <= 0 {
+					monster[engine.monsterBattle].alive = false
+					engine.battle = false
+					engine.cam.Zoom = 3.5
 				}
-				engine.monsterBattle.hp -= character.damage
-			}*/
+			}
 		}
 	} else {
 		inventorySelector()
+	}
+	rl.UpdateMusicStream(engine.music)
+	if engine.musicPaused {
+		rl.PauseMusicStream(engine.music)
+	} else {
+		rl.ResumeMusicStream(engine.music)
 	}
 }
