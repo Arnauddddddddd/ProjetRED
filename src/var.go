@@ -50,6 +50,7 @@ type spriteStruct struct {
 	money rl.Texture2D
 	layer rl.Texture2D
 	bgForest rl.Texture2D
+	buttonAttack rl.Texture2D
 }
 
 type monsterStruct struct {

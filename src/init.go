@@ -33,6 +33,7 @@ func init() {
 	sprite.money = rl.LoadTexture("../texture/PropsInPixels_16x/money.png")
 	sprite.layer = rl.LoadTexture("../texture/calque.png")
 	sprite.bgForest = rl.LoadTexture("../texture/battle/PNG/game_background_4/game_background_4.png")
+	sprite.buttonAttack = rl.LoadTexture("../texture/Pixel Buttons pack 4.png")
 
 	bord.tileDest = rl.NewRectangle(0, 0, 16, 16)
 	bord.tileSrc = rl.NewRectangle(0, 0, 16, 16)

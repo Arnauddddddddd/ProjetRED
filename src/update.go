@@ -73,7 +73,7 @@ func update() {
 				monster[i].Src.X = monster[i].Src.Width * float32(monster[i].frameCount)
 				if !monster[i].alive {
 					monster[i].deadTime++
-					if monster[i].deadTime >= 1000 {
+					if monster[i].deadTime >= 100 {
 						monster[i].alive = true
 						monster[i].hp = monster[i].hpMax
 						monster[i].deadTime = 0

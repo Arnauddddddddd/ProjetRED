@@ -52,8 +52,14 @@ func drawScene() {
 	} else {
 		rl.DrawTexture(sprite.bgForest, int32(player.Dest.X) - 808, int32(player.Dest.Y) - 458, rl.White)
 		rl.DrawText(strconv.Itoa(character.hp), int32(player.Dest.X) - 800, int32(player.Dest.Y) - 430, 30, rl.Black)
-		rl.DrawText(strconv.Itoa(monster[engine.monsterBattle].hp), int32(player.Dest.X) + 700, int32(player.Dest.Y) - 430, 30, rl.Black)
+		rl.DrawText(strconv.Itoa(monster[engine.monsterBattle].hp), int32(player.Dest.X) + 600, int32(player.Dest.Y) - 400, 30, rl.Black)
 		rl.DrawTexturePro(monster[engine.monsterBattle].sprite, monster[engine.monsterBattle].Src, monster[engine.monsterBattle].Dest, rl.NewVector2(monster[engine.monsterBattle].Dest.Width, monster[engine.monsterBattle].Dest.Height), 0, rl.White)
+		
+		rl.DrawTexturePro(sprite.buttonAttack, rl.NewRectangle(32, 32*6, 48, 32), rl.NewRectangle(player.Dest.X-520, player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
+		rl.DrawTexturePro(sprite.buttonAttack, rl.NewRectangle(32+48, 32*6, 48, 32), rl.NewRectangle(player.Dest.X-520, player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
+		rl.DrawTexturePro(sprite.buttonAttack, rl.NewRectangle(32*2+48*2, 32*3, 48, 32), rl.NewRectangle(player.Dest.X+680, player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
+		rl.DrawTexturePro(sprite.buttonAttack, rl.NewRectangle(32*2+48*3, 32*3, 48, 32), rl.NewRectangle(player.Dest.X+680, player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
+		rl.DrawTexturePro(sprite.invBar, rl.NewRectangle(0, 0, 203, 32), rl.NewRectangle(player.Dest.X-180, player.Dest.Y+495, 750, 112), rl.NewVector2(200, 200), 0, rl.White)
 	}
 
 	if character.showInventory {
