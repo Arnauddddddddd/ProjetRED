@@ -17,10 +17,10 @@ func classSelector() {
         character.hp = 150
         character.hpMax = 200
         character.gold = 15
-        character.inventory = append(character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../PropsInPixels_16x/potion.png"), 0, 40, 0, true, true})
-        character.inventory = append(character.inventory, itemStruct{"Red Bull", "Potion", "A healing potion", rl.LoadTexture("../PropsInPixels_16x/RedBull.png"), 0, 0, 1, true, false})
-        character.inventory = append(character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../PropsInPixels_16x/potion.png"), 0, 40, 0, true, true})
-        character.inventory = append(character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../PropsInPixels_16x/star.png"), 0, 40, 0, true, true})
+        character.inventory = append(character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 40, 0, true, true})
+        character.inventory = append(character.inventory, itemStruct{"Red Bull", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/RedBull.png"), 0, 0, 1, true, false})
+        character.inventory = append(character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 40, 0, true, true})
+        character.inventory = append(character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/star.png"), 0, 40, 0, true, true})
     }
     if rl.IsMouseButtonDown(rl.MouseLeftButton) && (screenWidth - sprite.buttonPlay.Width*2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth - sprite.buttonPlay.Width && screenHeight/4 - sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - sprite.buttonPlay.Height/2 +  sprite.buttonPlay.Height) {
         engine.menuSelector = false
