@@ -63,6 +63,9 @@ func update() {
 			if engine.framCount % 8 == 1 { monster[i].frameCount++ }
 			if monster[i].frameCount > 3 { monster[i].frameCount = 0 }
 			monster[i].Src.X = monster[i].Src.Width * float32(monster[i].frameCount)
+			if rl.CheckCollisionRecs(player.Dest, monster[i].Dest) {
+				//battle(monster[i])
+			}
 		}
 
 		rl.UpdateMusicStream(engine.music)
