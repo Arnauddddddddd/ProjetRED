@@ -13,9 +13,11 @@ func init() {
 
 	player.Sprite = rl.LoadTexture("../GodotProject/World/Actor/Player/GreenNinja/SpriteSheet.png")
 	player.Src = rl.NewRectangle(0, 0, 16, 16)
-	player.Dest = rl.NewRectangle(470, 400, 16, 16)
+	player.Dest = rl.NewRectangle(470, 600, 16, 16)
 
 	player.Speed = 1
+
+	monster = append(monster, monsterStruct{"slime", 180, 30, true, rl.LoadTexture("../res/Characters/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(570, 600, 32, 32), 0})
 
 	sprite.grass = rl.LoadTexture("../res/Tilesets/Grass.png")
 	sprite.hill = rl.LoadTexture("../res/Tilesets/Hills.png")

@@ -59,6 +59,12 @@ func update() {
 		player.Src.Y = player.Src.Width * float32(player.Frame)
 		player.Src.X = player.Src.Height * float32(player.Dir)
 
+		for i := 0; i < len(monster); i++ {
+			if engine.framCount % 8 == 1 { monster[i].frameCount++ }
+			if monster[i].frameCount > 3 { monster[i].frameCount = 0 }
+			monster[i].Src.X = monster[i].Src.Width * float32(monster[i].frameCount)
+		}
+
 		rl.UpdateMusicStream(engine.music)
 		if engine.musicPaused {
 			rl.PauseMusicStream(engine.music)

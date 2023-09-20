@@ -1,6 +1,8 @@
 package main
 
-import "github.com/gen2brain/raylib-go/raylib"
+import (
+	"github.com/gen2brain/raylib-go/raylib"
+)
 
 const (
 	screenWidth = 1600
@@ -54,7 +56,10 @@ type monsterStruct struct {
 	hp int
 	damage int
 	alive bool
-	coord []int
+	sprite rl.Texture2D
+	Src rl.Rectangle
+	Dest rl.Rectangle
+	frameCount int
 }
 
 type itemStruct struct {

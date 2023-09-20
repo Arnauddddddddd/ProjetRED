@@ -37,12 +37,18 @@ func drawScene() {
 			rl.DrawTexturePro(sprite.texture, bord.tileSrc, bord.tileDest, rl.NewVector2(bord.tileDest.Width, bord.tileDest.Height), 0, rl.White)
 		}
 	}
+
 	rl.DrawTexturePro(player.Sprite, player.Src, player.Dest, rl.NewVector2(player.Dest.Width, player.Dest.Height), 0, rl.White)
 	rl.DrawText(strconv.Itoa(character.hp), int32(player.Dest.X) - 218, int32(player.Dest.Y) - 134, 10, rl.Black)
 	rl.DrawText(strconv.Itoa(character.gold), int32(player.Dest.X) + 189, int32(player.Dest.Y) - 133, 10, rl.Black)
 	rl.DrawTexture(sprite.money, int32(player.Dest.X) + 199, int32(player.Dest.Y) - 138, rl.White)
 	rl.DrawTexture(sprite.heart, int32(player.Dest.X) - 238, int32(player.Dest.Y) - 138, rl.White)
 	//rl.DrawTexture(sprite.heartContainer, int32(player.Dest.X) - 152, int32(player.Dest.Y) - 78, rl.White)
+
+	for i := 0; i < len(monster); i++ {
+		rl.DrawTexturePro(monster[i].sprite, monster[i].Src, monster[i].Dest, rl.NewVector2(monster[i].Dest.Width, monster[i].Dest.Height), 0, rl.White)
+	}
+
 	if character.showInventory {
 		rl.DrawTexture(sprite.layer, int32(player.Dest.X) - 300, int32(player.Dest.Y) - 300, rl.White)
 		rl.DrawTexture(sprite.invBar, int32(player.Dest.X) - sprite.invBar.Width/2, int32(player.Dest.Y) - sprite.invBar.Height/2, rl.White)
