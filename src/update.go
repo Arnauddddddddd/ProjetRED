@@ -70,5 +70,7 @@ func update() {
 
 		player.Moving = false
 		player.Up, player.Down, player.Right, player.Left = false, false, false, false
+	} else {
+		inventorySelector()
 	}
 }
