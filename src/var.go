@@ -84,6 +84,7 @@ type charcacterStruct struct {
 	hp int
 	hpMax int
 	damage int
+	damageBase int
 	speed int
 	class string
 	gold int

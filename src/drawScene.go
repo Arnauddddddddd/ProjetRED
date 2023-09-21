@@ -70,6 +70,9 @@ func drawScene() {
 		rl.DrawTexturePro(engine.sprite.buttonAttack, rl.NewRectangle(32*2+48*2, 32*3, 48, 32), rl.NewRectangle(engine.player.Dest.X+680, engine.player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
 		rl.DrawTexturePro(engine.sprite.buttonAttack, rl.NewRectangle(32*2+48*3, 32*3, 48, 32), rl.NewRectangle(engine.player.Dest.X+680, engine.player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
 		rl.DrawTexturePro(engine.sprite.invBar, rl.NewRectangle(0, 0, 203, 32), rl.NewRectangle(engine.player.Dest.X-180, engine.player.Dest.Y+495, 750, 112), rl.NewVector2(200, 200), 0, rl.White)
+		for i := 0; i < len(engine.character.inventory); i++ {
+			rl.DrawTexture(engine.character.inventory[i].sprite, (int32(engine.player.Dest.X) - engine.sprite.invBar.Width/2)+9+int32(19*i), (int32(engine.player.Dest.Y) - engine.sprite.invBar.Height/2)+8, rl.White)
+		}
 	}
 
 	if engine.character.showInventory {
