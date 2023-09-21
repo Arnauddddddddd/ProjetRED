@@ -27,7 +27,7 @@ func init() {
 	engine.sprite.house = rl.LoadTexture("../texture/res/Tilesets/Wooden House.png")
 	engine.sprite.water = rl.LoadTexture("../texture/res/Tilesets/Water.png")
 	engine.sprite.tilled = rl.LoadTexture("../texture/res/Tilesets/Tilled Dirt.png")
-	engine.sprite.invBar = rl.LoadTexture("../texture/Free Inventory/Inventory_Bar.png")
+	engine.sprite.invBar = rl.LoadTexture("../texture/Retro Inventory/Original/Inventory_Example_04.png")
 	engine.sprite.heart = rl.LoadTexture("../texture/PropsInPixels_16x/heart.png")
 	engine.sprite.heartContainer = rl.LoadTexture("../texture/PropsInPixels_16x/heartContainer.png")
 	engine.sprite.money = rl.LoadTexture("../texture/PropsInPixels_16x/money.png")

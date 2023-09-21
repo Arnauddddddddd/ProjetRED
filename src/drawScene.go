@@ -77,9 +77,16 @@ func drawScene() {
 
 	if engine.character.showInventory {
 		rl.DrawTexture(engine.sprite.layer, int32(engine.player.Dest.X)-300, int32(engine.player.Dest.Y)-300, rl.White)
-		rl.DrawTexture(engine.sprite.invBar, int32(engine.player.Dest.X)-engine.sprite.invBar.Width/2, int32(engine.player.Dest.Y)-engine.sprite.invBar.Height/2, rl.White)
+		rl.DrawTexture(engine.sprite.invBar, int32(engine.player.Dest.X)-engine.sprite.invBar.Width/2 - int32(engine.player.Dest.Width / 2), int32(engine.player.Dest.Y)-engine.sprite.invBar.Height/2- int32(engine.player.Dest.Height / 2), rl.White)
+		t := 0
+		slot2 := 0
 		for i := 0; i < len(engine.character.inventory); i++ {
-			rl.DrawTexture(engine.character.inventory[i].sprite, (int32(engine.player.Dest.X)-engine.sprite.invBar.Width/2)+9+int32(19*i), (int32(engine.player.Dest.Y)-engine.sprite.invBar.Height/2)+8, rl.White)
+			if i == 4 {
+				slot2 = 1
+				t = 0
+			}
+			rl.DrawTexture(engine.character.inventory[i].sprite, (int32(engine.player.Dest.X)-engine.sprite.invBar.Width/2)+10+int32(23*t)- int32(engine.player.Dest.Width / 2), (int32(engine.player.Dest.Y)-engine.sprite.invBar.Height/2)+10+int32(23*slot2)- int32(engine.player.Dest.Height / 2), rl.White)
+			t++
 		}
 	}
 }
