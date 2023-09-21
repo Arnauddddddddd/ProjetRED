@@ -1,4 +1,4 @@
-package main
+package gameEngine
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
-func inventorySelector() {
+func inventorySelector(engine *EngineStruct) {
 	for i := 0; i < len(engine.character.inventory); i++ {
 		if rl.IsMouseButtonPressed(rl.MouseLeftButton) && (int32(497 + 67*i) < rl.GetMouseX() && rl.GetMouseX() < int32(497 + 67*i)+67) && 450 < rl.GetMouseY() && 
 		rl.GetMouseY() < int32(520) {

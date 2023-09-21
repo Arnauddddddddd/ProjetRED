@@ -1,10 +1,10 @@
-package main
+package gameEngine
 
 import (
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
-func quit() {
+func quit(engine *EngineStruct) {
 	rl.UnloadTexture(engine.sprite.grass)
 	rl.UnloadTexture(engine.sprite.hill)
 	rl.UnloadTexture(engine.sprite.fence)

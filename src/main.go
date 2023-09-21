@@ -1,23 +1,15 @@
 package main
 
 import (
-	"github.com/gen2brain/raylib-go/raylib"
+	g "Game/gameEngine"
 )
 
 func main() {
 	
-	for engine.run && !(rl.IsMouseButtonDown(rl.MouseLeftButton) && (screenWidth/2 - engine.sprite.buttonMenu.Width/2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth/2 + engine.sprite.buttonMenu.Width/2 && screenHeight/2 - engine.sprite.buttonMenu.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/2 + engine.sprite.buttonMenu.Height/2)) {
-		menu()
-	}
+	var engine g.EngineStruct
+	
 
-	for engine.run && engine.menuSelector {
-	classSelector()
-	}
+	
+	engine.Play()
 
-	for engine.run {
-		input()
-		update()
-		render()
-	}
-	quit()
 }

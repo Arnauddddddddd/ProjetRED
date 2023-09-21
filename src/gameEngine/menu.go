@@ -1,10 +1,10 @@
-package main
+package gameEngine
 
 import (
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
-func menu() {
+func menu(engine *EngineStruct) {
 	engine.run = !rl.WindowShouldClose()
 
 	rl.BeginDrawing()

@@ -1,4 +1,4 @@
-package main
+package gameEngine
 
 import (
 	"strconv"
@@ -6,7 +6,7 @@ import (
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
-func drawScene() {
+func drawScene(engine *EngineStruct) {
 	if !engine.battle {
 		engine.bord.colisionList = [][]float32{}
 		for i := 0; i < len(engine.bord.tileMap); i++ {
@@ -65,13 +65,20 @@ func drawScene() {
 		rl.DrawText(strconv.Itoa(engine.monster[engine.monsterBattle].hp), int32(engine.player.Dest.X)+600, int32(engine.player.Dest.Y)-400, 30, rl.Black)
 		rl.DrawTexturePro(engine.monster[engine.monsterBattle].sprite, engine.monster[engine.monsterBattle].Src, engine.monster[engine.monsterBattle].Dest, rl.NewVector2(engine.monster[engine.monsterBattle].Dest.Width, engine.monster[engine.monsterBattle].Dest.Height), 0, rl.White)
 
-		rl.DrawTexturePro(engine.sprite.buttonAttack, rl.NewRectangle(32, 32*6, 48, 32), rl.NewRectangle(engine.player.Dest.X-520, engine.player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
-		rl.DrawTexturePro(engine.sprite.buttonAttack, rl.NewRectangle(32+48, 32*6, 48, 32), rl.NewRectangle(engine.player.Dest.X-520, engine.player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
-		rl.DrawTexturePro(engine.sprite.buttonAttack, rl.NewRectangle(32*2+48*2, 32*3, 48, 32), rl.NewRectangle(engine.player.Dest.X+680, engine.player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
-		rl.DrawTexturePro(engine.sprite.buttonAttack, rl.NewRectangle(32*2+48*3, 32*3, 48, 32), rl.NewRectangle(engine.player.Dest.X+680, engine.player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
+		//rl.DrawTexturePro(engine.sprite.buttonAttack, rl.NewRectangle(32, 32*6, 48, 32), rl.NewRectangle(engine.player.Dest.X-520, engine.player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
+		//rl.DrawTexturePro(engine.sprite.buttonAttack, rl.NewRectangle(32+48, 32*6, 48, 32), rl.NewRectangle(engine.player.Dest.X-520, engine.player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
+		//rl.DrawTexturePro(engine.sprite.buttonAttack, rl.NewRectangle(32*2+48*2, 32*3, 48, 32), rl.NewRectangle(engine.player.Dest.X+680, engine.player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
+		//rl.DrawTexturePro(engine.sprite.buttonAttack, rl.NewRectangle(32*2+48*3, 32*3, 48, 32), rl.NewRectangle(engine.player.Dest.X+680, engine.player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
 		rl.DrawTexturePro(engine.sprite.invBar, rl.NewRectangle(0, 0, 203, 32), rl.NewRectangle(engine.player.Dest.X-180, engine.player.Dest.Y+495, 750, 112), rl.NewVector2(200, 200), 0, rl.White)
+		t := 0
+		slot2 := 0
 		for i := 0; i < len(engine.character.inventory); i++ {
-			rl.DrawTexture(engine.character.inventory[i].sprite, (int32(engine.player.Dest.X) - engine.sprite.invBar.Width/2)+9+int32(19*i), (int32(engine.player.Dest.Y) - engine.sprite.invBar.Height/2)+8, rl.White)
+			if i == 4 {
+				slot2 = 1
+				t = 0
+			}
+			rl.DrawTexture(engine.character.inventory[i].sprite, (int32(engine.player.Dest.X)-engine.sprite.invBar.Width/2)+10+int32(23*t)- int32(engine.player.Dest.Width / 2), (int32(engine.player.Dest.Y)-engine.sprite.invBar.Height/2)+10+int32(23*slot2)- int32(engine.player.Dest.Height / 2), rl.White)
+			t++
 		}
 	}
 

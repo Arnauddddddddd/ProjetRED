@@ -1,8 +1,8 @@
-package main
+package gameEngine
 
 import "github.com/gen2brain/raylib-go/raylib"
 
-func input() {
+func input(engine *EngineStruct) {
 	if rl.IsKeyDown(rl.KeyW) || rl.IsKeyDown(rl.KeyUp) {
 		engine.player.Moving = true
 		engine.player.Dir = 1

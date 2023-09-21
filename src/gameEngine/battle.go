@@ -1,4 +1,4 @@
-package main
+package gameEngine
 
 import (
 	"github.com/gen2brain/raylib-go/raylib"
@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-func battle() {
+func battle(engine *EngineStruct) {
 	if engine.monster[engine.monsterBattle].speed > engine.character.speed {
 		engine.playerTurn = false
 	}

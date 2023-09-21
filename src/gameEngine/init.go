@@ -1,8 +1,97 @@
-package main
+package gameEngine
 
 import "github.com/gen2brain/raylib-go/raylib"
 
-func init() {
+const (
+	screenWidth = 1600
+	screenHeight = 900
+)
+
+type playerStruct struct {
+	Sprite rl.Texture2D
+
+	Src rl.Rectangle
+	Dest rl.Rectangle
+
+	Moving bool
+	Dir int
+	Up, Down, Right, Left bool
+	Frame int
+
+	Speed float32 
+}
+
+type mapStruct struct {
+	tileDest rl.Rectangle // où sur l'écran
+	tileSrc rl.Rectangle // où sur l'image
+	tileMap []int
+	srcMap []string
+	mapW, mapH int
+	colisionList [][]float32
+}
+
+type spriteStruct struct {
+	grass rl.Texture2D
+	hill rl.Texture2D
+	fence rl.Texture2D
+	house rl.Texture2D
+	water rl.Texture2D
+	tilled rl.Texture2D
+	texture rl.Texture2D
+	buttonPlay rl.Texture2D
+	buttonPlayPressed rl.Texture2D
+	buttonMenu rl.Texture2D
+    buttonMenuPressed rl.Texture2D
+	invBar rl.Texture2D
+	heart rl.Texture2D
+	heartContainer rl.Texture2D
+	money rl.Texture2D
+	layer rl.Texture2D
+	bgForest rl.Texture2D
+	buttonAttack rl.Texture2D
+}
+
+type monsterStruct struct {
+	name string
+	hp int
+	hpMax int
+	damage int
+	speed int
+	alive bool
+	sprite rl.Texture2D
+	Src rl.Rectangle
+	Dest rl.Rectangle
+	frameCount int
+	deadTime int
+}
+
+type itemStruct struct {
+	name string
+	gender string
+	description string
+	sprite rl.Texture2D
+	damageUp int
+	hpUp int
+	speedUp int
+	outBattle bool
+	battle bool
+}
+
+type charcacterStruct struct {
+	name string
+	hp int
+	hpMax int
+	damage int
+	damageBase int
+	speed int
+	class string
+	gold int
+	inventory []itemStruct
+	showInventory bool
+	alive bool
+}
+
+func initt(engine *EngineStruct) {
 	rl.InitWindow(screenWidth, screenHeight, "Le Jeu")
 	rl.SetExitKey(0)
 	rl.SetTargetFPS(60)
@@ -51,5 +140,5 @@ func init() {
 
 	engine.cam = rl.NewCamera2D(rl.NewVector2(float32(screenWidth/2), float32(screenHeight/2)), rl.NewVector2(float32(engine.player.Dest.X - (engine.player.Dest.Width / 2)), float32(engine.player.Dest.Y - (engine.player.Dest.Height/2))), 0.0, 3.5)
 
-	loadMap("../map.txt")
+	loadMap(engine, "../map.txt")
 }

@@ -1,10 +1,10 @@
-package main
+package gameEngine
 
 import (
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
-func update() {
+func update(engine *EngineStruct) {
 	engine.run = !rl.WindowShouldClose()
 	if !engine.character.showInventory {
 		if !engine.battle {
@@ -91,10 +91,10 @@ func update() {
 			engine.player.Moving = false
 			engine.player.Up, engine.player.Down, engine.player.Right, engine.player.Left = false, false, false, false
 		} else {
-			battle()
+			battle(engine)
 		}
 	} else {
-		inventorySelector()
+		inventorySelector(engine)
 	}
 	rl.UpdateMusicStream(engine.music)
 	if engine.musicPaused {

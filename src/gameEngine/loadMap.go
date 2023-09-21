@@ -1,4 +1,4 @@
-package main
+package gameEngine
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func loadMap( mapPath string ) {
+func loadMap(engine *EngineStruct, mapPath string ) {
 	file, err := ioutil.ReadFile(mapPath)
 	if err != nil {
 		fmt.Println(err)
