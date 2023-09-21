@@ -5,17 +5,17 @@ import (
 )
 
 func inventorySelector() {
-	for i := 0; i < len(character.inventory); i++ {
+	for i := 0; i < len(engine.character.inventory); i++ {
 		if rl.IsMouseButtonPressed(rl.MouseLeftButton) && (int32(497 + 67*i) < rl.GetMouseX() && rl.GetMouseX() < int32(497 + 67*i)+67) && 450 < rl.GetMouseY() && 
 		rl.GetMouseY() < int32(520) {
-			if len(character.inventory) >= i {
-				character.hp += character.inventory[i].hpUp
-				if character.hp >= character.hpMax {
-					character.hp = character.hpMax
+			if len(engine.character.inventory) >= i {
+				engine.character.hp += engine.character.inventory[i].hpUp
+				if engine.character.hp >= engine.character.hpMax {
+					engine.character.hp = engine.character.hpMax
 				}
-				character.damage += character.inventory[i].damageUp
-				player.Speed += float32(character.inventory[i].speedUp)
-				character.inventory = append(character.inventory[:i], character.inventory[i+1:]...)
+				engine.character.damage += engine.character.inventory[i].damageUp
+				engine.player.Speed += float32(engine.character.inventory[i].speedUp)
+				engine.character.inventory = append(engine.character.inventory[:i], engine.character.inventory[i+1:]...)
 			}
 		}
 	}

@@ -13,43 +13,43 @@ func init() {
 	engine.battle = false
 	engine.playerTurn = true
 
-	player.Sprite = rl.LoadTexture("../texture/GodotProject/World/Actor/Player/GreenNinja/SpriteSheet.png")
-	player.Src = rl.NewRectangle(0, 0, 16, 16)
-	player.Dest = rl.NewRectangle(570, 700, 16, 16)
+	engine.player.Sprite = rl.LoadTexture("../texture/GodotProject/World/Actor/Player/GreenNinja/SpriteSheet.png")
+	engine.player.Src = rl.NewRectangle(0, 0, 16, 16)
+	engine.player.Dest = rl.NewRectangle(570, 700, 16, 16)
 
-	player.Speed = 1
+	engine.player.Speed = 1
 
-	monster = append(monster, monsterStruct{"slime", 180, 200, 30, 0, true, rl.LoadTexture("../texture/res/Characters/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(520, 700, 32, 32), 0, 0})
+	engine.monster = append(engine.monster, monsterStruct{"slime", 180, 200, 30, 0, true, rl.LoadTexture("../texture/res/Characters/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(520, 700, 32, 32), 0, 0})
 
-	sprite.grass = rl.LoadTexture("../texture/res/Tilesets/Grass.png")
-	sprite.hill = rl.LoadTexture("../texture/res/Tilesets/Hills.png")
-	sprite.fence = rl.LoadTexture("../texture/res/Tilesets/Fences.png")
-	sprite.house = rl.LoadTexture("../texture/res/Tilesets/Wooden House.png")
-	sprite.water = rl.LoadTexture("../texture/res/Tilesets/Water.png")
-	sprite.tilled = rl.LoadTexture("../texture/res/Tilesets/Tilled Dirt.png")
-	sprite.invBar = rl.LoadTexture("../texture/Free Inventory/Inventory_Bar.png")
-	sprite.heart = rl.LoadTexture("../texture/PropsInPixels_16x/heart.png")
-	sprite.heartContainer = rl.LoadTexture("../texture/PropsInPixels_16x/heartContainer.png")
-	sprite.money = rl.LoadTexture("../texture/PropsInPixels_16x/money.png")
-	sprite.layer = rl.LoadTexture("../texture/calque.png")
-	sprite.bgForest = rl.LoadTexture("../texture/battle/PNG/game_background_4/game_background_4.png")
-	sprite.buttonAttack = rl.LoadTexture("../texture/Pixel Buttons pack 4.png")
+	engine.sprite.grass = rl.LoadTexture("../texture/res/Tilesets/Grass.png")
+	engine.sprite.hill = rl.LoadTexture("../texture/res/Tilesets/Hills.png")
+	engine.sprite.fence = rl.LoadTexture("../texture/res/Tilesets/Fences.png")
+	engine.sprite.house = rl.LoadTexture("../texture/res/Tilesets/Wooden House.png")
+	engine.sprite.water = rl.LoadTexture("../texture/res/Tilesets/Water.png")
+	engine.sprite.tilled = rl.LoadTexture("../texture/res/Tilesets/Tilled Dirt.png")
+	engine.sprite.invBar = rl.LoadTexture("../texture/Free Inventory/Inventory_Bar.png")
+	engine.sprite.heart = rl.LoadTexture("../texture/PropsInPixels_16x/heart.png")
+	engine.sprite.heartContainer = rl.LoadTexture("../texture/PropsInPixels_16x/heartContainer.png")
+	engine.sprite.money = rl.LoadTexture("../texture/PropsInPixels_16x/money.png")
+	engine.sprite.layer = rl.LoadTexture("../texture/calque.png")
+	engine.sprite.bgForest = rl.LoadTexture("../texture/battle/PNG/game_background_4/game_background_4.png")
+	engine.sprite.buttonAttack = rl.LoadTexture("../texture/Pixel Buttons pack 4.png")
 
-	bord.tileDest = rl.NewRectangle(0, 0, 16, 16)
-	bord.tileSrc = rl.NewRectangle(0, 0, 16, 16)
+	engine.bord.tileDest = rl.NewRectangle(0, 0, 16, 16)
+	engine.bord.tileSrc = rl.NewRectangle(0, 0, 16, 16)
 
-    sprite.buttonMenu = rl.LoadTexture("../texture/button_menu/png/Buttons/Rect-Text-Blue/Play-Idle.png")
-    sprite.buttonMenuPressed = rl.LoadTexture("../texture/button_menu/png/Buttons/Rect-Text-Blue/Play-Click.png")
+    engine.sprite.buttonMenu = rl.LoadTexture("../texture/button_menu/png/Buttons/Rect-Text-Blue/Play-Idle.png")
+    engine.sprite.buttonMenuPressed = rl.LoadTexture("../texture/button_menu/png/Buttons/Rect-Text-Blue/Play-Click.png")
 
-	sprite.buttonPlay = rl.LoadTexture("../texture/button_menu/png/Buttons/Rect-Icon-Blue/Play-Click.png")
-	sprite.buttonPlayPressed = rl.LoadTexture("../texture/button_menu/png/Buttons/Rect-Icon-Blue/Play-Idle.png")
+	engine.sprite.buttonPlay = rl.LoadTexture("../texture/button_menu/png/Buttons/Rect-Icon-Blue/Play-Click.png")
+	engine.sprite.buttonPlayPressed = rl.LoadTexture("../texture/button_menu/png/Buttons/Rect-Icon-Blue/Play-Idle.png")
 
 	rl.InitAudioDevice()
 	engine.music = rl.LoadMusicStream("texture/res/music.mp3")
 	engine.musicPaused = false
 	rl.PlayMusicStream(engine.music)
 
-	engine.cam = rl.NewCamera2D(rl.NewVector2(float32(screenWidth/2), float32(screenHeight/2)), rl.NewVector2(float32(player.Dest.X - (player.Dest.Width / 2)), float32(player.Dest.Y - (player.Dest.Height/2))), 0.0, 3.5)
+	engine.cam = rl.NewCamera2D(rl.NewVector2(float32(screenWidth/2), float32(screenHeight/2)), rl.NewVector2(float32(engine.player.Dest.X - (engine.player.Dest.Width / 2)), float32(engine.player.Dest.Y - (engine.player.Dest.Height/2))), 0.0, 3.5)
 
 	loadMap("../map.txt")
 }

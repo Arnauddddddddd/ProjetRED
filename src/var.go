@@ -108,18 +108,14 @@ type engineStruct struct {
 	monsterBattle int
 
 	playerTurn bool
-}
 
-
-var (
-
-	//healPotion = itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../PropsInPixels_16x/potion.png"), 0, 40, 0}
-	
 	player playerStruct
 	bord mapStruct
 	sprite spriteStruct
-	engine engineStruct
 	monster []monsterStruct
 	character charcacterStruct
+}
 
+var (
+	engine engineStruct
 )

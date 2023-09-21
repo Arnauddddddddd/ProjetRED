@@ -5,15 +5,15 @@ import (
 )
 
 func quit() {
-	rl.UnloadTexture(sprite.grass)
-	rl.UnloadTexture(sprite.hill)
-	rl.UnloadTexture(sprite.fence)
-	rl.UnloadTexture(sprite.house)
-	rl.UnloadTexture(sprite.water)
-	rl.UnloadTexture(sprite.tilled)
-	rl.UnloadTexture(sprite.invBar)
+	rl.UnloadTexture(engine.sprite.grass)
+	rl.UnloadTexture(engine.sprite.hill)
+	rl.UnloadTexture(engine.sprite.fence)
+	rl.UnloadTexture(engine.sprite.house)
+	rl.UnloadTexture(engine.sprite.water)
+	rl.UnloadTexture(engine.sprite.tilled)
+	rl.UnloadTexture(engine.sprite.invBar)
 
-	rl.UnloadTexture(player.Sprite)
+	rl.UnloadTexture(engine.player.Sprite)
 
 	rl.UnloadMusicStream(engine.music)
 	rl.CloseAudioDevice()
