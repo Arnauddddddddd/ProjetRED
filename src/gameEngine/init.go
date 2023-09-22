@@ -117,7 +117,7 @@ func initt(engine *EngineStruct) {
 
 	engine.player.Sprite = rl.LoadTexture("../texture/GodotProject/World/Actor/Npc/Warrior/SpriteSheet.png")
 	engine.player.Src = rl.NewRectangle(0, 0, 16, 16)
-	engine.player.Dest = rl.NewRectangle(570, 700, 16, 16)
+	engine.player.Dest = rl.NewRectangle(570, 300, 16, 16)
 
 	engine.player.Speed = 1
 

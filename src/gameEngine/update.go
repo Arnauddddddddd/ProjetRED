@@ -89,6 +89,8 @@ func update(engine *EngineStruct) {
 
 		if rl.CheckCollisionRecs(engine.player.Dest, engine.shopKeeper.Dest) {
 			engine.shop = true
+		} else {
+			engine.shop = false
 		}
 
 		engine.cam.Target = rl.NewVector2(float32(engine.player.Dest.X - (engine.player.Dest.Width / 2)), float32(engine.player.Dest.Y - (engine.player.Dest.Height/2)))
