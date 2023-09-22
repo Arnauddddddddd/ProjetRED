@@ -9,6 +9,8 @@ func updateBattle (engine *EngineStruct) {
 
 	engine.run = !rl.WindowShouldClose()
 
+	engine.framCount++
+
 	if engine.framCount % 8 == 1 { engine.monster[engine.monsterBattle].frameCount++ }
 	if engine.monster[engine.monsterBattle].frameCount > 3 { engine.monster[engine.monsterBattle].frameCount = 0 }
 	engine.monster[engine.monsterBattle].Src.X = engine.monster[engine.monsterBattle].Src.Width * float32(engine.monster[engine.monsterBattle].frameCount)

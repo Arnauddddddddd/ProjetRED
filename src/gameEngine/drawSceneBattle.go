@@ -17,12 +17,8 @@ func drawSceneBattle(engine *EngineStruct) {
 	rl.DrawTexture(engine.sprite.bgForest, 0, 0, rl.White)
 	rl.DrawText(strconv.Itoa(engine.character.hp), 50, 50, 30, rl.Black)
 	rl.DrawText(strconv.Itoa(engine.monster[engine.monsterBattle].hp), int32(engine.player.Dest.X)+600, int32(engine.player.Dest.Y)-400, 30, rl.Black)
-	rl.DrawTexturePro(engine.monster[engine.monsterBattle].sprite, engine.monster[engine.monsterBattle].Src, engine.monster[engine.monsterBattle].Dest, rl.NewVector2(engine.monster[engine.monsterBattle].Dest.Width, engine.monster[engine.monsterBattle].Dest.Height), 0, rl.White)
+	rl.DrawTexturePro(engine.monster[engine.monsterBattle].sprite, engine.monster[engine.monsterBattle].Src, rl.NewRectangle(screenWidth-400-engine.monster[engine.monsterBattle].Dest.Width/2, screenHeight/2-50-engine.monster[engine.monsterBattle].Dest.Height/2, engine.monster[engine.monsterBattle].Dest.Width*6, engine.monster[engine.monsterBattle].Dest.Height*6), rl.NewVector2(engine.monster[engine.monsterBattle].Dest.Width, engine.monster[engine.monsterBattle].Dest.Height), 0, rl.White)
 
-	//rl.DrawTexturePro(engine.sprite.buttonAttack, rl.NewRectangle(32, 32*6, 48, 32), rl.NewRectangle(engine.player.Dest.X-520, engine.player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
-	//rl.DrawTexturePro(engine.sprite.buttonAttack, rl.NewRectangle(32+48, 32*6, 48, 32), rl.NewRectangle(engine.player.Dest.X-520, engine.player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
-	//rl.DrawTexturePro(engine.sprite.buttonAttack, rl.NewRectangle(32*2+48*2, 32*3, 48, 32), rl.NewRectangle(engine.player.Dest.X+680, engine.player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
-	//rl.DrawTexturePro(engine.sprite.buttonAttack, rl.NewRectangle(32*2+48*3, 32*3, 48, 32), rl.NewRectangle(engine.player.Dest.X+680, engine.player.Dest.Y+490, 230, 120), rl.NewVector2(200, 200), 0, rl.White)
 	
 	rl.DrawTexturePro(engine.sprite.invBar, rl.NewRectangle(0, 0, float32(engine.sprite.invBar.Width), float32(engine.sprite.invBar.Height)), rl.NewRectangle(float32(screenWidth/2 - engine.sprite.invBar.Width/2 + 60), float32(screenHeight/2-engine.sprite.invBar.Height/2 + 465), 413, 216), rl.NewVector2(200, 200), 0, rl.White)
 
