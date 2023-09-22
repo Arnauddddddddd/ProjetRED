@@ -91,7 +91,7 @@ func update(engine *EngineStruct) {
 		engine.player.Moving = false
 		engine.player.Up, engine.player.Down, engine.player.Right, engine.player.Left = false, false, false, false
 	} else {
-		inventorySelector(engine)
+		inventorySelector(engine, 640, 365, 445, 455, 530 ,79)
 	}
 	rl.UpdateMusicStream(engine.music)
 	if engine.musicPaused {
