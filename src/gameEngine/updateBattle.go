@@ -3,6 +3,8 @@ package gameEngine
 import (
 	"github.com/gen2brain/raylib-go/raylib"
 
+	"fmt"
+
 )
 
 func updateBattle (engine *EngineStruct) {
@@ -20,9 +22,12 @@ func updateBattle (engine *EngineStruct) {
 	}
 
 	if engine.playerTurn {
-		if rl.IsMouseButtonPressed(rl.MouseRightButton) {
+		if rl.IsMouseButtonPressed(rl.MouseLeftButton) &&  (126 < rl.GetMouseX() && rl.GetMouseX() <  468 && 758 < rl.GetMouseY() && rl.GetMouseY() < 840) {
 			engine.monster[engine.monsterBattle].hp -= engine.character.damage
 			engine.playerTurn = false
+		}
+		if rl.IsMouseButtonPressed(rl.MouseLeftButton) &&  (1140 < rl.GetMouseX() && rl.GetMouseX() <  1492 && 758 < rl.GetMouseY() && rl.GetMouseY() < 840) {
+			fmt.Println(rl.GetMouseX())
 		}
 		if engine.monster[engine.monsterBattle].hp <= 0 {
 			engine.character.damage = engine.character.damageBase
