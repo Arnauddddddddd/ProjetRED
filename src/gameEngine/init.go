@@ -48,7 +48,7 @@ type spriteStruct struct {
 	money rl.Texture2D
 	layer rl.Texture2D
 	bgForest rl.Texture2D
-	buttonAttack rl.Texture2D
+	buttonBattle rl.Texture2D
 }
 
 type monsterStruct struct {
@@ -131,7 +131,7 @@ func initt(engine *EngineStruct) {
 	engine.sprite.money = rl.LoadTexture("../texture/PropsInPixels_16x/money.png")
 	engine.sprite.layer = rl.LoadTexture("../texture/calque.png")
 	engine.sprite.bgForest = rl.LoadTexture("../texture/battle/PNG/game_background_4/game_background_4.png")
-	engine.sprite.buttonAttack = rl.LoadTexture("../texture/Pixel Buttons pack 4.png")
+	engine.sprite.buttonBattle = rl.LoadTexture("../texture/2204_w017_n001_439a_p30_439-removebg-preview.png")
 
 
 	engine.bord.tileDest = rl.NewRectangle(0, 0, 16, 16)
