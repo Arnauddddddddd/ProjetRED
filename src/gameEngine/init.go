@@ -49,6 +49,7 @@ type spriteStruct struct {
 	layer rl.Texture2D
 	bgForest rl.Texture2D
 	buttonBattle rl.Texture2D
+	gameName rl.Texture2D
 }
 
 type monsterStruct struct {
@@ -104,6 +105,13 @@ type shopStruct struct {
 	shopSprite rl.Texture2D
 }
 
+type menuStruct struct {
+	sprite rl.Texture2D
+	Dest rl.Rectangle
+	Src rl.Rectangle
+	frameCount int
+}
+
 func initt(engine *EngineStruct) {
 	rl.InitWindow(screenWidth, screenHeight, "Le Jeu")
 	rl.SetExitKey(0)
@@ -143,6 +151,11 @@ func initt(engine *EngineStruct) {
 	engine.sprite.layer = rl.LoadTexture("../texture/calque.png")
 	engine.sprite.bgForest = rl.LoadTexture("../texture/battle/PNG/game_background_4/game_background_4.png")
 	engine.sprite.buttonBattle = rl.LoadTexture("../texture/2204_w017_n001_439a_p30_439-removebg-preview.png")
+	engine.sprite.gameName = rl.LoadTexture("../texture/Capture_d_écran_du_2023-09-22_15-14-26-removebg-preview.png")
+
+	engine.menu.sprite = rl.LoadTexture("../texture/output-onlinegiftools.png")
+	engine.menu.Src = rl.NewRectangle(0, 0, 500, 267)
+	engine.menu.Dest = rl.NewRectangle(float32(screenWidth), float32(screenHeight), 1600, 900)
 
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 40, 0, true, true})
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 40, 0, true, true})

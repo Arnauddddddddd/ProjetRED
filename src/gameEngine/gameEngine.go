@@ -29,6 +29,7 @@ type EngineStruct struct {
 	monster []monsterStruct
 	character charcacterStruct
 	shopKeeper shopStruct
+	menu menuStruct
 }
 
 func (engine *EngineStruct) Play() {

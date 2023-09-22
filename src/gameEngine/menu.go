@@ -10,6 +10,17 @@ func menu(engine *EngineStruct) {
 	rl.BeginDrawing()
 
 	rl.ClearBackground(engine.bgColor)
+
+	engine.framCount++
+
+	if engine.framCount % 10 == 1 { engine.menu.frameCount++ }
+	if engine.menu.frameCount > 19 { engine.menu.frameCount = 0 }
+	engine.menu.Src.X = engine.menu.Src.Width * float32(engine.menu.frameCount)
+
+	rl.DrawTexturePro(engine.menu.sprite, engine.menu.Src, engine.menu.Dest, rl.NewVector2(engine.menu.Dest.Width, engine.menu.Dest.Height), 0, rl.White)
+
+	rl.DrawTexture(engine.sprite.gameName, screenWidth/2-engine.sprite.gameName.Width/2, 100, rl.White)
+
     if screenWidth/2 - engine.sprite.buttonMenu.Width/2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth/2 + engine.sprite.buttonMenu.Width/2 && screenHeight/2 - engine.sprite.buttonMenu.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/2 + engine.sprite.buttonMenu.Height/2 {
         rl.DrawTexture(engine.sprite.buttonMenuPressed, screenWidth/2 - engine.sprite.buttonMenuPressed.Width/2, screenHeight/2 - engine.sprite.buttonMenu.Height/2, rl.White)
     } else {
