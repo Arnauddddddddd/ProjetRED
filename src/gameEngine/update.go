@@ -1,6 +1,7 @@
 package gameEngine
 
 import (
+
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
@@ -86,12 +87,20 @@ func update(engine *EngineStruct) {
 			}
 		}
 
+		if rl.CheckCollisionRecs(engine.player.Dest, engine.shopKeeper.Dest) {
+			engine.shop = true
+		}
+
 		engine.cam.Target = rl.NewVector2(float32(engine.player.Dest.X - (engine.player.Dest.Width / 2)), float32(engine.player.Dest.Y - (engine.player.Dest.Height/2)))
 
 		engine.player.Moving = false
 		engine.player.Up, engine.player.Down, engine.player.Right, engine.player.Left = false, false, false, false
 	} else {
-		inventorySelector(engine, 640, 365, 445, 455, 530 ,79)
+		if engine.shop {
+			shopSelector(engine)
+		} else {
+			inventorySelector(engine, 640, 365, 445, 455, 530 ,79)
+		}
 	}
 	rl.UpdateMusicStream(engine.music)
 	if engine.musicPaused {

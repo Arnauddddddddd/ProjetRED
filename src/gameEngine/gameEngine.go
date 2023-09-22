@@ -19,6 +19,8 @@ type EngineStruct struct {
 	battle bool
 	monsterBattle int
 
+	shop bool
+
 	playerTurn bool
 
 	player playerStruct
@@ -26,6 +28,7 @@ type EngineStruct struct {
 	sprite spriteStruct
 	monster []monsterStruct
 	character charcacterStruct
+	shopKeeper shopStruct
 }
 
 func (engine *EngineStruct) Play() {

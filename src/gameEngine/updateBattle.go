@@ -30,6 +30,7 @@ func updateBattle (engine *EngineStruct) {
 			fmt.Println(rl.GetMouseX())
 		}
 		if engine.monster[engine.monsterBattle].hp <= 0 {
+			engine.character.gold += engine.monster[engine.monsterBattle].goldLoot
 			engine.character.damage = engine.character.damageBase
 			engine.monster[engine.monsterBattle].alive = false
 			engine.battle = false

@@ -31,7 +31,8 @@ func inventoryEffect(engine *EngineStruct, u int) {
 		engine.playerTurn = false
 		engine.character.inventory = append(engine.character.inventory[:u], engine.character.inventory[u+1:]...)
 
-	} else if engine.character.inventory[u].outBattle && !engine.battle { 
+	} else if engine.character.inventory[u].outBattle && !engine.battle {
+		engine.character.hp += engine.character.inventory[u].hpUp
 		engine.player.Speed += float32(engine.character.inventory[u].speedUp)
 		if engine.character.hp >= engine.character.hpMax {
 			engine.character.hp = engine.character.hpMax
