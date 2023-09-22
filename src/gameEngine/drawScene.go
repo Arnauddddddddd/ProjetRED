@@ -47,7 +47,6 @@ func drawScene(engine *EngineStruct) {
 	}
 
 	rl.DrawTexturePro(engine.player.Sprite, engine.player.Src, engine.player.Dest, rl.NewVector2(engine.player.Dest.Width, engine.player.Dest.Height), 0, rl.White)
-	
 	rl.DrawText(strconv.Itoa(engine.character.hp), int32(engine.player.Dest.X)-218, int32(engine.player.Dest.Y)-134, 10, rl.Black)
 	rl.DrawText(strconv.Itoa(engine.character.gold), int32(engine.player.Dest.X)+189, int32(engine.player.Dest.Y)-133, 10, rl.Black)
 	rl.DrawTexture(engine.sprite.money, int32(engine.player.Dest.X)+199, int32(engine.player.Dest.Y)-138, rl.White)
@@ -56,7 +55,7 @@ func drawScene(engine *EngineStruct) {
 
 	for i := 0; i < len(engine.monster); i++ {
 		if engine.monster[i].alive {
-			rl.DrawTexturePro(engine.monster[i].sprite, engine.monster[i].Src, engine.monster[i].Dest, rl.NewVector2(engine.monster[i].Dest.Width, engine.monster[i].Dest.Height), 0, rl.White)
+			rl.DrawTexturePro(engine.monster[i].sprite, rl.NewRectangle(engine.monster[i].Src.X+float32(engine.monster[i].Xstart), engine.monster[i].Src.Y, engine.monster[i].Src.Width, engine.monster[i].Src.Height), engine.monster[i].Dest, rl.NewVector2(engine.monster[i].Dest.Width, engine.monster[i].Dest.Height), 0, rl.White)
 		}
 	}
 

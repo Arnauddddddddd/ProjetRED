@@ -62,7 +62,9 @@ type monsterStruct struct {
 	Src rl.Rectangle
 	Dest rl.Rectangle
 	frameCount int
+	frameNumber int
 	deadTime int
+	Xstart int
 }
 
 type itemStruct struct {
@@ -108,7 +110,14 @@ func initt(engine *EngineStruct) {
 
 	engine.player.Speed = 1
 
-	engine.monster = append(engine.monster, monsterStruct{"slime", 180, 200, 30, 0, true, rl.LoadTexture("../texture/res/Characters/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(520, 700, 32, 32), 0, 0})
+
+	engine.monster = append(engine.monster, monsterStruct{"slime", 180, 100, 30, 0, true, rl.LoadTexture("../texture/res/Characters/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(520, 700, 32, 32), 0, 3, 0, 0})
+	engine.monster = append(engine.monster, monsterStruct{"knight", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(500, 650, 64, 50), 0, 9, 0, 0})
+	engine.monster = append(engine.monster, monsterStruct{"el diablos", 200, 200, 80, 0, true, rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon2.2.png"), rl.NewRectangle(0, 64, 16, 16), rl.NewRectangle(770, 600, 16, 16), 0, 7, 0, 0})
+	engine.monster = append(engine.monster, monsterStruct{"l'escargos", 200, 200, 80, 0, true, rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon2.2.png"), rl.NewRectangle(5, 370, 16, 30), rl.NewRectangle(790, 700, 16, 30), 0, 7, 0, 0})
+	engine.monster = append(engine.monster, monsterStruct{"samurai", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/Samurai.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(800, 650, 64, 50), 0, 9, 0, 0})
+	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 106, 64, 38), rl.NewRectangle(650, 570, 64, 38), 0, 5, 0, 0})
+	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 200, 200, 80, 0, true, rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon.png"), rl.NewRectangle(0, 100, 16, 32), rl.NewRectangle(650, 570, 16, 32), 0, 5, 0, 128})
 
 	engine.sprite.grass = rl.LoadTexture("../texture/res/Tilesets/Grass.png")
 	engine.sprite.hill = rl.LoadTexture("../texture/res/Tilesets/Hills.png")
