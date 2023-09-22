@@ -69,8 +69,8 @@ func update(engine *EngineStruct) {
 		engine.player.Src.X = engine.player.Src.Height * float32(engine.player.Dir)
 
 		for i := 0; i < len(engine.monster); i++ {
-			if engine.framCount % 8 == 1 { engine.monster[i].frameCount++ }
-			if engine.monster[i].frameCount > 3 { engine.monster[i].frameCount = 0 }
+			if engine.framCount % engine.monster[i].speedFrame == 1 { engine.monster[i].frameCount++ }
+			if engine.monster[i].frameCount > engine.monster[i].frameNumber { engine.monster[i].frameCount = 0 }
 			engine.monster[i].Src.X = engine.monster[i].Src.Width * float32(engine.monster[i].frameCount)
 			if !engine.monster[i].alive {
 				engine.monster[i].deadTime++
