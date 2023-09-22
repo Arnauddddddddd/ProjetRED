@@ -102,7 +102,7 @@ func initt(engine *EngineStruct) {
 	engine.battle = false
 	engine.playerTurn = true
 
-	engine.player.Sprite = rl.LoadTexture("../texture/GodotProject/World/Actor/Player/GreenNinja/SpriteSheet.png")
+	engine.player.Sprite = rl.LoadTexture("../texture/GodotProject/World/Actor/Npc/Warrior/SpriteSheet.png")
 	engine.player.Src = rl.NewRectangle(0, 0, 16, 16)
 	engine.player.Dest = rl.NewRectangle(570, 700, 16, 16)
 
@@ -123,6 +123,7 @@ func initt(engine *EngineStruct) {
 	engine.sprite.layer = rl.LoadTexture("../texture/calque.png")
 	engine.sprite.bgForest = rl.LoadTexture("../texture/battle/PNG/game_background_4/game_background_4.png")
 	engine.sprite.buttonAttack = rl.LoadTexture("../texture/Pixel Buttons pack 4.png")
+
 
 	engine.bord.tileDest = rl.NewRectangle(0, 0, 16, 16)
 	engine.bord.tileSrc = rl.NewRectangle(0, 0, 16, 16)

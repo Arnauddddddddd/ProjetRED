@@ -39,9 +39,11 @@ func (engine *EngineStruct) Play() {
 	}
 
 	for engine.run {
-		input(engine)
-		update(engine)
-		render(engine)
+		if engine.battle {
+			battle(engine)
+		} else {
+			inMap(engine)
+		}
 	}
 	quit(engine)
 }
