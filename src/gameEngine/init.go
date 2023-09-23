@@ -49,8 +49,6 @@ type spriteStruct struct {
 	layer rl.Texture2D
 	bgForest rl.Texture2D
 	buttonBattle rl.Texture2D
-	gameName rl.Texture2D
-	shopName rl.Texture2D
 }
 
 type monsterStruct struct {
@@ -105,6 +103,7 @@ type shopStruct struct {
 	Src rl.Rectangle
 	Dest rl.Rectangle
 	shopSprite rl.Texture2D
+	showPrice []int
 }
 
 type menuStruct struct {
@@ -124,6 +123,10 @@ func initt(engine *EngineStruct) {
 	engine.menuSelector = true
 	engine.battle = false
 	engine.playerTurn = true
+
+	engine.fontText = rl.LoadFont("../texture/Dico.ttf")
+	engine.fontNum = rl.LoadFont("../texture/prstart.ttf")
+
 
 	engine.player.Sprite = rl.LoadTexture("../texture/GodotProject/World/Actor/Npc/Warrior/SpriteSheet.png")
 	engine.player.Src = rl.NewRectangle(0, 0, 16, 16)
@@ -153,8 +156,6 @@ func initt(engine *EngineStruct) {
 	engine.sprite.layer = rl.LoadTexture("../texture/calque.png")
 	engine.sprite.bgForest = rl.LoadTexture("../texture/battle/PNG/game_background_4/game_background_4.png")
 	engine.sprite.buttonBattle = rl.LoadTexture("../texture/2204_w017_n001_439a_p30_439-removebg-preview.png")
-	engine.sprite.gameName = rl.LoadTexture("../texture/Capture_d_écran_du_2023-09-22_15-14-26-removebg-preview.png")
-	engine.sprite.shopName = rl.LoadTexture("../texture/Capture_d_écran_du_2023-09-22_16-33-57-removebg-preview.png")
 
 	engine.menu.sprite = rl.LoadTexture("../texture/output-onlinegiftools.png")
 	engine.menu.Src = rl.NewRectangle(0, 0, 500, 267)
@@ -173,6 +174,9 @@ func initt(engine *EngineStruct) {
 	engine.shopKeeper.Dest = rl.NewRectangle(500, 600, 32, 32)
 	engine.shopKeeper.shopSprite = rl.LoadTexture("../texture/Retro Inventory/Original/Inventory_Example_03.png")
 	engine.shopKeeper.sprite = rl.LoadTexture("../texture/AnimationSheet_Character.png")
+
+	engine.shopKeeper.showPrice = append(engine.shopKeeper.showPrice, 0)
+	engine.shopKeeper.showPrice = append(engine.shopKeeper.showPrice, 0)
 
 	engine.shop = false
 

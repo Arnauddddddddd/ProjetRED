@@ -19,7 +19,9 @@ func menu(engine *EngineStruct) {
 
 	rl.DrawTexturePro(engine.menu.sprite, engine.menu.Src, engine.menu.Dest, rl.NewVector2(engine.menu.Dest.Width, engine.menu.Dest.Height), 0, rl.White)
 
-	rl.DrawTexture(engine.sprite.gameName, screenWidth/2-engine.sprite.gameName.Width/2, 100, rl.White)
+	rl.DrawTextEx(engine.fontText, "Monster Slayer", rl.NewVector2(float32(screenWidth/2-306), 115), 80, 0, rl.White)
+	rl.DrawTextEx(engine.fontText, "Monster Slayer", rl.NewVector2(float32(screenWidth/2-304), 115), 80, 0, rl.Black)
+	
 
     if screenWidth/2 - engine.sprite.buttonMenu.Width/2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth/2 + engine.sprite.buttonMenu.Width/2 && screenHeight/2 - engine.sprite.buttonMenu.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/2 + engine.sprite.buttonMenu.Height/2 {
         rl.DrawTexture(engine.sprite.buttonMenuPressed, screenWidth/2 - engine.sprite.buttonMenuPressed.Width/2, screenHeight/2 - engine.sprite.buttonMenu.Height/2, rl.White)

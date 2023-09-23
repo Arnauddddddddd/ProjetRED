@@ -23,6 +23,9 @@ type EngineStruct struct {
 
 	playerTurn bool
 
+	fontText rl.Font
+	fontNum rl.Font
+
 	player playerStruct
 	bord mapStruct
 	sprite spriteStruct
@@ -30,6 +33,7 @@ type EngineStruct struct {
 	character charcacterStruct
 	shopKeeper shopStruct
 	menu menuStruct
+
 }
 
 func (engine *EngineStruct) Play() {

@@ -28,6 +28,9 @@ func drawSceneBattle(engine *EngineStruct) {
 	rl.DrawTexturePro(engine.sprite.buttonBattle, rl.NewRectangle(345, 40, 380, 75), rl.NewRectangle( 280, screenHeight+ 45, 460, 110), rl.NewVector2(200, 200), 0, rl.White)
 	rl.DrawTexturePro(engine.sprite.buttonBattle, rl.NewRectangle(345, 40+95, 380, 75), rl.NewRectangle( screenWidth-290, screenHeight+ 45, 460, 110), rl.NewVector2(200, 200), 0, rl.White)
 	
+	rl.DrawTextEx(engine.fontText, "Attack", rl.NewVector2( 215, 785), 45, 0, rl.Black)
+
+	rl.DrawTextEx(engine.fontText, "Fatality", rl.NewVector2( screenWidth-360, 785), 45, 0, rl.Black)
 
 	t := 0
 	slot2 := 0
