@@ -30,13 +30,11 @@ func classSelector(engine *EngineStruct) {
         engine.character.gold = 15
         engine.character.alive = true
         engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 40, 0, true, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/PropsInPixels_16x/RedBull.png"), 0, 0, 1, true, false, 10})
+        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/PropsInPixels_16x/RedBull.png"), 0, 0, 3, true, false, 10})
         engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 40, 0, true, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Strengt item", "Item", "A strenghting potion", rl.LoadTexture("../texture/PropsInPixels_16x/star.png"), 100, 0, 0, false, true, 10})
         engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 40, 0, true, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/PropsInPixels_16x/RedBull.png"), 0, 0, 1, true, false, 10})
+        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/PropsInPixels_16x/RedBull.png"), 0, 0, 3, true, false, 10})
         engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 40, 0, true, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Strengt item", "Item", "A strenghting potion", rl.LoadTexture("../texture/PropsInPixels_16x/star.png"), 100, 0, 0, false, true, 10})
     }
     if rl.IsMouseButtonDown(rl.MouseLeftButton) && (screenWidth - engine.sprite.buttonPlay.Width*2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth - engine.sprite.buttonPlay.Width && screenHeight/4 - engine.sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - engine.sprite.buttonPlay.Height/2 +  engine.sprite.buttonPlay.Height) {
         engine.menuSelector = false

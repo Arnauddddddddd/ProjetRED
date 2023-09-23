@@ -13,7 +13,7 @@ func update(engine *EngineStruct) {
 			engine.character.gold /= 2
 			engine.character.hp = engine.character.hpMax
 			engine.character.alive = true
-			engine.player.Dest = rl.NewRectangle(570, 700, 16, 16)
+			engine.player.Dest = rl.NewRectangle(826, 971, 16, 16)
 		}
 
 		engine.player.Src.Y = engine.player.Src.Width * float32(engine.player.Frame)
@@ -75,7 +75,7 @@ func update(engine *EngineStruct) {
 			engine.monster[i].Src.X = engine.monster[i].Src.Width * float32(engine.monster[i].frameCount)
 			if !engine.monster[i].alive {
 				engine.monster[i].deadTime++
-				if engine.monster[i].deadTime >= 100 {
+				if engine.monster[i].deadTime >= 1000 {
 					engine.monster[i].alive = true
 					engine.monster[i].hp = engine.monster[i].hpMax
 					engine.monster[i].deadTime = 0
