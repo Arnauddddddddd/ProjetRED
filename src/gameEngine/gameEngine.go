@@ -9,6 +9,7 @@ type EngineStruct struct {
 	bgColor rl.Color
 
 	framCount int
+	timer int
 
 	musicPaused bool
 	music rl.Music
@@ -33,6 +34,7 @@ type EngineStruct struct {
 	character charcacterStruct
 	shopKeeper shopStruct
 	menu menuStruct
+	textBox textBoxStruct
 
 }
 

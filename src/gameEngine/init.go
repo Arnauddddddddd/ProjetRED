@@ -1,6 +1,8 @@
 package gameEngine
 
-import "github.com/gen2brain/raylib-go/raylib"
+import (
+	"github.com/gen2brain/raylib-go/raylib"
+)
 
 const (
 	screenWidth = 1600
@@ -97,6 +99,7 @@ type charcacterStruct struct {
 	gold int
 	inventory []itemStruct
 	showInventory bool
+	showText bool
 	alive bool
 }
 
@@ -115,6 +118,15 @@ type menuStruct struct {
 	Dest rl.Rectangle
 	Src rl.Rectangle
 	frameCount int
+}
+
+type textBoxStruct struct {
+	sprite rl.Texture2D
+	space rl.Texture2D
+	frameCount int
+	textWriting bool
+	textToPrint string
+	textPrint string
 }
 
 func initt(engine *EngineStruct) {
@@ -149,11 +161,11 @@ func initt(engine *EngineStruct) {
 	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(620, 470, 64, 38), 0, 4, 0, 0, 8, 12})
 	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(500, 640, 64, 38), 0, 4, 0, 0, 8, 12})
 
-	
+
 	engine.monster = append(engine.monster, monsterStruct{"knight", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(200, 650, 64, 50), 0, 9, 0, 0, 8, 12})
 	engine.monster = append(engine.monster, monsterStruct{"knight", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(270, 650, 64, 50), 0, 2, 4, 3, 8, 12})
 	//engine.monster = append(engine.monster, monsterStruct{"samurai", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/Samurai.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(800, 450, 64, 50), 0, 9, 0, 0, 8, 12})
-	
+
 	engine.sprite.grass = rl.LoadTexture("../texture/res/Tilesets/Grass.png")
 	engine.sprite.hill = rl.LoadTexture("../texture/res/Tilesets/Hills.png")
 	engine.sprite.fence = rl.LoadTexture("../texture/res/Tilesets/Fences.png")
@@ -169,6 +181,9 @@ func initt(engine *EngineStruct) {
 	engine.sprite.buttonBattleAttack = rl.LoadTexture("../texture/2204_w017_n001_439a_p30_439-removebg-preview.png")
 	engine.sprite.buttonBattleFattality = rl.LoadTexture("../texture/2204_w017_n001_439a_p30_439-removebg-preview.png")
 	engine.sprite.buttonBattlePressed = []rl.Texture2D{rl.LoadTexture("../texture/2204_w017_n001_439a_p30_439-removebg-preview.png"), rl.LoadTexture("../texture/button-removebg-preview.png")}
+	
+	engine.textBox.sprite = rl.LoadTexture("../texture/Cryo's Mini GUI/Buttons/buttons_2x.png")
+	engine.textBox.space = rl.LoadTexture("../texture/Cryo's Mini GUI Controller/Controller/ps_style1.png")
 
 	engine.menu.sprite = rl.LoadTexture("../texture/output-onlinegiftools.png")
 	engine.menu.Src = rl.NewRectangle(0, 0, 500, 267)
@@ -180,8 +195,10 @@ func initt(engine *EngineStruct) {
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Kit", "Kit", "A healing kit", rl.LoadTexture("../texture/PropsInPixels_16x/kit.png"), 0, 500, 0, true, true, 10})
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Fork", "a strengting item", rl.LoadTexture("../texture/PropsInPixels_16x/fork.png"), 100, 0, 0, false, true, 10})
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Improvement Item", "Improvement", "A", rl.LoadTexture("../texture/PropsInPixels_16x/star.png"), 50, 50, 0, true, false, 1})
-     
-	
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Key", "special", "A very nice key", rl.LoadTexture("../texture/PropsInPixels_16x/key.png"), 50, 50, 0, false, false, 150})
+
+
+
 	engine.shopKeeper.Src = rl.NewRectangle(0, 0, 32, 32)
 	engine.shopKeeper.Dest = rl.NewRectangle(1450, 556, 32, 32)
 	engine.shopKeeper.shopSprite = rl.LoadTexture("../texture/Retro Inventory/Original/Inventory_Example_03.png")

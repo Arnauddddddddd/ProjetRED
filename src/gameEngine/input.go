@@ -29,4 +29,9 @@ func input(engine *EngineStruct) {
 	if rl.IsKeyPressed(rl.KeyE) {
 		engine.character.showInventory = !engine.character.showInventory
 	}
+	if rl.IsKeyPressed(rl.KeyU) {
+		engine.character.showText = !engine.character.showText
+		engine.textBox.textToPrint = "OUI OIUI LA FRANCE !"
+		engine.textBox.textPrint = ""
+	}
 }
