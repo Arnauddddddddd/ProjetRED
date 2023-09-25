@@ -37,7 +37,7 @@ type mapStruct struct {
 type spriteStruct struct {
 	grass rl.Texture2D
 	donjon rl.Texture2D
-	fence rl.Texture2D
+	donjon2 rl.Texture2D
 	house rl.Texture2D
 	water rl.Texture2D
 	tilled rl.Texture2D
@@ -170,7 +170,7 @@ func initt(engine *EngineStruct) {
 
 	engine.sprite.grass = rl.LoadTexture("../texture/res/Tilesets/Grass.png")
 	engine.sprite.donjon = rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon.png")
-	engine.sprite.fence = rl.LoadTexture("../texture/res/Tilesets/Fences.png")
+	engine.sprite.donjon2 = rl.LoadTexture("../texture/res/Tilesets/Dungeon_Tileset.png")
 	engine.sprite.house = rl.LoadTexture("../texture/res/Tilesets/Wooden House.png")
 	engine.sprite.water = rl.LoadTexture("../texture/res/Tilesets/Water.png")
 	engine.sprite.tilled = rl.LoadTexture("../texture/res/Tilesets/Tilled Dirt.png")

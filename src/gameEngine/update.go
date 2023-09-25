@@ -1,7 +1,6 @@
 package gameEngine
 
 import (
-
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
@@ -93,6 +92,24 @@ func update(engine *EngineStruct) {
 			} else {
 				engine.shop = false
 			}
+
+			if !engine.doorOpenKey {
+				if 1020 < engine.player.Dest.X && engine.player.Dest.X < 1130 && 1510 < engine.player.Dest.Y && engine.player.Dest.Y < 1590 {
+					for i := range engine.character.inventory {
+						if engine.character.inventory[i].name == "Key" {
+							engine.doorOpenKey = true
+							engine.character.inventory = append(engine.character.inventory[:i], engine.character.inventory[i+1:]...)
+						}
+					}
+				}
+			} else {
+				if 1020 < engine.player.Dest.X && engine.player.Dest.X < 1130 && 1460 < engine.player.Dest.Y && engine.player.Dest.Y < 1580 {
+					engine.doorOpen = true
+				} else {
+					engine.doorOpen = false
+				}
+			}
+			
 
 			engine.cam.Target = rl.NewVector2(float32(engine.player.Dest.X - (engine.player.Dest.Width / 2)), float32(engine.player.Dest.Y - (engine.player.Dest.Height/2)))
 

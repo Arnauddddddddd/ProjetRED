@@ -19,9 +19,15 @@ func drawScene(engine *EngineStruct) {
 			if engine.bord.srcMap[i] == "d" {
 				engine.sprite.texture = engine.sprite.donjon
 			}
-			if engine.bord.srcMap[i] == "f" {
-				engine.sprite.texture = engine.sprite.fence
-				engine.bord.colisionList = append(engine.bord.colisionList, []float32{engine.bord.tileDest.X, engine.bord.tileDest.Y})
+			if !engine.doorOpen {
+				if engine.bord.srcMap[i] == "f" {
+					engine.sprite.texture = engine.sprite.donjon2
+					engine.bord.colisionList = append(engine.bord.colisionList, []float32{engine.bord.tileDest.X, engine.bord.tileDest.Y})
+				}
+			} else {
+				if engine.bord.srcMap[i] == "f" {
+					engine.sprite.texture = engine.sprite.house
+				}
 			}
 			if engine.bord.srcMap[i] == "h" {
 				engine.sprite.texture = engine.sprite.house
@@ -37,7 +43,7 @@ func drawScene(engine *EngineStruct) {
 			if engine.bord.srcMap[i] == "h" || engine.bord.srcMap[i] == "f" { // si il y a une barrière ou une maison on met de l'herbe en dessous
 				engine.bord.tileSrc.X = 0
 				engine.bord.tileSrc.Y = 0
-				rl.DrawTexturePro(engine.sprite.grass, engine.bord.tileSrc, engine.bord.tileDest, rl.NewVector2(engine.bord.tileDest.Width, engine.bord.tileDest.Height), 0, rl.White)
+				rl.DrawTexturePro(engine.sprite.house, rl.NewRectangle(16, 32, 16, 16), engine.bord.tileDest, rl.NewVector2(engine.bord.tileDest.Width, engine.bord.tileDest.Height), 0, rl.White)
 			}
 
 			engine.bord.tileSrc.X = engine.bord.tileSrc.Width * float32((engine.bord.tileMap[i]-1)%int(engine.sprite.texture.Width/int32(engine.bord.tileSrc.Width)))

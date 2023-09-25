@@ -19,6 +19,8 @@ type EngineStruct struct {
 
 	battle bool
 	monsterBattle int
+	doorOpen bool
+	doorOpenKey bool
 
 	shop bool
 

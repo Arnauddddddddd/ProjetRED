@@ -7,7 +7,7 @@ import (
 func quit(engine *EngineStruct) {
 	rl.UnloadTexture(engine.sprite.grass)
 	rl.UnloadTexture(engine.sprite.donjon)
-	rl.UnloadTexture(engine.sprite.fence)
+	rl.UnloadTexture(engine.sprite.donjon2)
 	rl.UnloadTexture(engine.sprite.house)
 	rl.UnloadTexture(engine.sprite.water)
 	rl.UnloadTexture(engine.sprite.tilled)
