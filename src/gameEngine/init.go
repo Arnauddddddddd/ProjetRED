@@ -85,6 +85,7 @@ type itemStruct struct {
 	speedUp int
 	outBattle bool
 	battle bool
+	infinitySale bool
 	price int
 }
 
@@ -151,7 +152,6 @@ func initt(engine *EngineStruct) {
 
 	engine.player.Speed = 1
 
-
 	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/res/Characters/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1577, 1596, 32, 32), 0, 3, 0, 0, 8, 12})
 	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/res/Characters/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1437, 1448, 32, 32), 0, 3, 0, 0, 8, 12})
 	engine.monster = append(engine.monster, monsterStruct{"l'escargos", 100, 100, 30, 0, true, rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon2.2.png"), rl.NewRectangle(5, 370, 16, 30), rl.NewRectangle(1600, 860, 16, 30), 0, 7, 0, 2, 8, 25})
@@ -161,6 +161,13 @@ func initt(engine *EngineStruct) {
 	engine.monster = append(engine.monster, monsterStruct{"blue knight", 100, 100, 50, 0, true, rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon.png"), rl.NewRectangle(0, 100, 16, 32), rl.NewRectangle(1250, 930, 16, 32), 0, 5, 0, 128, 8, 50})
 	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(820, 1200, 64, 38), 0, 4, 0, 0, 8, 12})
 	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(700, 1370, 64, 38), 0, 4, 0, 0, 8, 12})
+	engine.monster = append(engine.monster, monsterStruct{"knight", 500, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(741, 929, 64, 50), 0, 2, 4, 3, 8, 12})
+	engine.monster = append(engine.monster, monsterStruct{"knight", 500, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(791, 929, 64, 50), 0, 2, 4, 3, 8, 12})
+	
+
+	//engine.monster = append(engine.monster, monsterStruct{"knight", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(400, 1380, 64, 50), 0, 9, 0, 0, 8, 12})
+	//engine.monster = append(engine.monster, monsterStruct{"samurai", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/Samurai.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(800, 450, 64, 50), 0, 9, 0, 0, 8, 12})
+	engine.monster = append(engine.monster, monsterStruct{"demon", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/demon.png"), rl.NewRectangle(0, 0, 32, 42), rl.NewRectangle(1572, 2130, 32, 42), 0, 2, 8, 0, 9, 12})
 
 
 	engine.monster = append(engine.monster, monsterStruct{"knight", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(400, 1380, 64, 50), 0, 9, 0, 0, 8, 12})
@@ -191,13 +198,11 @@ func initt(engine *EngineStruct) {
 	engine.menu.Src = rl.NewRectangle(0, 0, 500, 267)
 	engine.menu.Dest = rl.NewRectangle(float32(screenWidth), float32(screenHeight), 1600, 900)
 
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 40, 0, true, true, 10})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 40, 0, true, true, 10})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 40, 0, true, true, 10})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Kit", "Kit", "A healing kit", rl.LoadTexture("../texture/PropsInPixels_16x/kit.png"), 0, 500, 0, true, true, 10})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Fork", "a strengting item", rl.LoadTexture("../texture/PropsInPixels_16x/fork.png"), 100, 0, 0, false, true, 10})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Improvement Item", "Improvement", "A", rl.LoadTexture("../texture/PropsInPixels_16x/star.png"), 50, 50, 0, true, false, 1})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Key", "special", "A very nice key", rl.LoadTexture("../texture/PropsInPixels_16x/key.png"), 50, 50, 0, false, false, 150})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 40, 0, true, true, true, 1})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Kit", "Kit", "A healing kit", rl.LoadTexture("../texture/PropsInPixels_16x/kit.png"), 0, 500, 0, true, true, false, 1})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Fork", "a strengting item", rl.LoadTexture("../texture/PropsInPixels_16x/fork.png"), 100, 0, 0, false, true, false,1})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Improvement Item", "Improvement", "A", rl.LoadTexture("../texture/PropsInPixels_16x/star.png"), 50, 50, 0, true, false, false,1})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Key", "special", "A very nice key", rl.LoadTexture("../texture/PropsInPixels_16x/key.png"), 50, 50, 0, false, false, false, 1})
 
 
 
@@ -205,7 +210,7 @@ func initt(engine *EngineStruct) {
 
 
 	engine.shopKeeper.Dest = rl.NewRectangle(1624, 1269, 32, 32)
-	engine.shopKeeper.Dest = rl.NewRectangle(686, 1153, 32, 32)
+	//engine.shopKeeper.Dest = rl.NewRectangle(686, 1153, 32, 32)
 
 
 	engine.shopKeeper.shopSprite = rl.LoadTexture("../texture/Retro Inventory/Original/Inventory_Example_03.png")

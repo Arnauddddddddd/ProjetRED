@@ -10,7 +10,9 @@ func buy(engine *EngineStruct, i int) {
 	if len(engine.character.inventory) < 8 && engine.character.gold >= engine.shopKeeper.items[i].price {
 		engine.character.inventory = append(engine.character.inventory, engine.shopKeeper.items[i])
 		engine.character.gold -= engine.shopKeeper.items[i].price
-		engine.shopKeeper.items = append(engine.shopKeeper.items[:i], engine.shopKeeper.items[i+1:]...)
+		if !engine.shopKeeper.items[i].infinitySale {
+			engine.shopKeeper.items = append(engine.shopKeeper.items[:i], engine.shopKeeper.items[i+1:]...)
+		}
 	} else {
 		rl.BeginDrawing()
 		rl.DrawTextEx(engine.fontText, "Vous Ne Pouvez Pas Acheter Cet Item", rl.NewVector2(float32(engine.player.Dest.X-930), float32(engine.player.Dest.Y+50)), 30, 0, rl.Black)
