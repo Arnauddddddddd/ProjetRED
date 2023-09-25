@@ -13,7 +13,7 @@ func update(engine *EngineStruct) {
 				engine.character.gold /= 2
 				engine.character.hp = engine.character.hpMax
 				engine.character.alive = true
-				engine.player.Dest = rl.NewRectangle(826, 971, 16, 16)
+				engine.player.Dest = rl.NewRectangle(1057, 1633, 16, 16)
 			}
 
 			engine.player.Src.Y = engine.player.Src.Width * float32(engine.player.Frame)
@@ -87,7 +87,7 @@ func update(engine *EngineStruct) {
 				}
 			}
 
-			if rl.CheckCollisionRecs(engine.player.Dest, engine.shopKeeper.Dest) {
+			if rl.CheckCollisionRecs(engine.player.Dest, engine.shopKeeper.Dest) || rl.CheckCollisionRecs(rl.NewRectangle(686, 1153, 32, 32),engine.player.Dest) {
 				engine.shop = true
 			} else {
 				engine.shop = false
