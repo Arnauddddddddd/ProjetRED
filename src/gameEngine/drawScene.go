@@ -16,8 +16,8 @@ func drawScene(engine *EngineStruct) {
 			if engine.bord.srcMap[i] == "g" {
 				engine.sprite.texture = engine.sprite.grass
 			}
-			if engine.bord.srcMap[i] == "i" {
-				engine.sprite.texture = engine.sprite.hill
+			if engine.bord.srcMap[i] == "d" {
+				engine.sprite.texture = engine.sprite.donjon
 			}
 			if engine.bord.srcMap[i] == "f" {
 				engine.sprite.texture = engine.sprite.fence

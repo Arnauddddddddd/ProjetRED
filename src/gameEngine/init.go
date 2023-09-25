@@ -36,7 +36,7 @@ type mapStruct struct {
 
 type spriteStruct struct {
 	grass rl.Texture2D
-	hill rl.Texture2D
+	donjon rl.Texture2D
 	fence rl.Texture2D
 	house rl.Texture2D
 	water rl.Texture2D
@@ -165,9 +165,11 @@ func initt(engine *EngineStruct) {
 	engine.monster = append(engine.monster, monsterStruct{"knight", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(200, 650, 64, 50), 0, 9, 0, 0, 8, 12})
 	engine.monster = append(engine.monster, monsterStruct{"knight", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(270, 650, 64, 50), 0, 2, 4, 3, 8, 12})
 	//engine.monster = append(engine.monster, monsterStruct{"samurai", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/Samurai.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(800, 450, 64, 50), 0, 9, 0, 0, 8, 12})
+	engine.monster = append(engine.monster, monsterStruct{"demon", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/demon.png"), rl.NewRectangle(0, 0, 32, 42), rl.NewRectangle(1372, 1400, 32, 42), 0, 2, 8, 0, 9, 12})
+
 
 	engine.sprite.grass = rl.LoadTexture("../texture/res/Tilesets/Grass.png")
-	engine.sprite.hill = rl.LoadTexture("../texture/res/Tilesets/Hills.png")
+	engine.sprite.donjon = rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon.png")
 	engine.sprite.fence = rl.LoadTexture("../texture/res/Tilesets/Fences.png")
 	engine.sprite.house = rl.LoadTexture("../texture/res/Tilesets/Wooden House.png")
 	engine.sprite.water = rl.LoadTexture("../texture/res/Tilesets/Water.png")
