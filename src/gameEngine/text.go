@@ -1,20 +1,19 @@
 package gameEngine
 
 import (
-	"fmt"
-
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
 func text(engine *EngineStruct) {
 	engine.framCount++
 
-	if engine.framCount % 100 == 1 { engine.textBox.frameCount++ }
+	if engine.framCount % 100 == 1 { engine.textBox.frameCountSpace++ }
+	if engine.framCount % 5 == 1 { engine.textBox.frameCountText++ }
 
-	if rl.IsKeyPressed(rl.KeySpace) {
-		if engine.textBox.textWriting {
-			fmt.Printf("1")
-		}
-		fmt.Printf("2")
+	if rl.IsKeyPressed(rl.KeySpace) && engine.textBox.textWriting {
+		engine.textBox.textPrint = engine.textBox.textToPrint
+	}
+	if rl.IsKeyPressed(rl.KeySpace) && !engine.textBox.textWriting{
+		engine.character.showText = false
 	}
 }

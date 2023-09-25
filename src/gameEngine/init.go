@@ -123,7 +123,8 @@ type menuStruct struct {
 type textBoxStruct struct {
 	sprite rl.Texture2D
 	space rl.Texture2D
-	frameCount int
+	frameCountSpace int
+	frameCountText int
 	textWriting bool
 	textToPrint string
 	textPrint string

@@ -107,16 +107,19 @@ func drawScene(engine *EngineStruct) {
 		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*5, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X+48*4-130, engine.player.Dest.Y+110, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
 		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*5, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X+48*5-130, engine.player.Dest.Y+110, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
 		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*6, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X+48*6-130, engine.player.Dest.Y+110, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
-		if engine.textBox.frameCount % 2 == 0 {
+		if engine.textBox.frameCountSpace % 2 == 0 {
 			rl.DrawTexturePro(engine.textBox.space, rl.NewRectangle(12*4, 12*5, 12, 12), rl.NewRectangle(engine.player.Dest.X+48*6-166, engine.player.Dest.Y+90, 12*2, 12*2), rl.NewVector2(12, 12), 0, rl.White)
 		} else {
 			rl.DrawTexturePro(engine.textBox.space, rl.NewRectangle(12*5, 12*5, 12, 12), rl.NewRectangle(engine.player.Dest.X+48*6-166, engine.player.Dest.Y+90, 12*2, 12*2), rl.NewVector2(12, 12), 0, rl.White)
 		}
-		if engine.textBox.frameCount == len(engine.textBox.textPrint) {
-			engine.textBox.textPrint += string(engine.textBox.textToPrint[engine.textBox.frameCount])
+		if engine.textBox.frameCountText == len(engine.textBox.textPrint) && len(engine.textBox.textToPrint) > len(engine.textBox.textPrint) {
+			engine.textBox.textPrint += string(engine.textBox.textToPrint[engine.textBox.frameCountText])
 		}
-		if len(engine.textBox.textToPrint) < len(engine.textBox.textPrint) {
-			rl.DrawTextEx(engine.fontText, engine.textBox.textPrint, rl.NewVector2(float32(engine.player.Dest.X-170), float32(engine.player.Dest.Y-110)), 30, 0, rl.Black)
+		if engine.textBox.textPrint == engine.textBox.textToPrint {
+			engine.textBox.textWriting = false
+		}
+		if len(engine.textBox.textToPrint) > len(engine.textBox.textPrint) || !engine.textBox.textWriting {
+			rl.DrawTextEx(engine.fontText, engine.textBox.textPrint, rl.NewVector2(float32(engine.player.Dest.X-150), float32(engine.player.Dest.Y+65)), 11, 0, rl.Black)
 		}
 	}
 }
