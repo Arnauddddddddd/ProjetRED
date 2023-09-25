@@ -18,7 +18,9 @@ type playerStruct struct {
 	Up, Down, Right, Left bool
 	Frame int
 
-	Speed float32 
+	Speed float32
+
+	showHud bool
 }
 
 type mapStruct struct {
@@ -48,7 +50,9 @@ type spriteStruct struct {
 	money rl.Texture2D
 	layer rl.Texture2D
 	bgForest rl.Texture2D
-	buttonBattle rl.Texture2D
+	buttonBattleAttack rl.Texture2D
+	buttonBattleFattality rl.Texture2D
+	buttonBattlePressed []rl.Texture2D
 }
 
 type monsterStruct struct {
@@ -162,7 +166,9 @@ func initt(engine *EngineStruct) {
 	engine.sprite.money = rl.LoadTexture("../texture/PropsInPixels_16x/money.png")
 	engine.sprite.layer = rl.LoadTexture("../texture/calque.png")
 	engine.sprite.bgForest = rl.LoadTexture("../texture/battle/PNG/game_background_4/game_background_4.png")
-	engine.sprite.buttonBattle = rl.LoadTexture("../texture/2204_w017_n001_439a_p30_439-removebg-preview.png")
+	engine.sprite.buttonBattleAttack = rl.LoadTexture("../texture/2204_w017_n001_439a_p30_439-removebg-preview.png")
+	engine.sprite.buttonBattleFattality = rl.LoadTexture("../texture/2204_w017_n001_439a_p30_439-removebg-preview.png")
+	engine.sprite.buttonBattlePressed = []rl.Texture2D{rl.LoadTexture("../texture/2204_w017_n001_439a_p30_439-removebg-preview.png"), rl.LoadTexture("../texture/button-removebg-preview.png")}
 
 	engine.menu.sprite = rl.LoadTexture("../texture/output-onlinegiftools.png")
 	engine.menu.Src = rl.NewRectangle(0, 0, 500, 267)

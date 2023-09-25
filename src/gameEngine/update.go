@@ -20,32 +20,32 @@ func update(engine *EngineStruct) {
 
 		for i := range engine.bord.colisionList {
 			if engine.player.Up {
-				nextBlock := []float32{engine.player.Dest.X, engine.player.Dest.Y - engine.player.Src.Height}
-				nextBlock2 := []float32{engine.player.Dest.X - engine.player.Src.Width, engine.player.Dest.Y - engine.player.Src.Height}
+				nextBlock := []float32{engine.player.Dest.X, engine.player.Dest.Y - engine.player.Src.Height-5}
+				nextBlock2 := []float32{engine.player.Dest.X - engine.player.Src.Width, engine.player.Dest.Y - engine.player.Src.Height-5}
 				if ((engine.bord.colisionList[i][0]-16 < nextBlock[0]-2 && nextBlock[0]-2 < engine.bord.colisionList[i][0]) && (engine.bord.colisionList[i][1]-16 < nextBlock[1] && nextBlock[1] < engine.bord.colisionList[i][1])) ||
 				((engine.bord.colisionList[i][0]-16 < nextBlock2[0]+2 && nextBlock2[0]+2 < engine.bord.colisionList[i][0]) && (engine.bord.colisionList[i][1]-16 < nextBlock2[1] && nextBlock2[1] < engine.bord.colisionList[i][1])) {
 					engine.player.Moving = false
 				}
 			}
 			if engine.player.Down {
-				nextBlock := []float32{engine.player.Dest.X, engine.player.Dest.Y}
-				nextBlock2 := []float32{engine.player.Dest.X - engine.player.Src.Width, engine.player.Dest.Y}
+				nextBlock := []float32{engine.player.Dest.X, engine.player.Dest.Y+5}
+				nextBlock2 := []float32{engine.player.Dest.X - engine.player.Src.Width, engine.player.Dest.Y+5}
 				if ((engine.bord.colisionList[i][0]-16 < nextBlock[0]-2 && nextBlock[0]-2 < engine.bord.colisionList[i][0]) && (engine.bord.colisionList[i][1]-16 < nextBlock[1] && nextBlock[1] < engine.bord.colisionList[i][1])) ||
 				((engine.bord.colisionList[i][0]-16 < nextBlock2[0]+2 && nextBlock2[0]+2 < engine.bord.colisionList[i][0]) && (engine.bord.colisionList[i][1]-16 < nextBlock2[1] && nextBlock2[1] < engine.bord.colisionList[i][1])) {
 					engine.player.Moving = false
 				}
 			}
 			if engine.player.Left {
-				nextBlock := []float32{engine.player.Dest.X - engine.player.Src.Width, engine.player.Dest.Y - engine.player.Src.Height}
-				nextBlock2 := []float32{engine.player.Dest.X - engine.player.Src.Width, engine.player.Dest.Y}
+				nextBlock := []float32{engine.player.Dest.X - engine.player.Src.Width-5, engine.player.Dest.Y - engine.player.Src.Height}
+				nextBlock2 := []float32{engine.player.Dest.X - engine.player.Src.Width-5, engine.player.Dest.Y}
 				if ((engine.bord.colisionList[i][0]-16 < nextBlock[0] && nextBlock[0] < engine.bord.colisionList[i][0]) && (engine.bord.colisionList[i][1]-16 < nextBlock[1]+2 && nextBlock[1]+2 < engine.bord.colisionList[i][1])) ||
 				((engine.bord.colisionList[i][0]-16 < nextBlock2[0] && nextBlock2[0] < engine.bord.colisionList[i][0]) && (engine.bord.colisionList[i][1]-16 < nextBlock2[1]-2 && nextBlock2[1]-2 < engine.bord.colisionList[i][1])){
 					engine.player.Moving = false
 				}
 			}
 			if engine.player.Right {
-				nextBlock := []float32{engine.player.Dest.X, engine.player.Dest.Y - engine.player.Src.Height}
-				nextBlock2 := []float32{engine.player.Dest.X, engine.player.Dest.Y}
+				nextBlock := []float32{engine.player.Dest.X+5, engine.player.Dest.Y - engine.player.Src.Height}
+				nextBlock2 := []float32{engine.player.Dest.X+5, engine.player.Dest.Y}
 				if ((engine.bord.colisionList[i][0]-16 < nextBlock[0] && nextBlock[0] < engine.bord.colisionList[i][0]) && (engine.bord.colisionList[i][1]-16 < nextBlock[1]+2 && nextBlock[1]+2 < engine.bord.colisionList[i][1])) ||
 				((engine.bord.colisionList[i][0]-16 < nextBlock2[0] && nextBlock2[0] < engine.bord.colisionList[i][0]) && (engine.bord.colisionList[i][1]-16 < nextBlock2[1]-2 && nextBlock2[1]-2 < engine.bord.colisionList[i][1])) {
 					engine.player.Moving = false

@@ -13,7 +13,7 @@ func buy(engine *EngineStruct, i int) {
 		engine.shopKeeper.items = append(engine.shopKeeper.items[:i], engine.shopKeeper.items[i+1:]...)
 	} else {
 		rl.BeginDrawing()
-		rl.DrawText("Vous Ne Pouvez Pas Acheter Cet Item", int32(engine.player.Dest.X), int32(engine.player.Dest.Y), 30, rl.Black)
+		rl.DrawTextEx(engine.fontText, "Vous Ne Pouvez Pas Acheter Cet Item", rl.NewVector2(float32(engine.player.Dest.X-930), float32(engine.player.Dest.Y+50)), 30, 0, rl.Black)
 		rl.EndDrawing()
 		time.Sleep(2 * time.Second)
 	}

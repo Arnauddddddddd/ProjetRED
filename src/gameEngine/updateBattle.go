@@ -1,10 +1,11 @@
 package gameEngine
 
 import (
+	"time"
+
 	"github.com/gen2brain/raylib-go/raylib"
 
 	"fmt"
-
 )
 
 func updateBattle (engine *EngineStruct) {
@@ -22,9 +23,15 @@ func updateBattle (engine *EngineStruct) {
 	}
 
 	if engine.playerTurn {
+		engine.player.showHud = true
 		if rl.IsMouseButtonPressed(rl.MouseLeftButton) &&  (126 < rl.GetMouseX() && rl.GetMouseX() <  468 && 758 < rl.GetMouseY() && rl.GetMouseY() < 840) {
 			engine.monster[engine.monsterBattle].hp -= engine.character.damage
 			engine.playerTurn = false
+		}
+		if (126 < rl.GetMouseX() && rl.GetMouseX() <  468 && 758 < rl.GetMouseY() && rl.GetMouseY() < 840) {
+			engine.sprite.buttonBattleAttack = engine.sprite.buttonBattlePressed[1]
+		} else {
+			engine.sprite.buttonBattleAttack = engine.sprite.buttonBattlePressed[0]
 		}
 		if rl.IsMouseButtonPressed(rl.MouseLeftButton) &&  (1140 < rl.GetMouseX() && rl.GetMouseX() <  1492 && 758 < rl.GetMouseY() && rl.GetMouseY() < 840) {
 			fmt.Println(rl.GetMouseX())
@@ -41,7 +48,12 @@ func updateBattle (engine *EngineStruct) {
 			engine.battle = false
 		}
 	} else {
+		engine.player.showHud = false
+		drawSceneBattle(engine)
+		time.Sleep(1 * time.Second)
 		engine.character.hp -= engine.monster[engine.monsterBattle].damage
+		drawSceneBattle(engine)
+		time.Sleep(1 * time.Second)
 		engine.playerTurn = true
 	}
 }
