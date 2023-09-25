@@ -147,27 +147,26 @@ func initt(engine *EngineStruct) {
 
 	engine.player.Sprite = rl.LoadTexture("../texture/GodotProject/World/Actor/Npc/Warrior/SpriteSheet.png")
 	engine.player.Src = rl.NewRectangle(0, 0, 16, 16)
-	engine.player.Dest = rl.NewRectangle(826, 971, 16, 16)
+	engine.player.Dest = rl.NewRectangle(1057, 1633, 16, 16)
 
 	engine.player.Speed = 1
 
 
-	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/res/Characters/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1372, 866, 32, 32), 0, 3, 0, 0, 8, 12})
-	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/res/Characters/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1237, 718, 32, 32), 0, 3, 0, 0, 8, 12})
-	engine.monster = append(engine.monster, monsterStruct{"l'escargos", 100, 100, 30, 0, true, rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon2.2.png"), rl.NewRectangle(5, 370, 16, 30), rl.NewRectangle(1400, 130, 16, 30), 0, 7, 0, 2, 8, 25})
-	engine.monster = append(engine.monster, monsterStruct{"l'escargos", 100, 100, 30, 0, true, rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon2.2.png"), rl.NewRectangle(5, 370, 16, 30), rl.NewRectangle(1200, 70, 16, 30), 0, 7, 0, 2, 8, 25})
-	engine.monster = append(engine.monster, monsterStruct{"el diablos", 30, 30, 30, 0, true, rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon2.2.png"), rl.NewRectangle(0, 64, 16, 16), rl.NewRectangle(1450, 230, 16, 16), 0, 7, 0, 0, 8, 15})
-	engine.monster = append(engine.monster, monsterStruct{"el diablos", 30, 30, 30, 0, true, rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon2.2.png"), rl.NewRectangle(0, 64, 16, 16), rl.NewRectangle(1344, 48, 16, 16), 0, 7, 0, 0, 8, 15})
-	engine.monster = append(engine.monster, monsterStruct{"blue knight", 100, 100, 50, 0, true, rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon.png"), rl.NewRectangle(0, 100, 16, 32), rl.NewRectangle(1050, 200, 16, 32), 0, 5, 0, 128, 8, 50})
-	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(620, 470, 64, 38), 0, 4, 0, 0, 8, 12})
-	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(500, 640, 64, 38), 0, 4, 0, 0, 8, 12})
+	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/res/Characters/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1577, 1596, 32, 32), 0, 3, 0, 0, 8, 12})
+	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/res/Characters/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1437, 1448, 32, 32), 0, 3, 0, 0, 8, 12})
+	engine.monster = append(engine.monster, monsterStruct{"l'escargos", 100, 100, 30, 0, true, rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon2.2.png"), rl.NewRectangle(5, 370, 16, 30), rl.NewRectangle(1600, 860, 16, 30), 0, 7, 0, 2, 8, 25})
+	engine.monster = append(engine.monster, monsterStruct{"l'escargos", 100, 100, 30, 0, true, rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon2.2.png"), rl.NewRectangle(5, 370, 16, 30), rl.NewRectangle(1400, 800, 16, 30), 0, 7, 0, 2, 8, 25})
+	//engine.monster = append(engine.monster, monsterStruct{"el diablos", 30, 30, 30, 0, true, rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon2.2.png"), rl.NewRectangle(0, 64, 16, 16), rl.NewRectangle(1250, 960, 16, 16), 0, 7, 0, 0, 8, 15})
+	engine.monster = append(engine.monster, monsterStruct{"el diablos", 30, 30, 30, 0, true, rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon2.2.png"), rl.NewRectangle(0, 64, 16, 16), rl.NewRectangle(1544, 778, 16, 16), 0, 7, 0, 0, 8, 15})
+	engine.monster = append(engine.monster, monsterStruct{"blue knight", 100, 100, 50, 0, true, rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon.png"), rl.NewRectangle(0, 100, 16, 32), rl.NewRectangle(1250, 930, 16, 32), 0, 5, 0, 128, 8, 50})
+	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(820, 1200, 64, 38), 0, 4, 0, 0, 8, 12})
+	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(700, 1370, 64, 38), 0, 4, 0, 0, 8, 12})
 
 
-	engine.monster = append(engine.monster, monsterStruct{"knight", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(200, 650, 64, 50), 0, 9, 0, 0, 8, 12})
-	engine.monster = append(engine.monster, monsterStruct{"knight", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(270, 650, 64, 50), 0, 2, 4, 3, 8, 12})
+	engine.monster = append(engine.monster, monsterStruct{"knight", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(400, 1380, 64, 50), 0, 9, 0, 0, 8, 12})
+	engine.monster = append(engine.monster, monsterStruct{"knight", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(470, 1380, 64, 50), 0, 2, 4, 3, 8, 12})
 	//engine.monster = append(engine.monster, monsterStruct{"samurai", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/Samurai.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(800, 450, 64, 50), 0, 9, 0, 0, 8, 12})
-	engine.monster = append(engine.monster, monsterStruct{"demon", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/demon.png"), rl.NewRectangle(0, 0, 32, 42), rl.NewRectangle(1372, 1400, 32, 42), 0, 2, 8, 0, 9, 12})
-
+	engine.monster = append(engine.monster, monsterStruct{"demon", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/demon.png"), rl.NewRectangle(0, 0, 32, 42), rl.NewRectangle(1572, 2130, 32, 42), 0, 2, 8, 0, 9, 12})
 
 	engine.sprite.grass = rl.LoadTexture("../texture/res/Tilesets/Grass.png")
 	engine.sprite.donjon = rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon.png")
@@ -203,7 +202,12 @@ func initt(engine *EngineStruct) {
 
 
 	engine.shopKeeper.Src = rl.NewRectangle(0, 0, 32, 32)
-	engine.shopKeeper.Dest = rl.NewRectangle(1450, 556, 32, 32)
+
+
+	engine.shopKeeper.Dest = rl.NewRectangle(1624, 1269, 32, 32)
+	engine.shopKeeper.Dest = rl.NewRectangle(686, 1153, 32, 32)
+
+
 	engine.shopKeeper.shopSprite = rl.LoadTexture("../texture/Retro Inventory/Original/Inventory_Example_03.png")
 	engine.shopKeeper.sprite = rl.LoadTexture("../texture/AnimationSheet_Character.png")
 
