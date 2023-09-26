@@ -57,7 +57,7 @@ func drawScene(engine *EngineStruct) {
 		}
 	}
 
-	rl.DrawTexturePro(engine.player.Sprite, engine.player.Src, engine.player.Dest, rl.NewVector2(engine.player.Dest.Width, engine.player.Dest.Height), 0, rl.White)
+	
 	rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.character.hp), rl.NewVector2(float32(engine.player.Dest.X)-183, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
 	rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.character.gold), rl.NewVector2(float32(engine.player.Dest.X)+140, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
 	rl.DrawTexture(engine.sprite.money, int32(engine.player.Dest.X)+165, int32(engine.player.Dest.Y)-118, rl.White)
@@ -73,7 +73,7 @@ func drawScene(engine *EngineStruct) {
 	rl.DrawTexturePro(engine.shopKeeper.sprite, engine.shopKeeper.Src, rl.NewRectangle(686, 1153, 32, 32), rl.NewVector2(engine.shopKeeper.Dest.Width, engine.shopKeeper.Dest.Height), 0, rl.White)
 
 	
-
+	rl.DrawTexturePro(engine.player.Sprite, engine.player.Src, engine.player.Dest, rl.NewVector2(engine.player.Dest.Width, engine.player.Dest.Height), 0, rl.White)
 	if engine.shop && engine.character.showInventory {
 		rl.DrawTexture(engine.sprite.layer, int32(engine.player.Dest.X)-300, int32(engine.player.Dest.Y)-300, rl.White)
 		rl.DrawTexture(engine.shopKeeper.shopSprite, int32(engine.player.Dest.X)-engine.sprite.invBar.Width/2 - int32(engine.player.Dest.Width / 2) + 12, int32(engine.player.Dest.Y)-engine.sprite.invBar.Height/2- int32(engine.player.Dest.Height / 2) - 100+50, rl.White)
@@ -123,17 +123,17 @@ func drawScene(engine *EngineStruct) {
 	}
 
 	if engine.character.showText {
-		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*4, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X-130, engine.player.Dest.Y+110, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
-		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*5, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X+48-130, engine.player.Dest.Y+110, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
-		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*5, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X+48*2-130, engine.player.Dest.Y+110, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
-		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*5, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X+48*3-130, engine.player.Dest.Y+110, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
-		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*5, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X+48*4-130, engine.player.Dest.Y+110, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
-		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*5, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X+48*5-130, engine.player.Dest.Y+110, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
-		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*6, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X+48*6-130, engine.player.Dest.Y+110, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
+		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*4, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X-130, engine.player.Dest.Y+100, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
+		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*5, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X+48-130, engine.player.Dest.Y+100, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
+		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*5, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X+48*2-130, engine.player.Dest.Y+100, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
+		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*5, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X+48*3-130, engine.player.Dest.Y+100, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
+		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*5, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X+48*4-130, engine.player.Dest.Y+100, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
+		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*5, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X+48*5-130, engine.player.Dest.Y+100, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
+		rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*6, 0, 16, 16*2), rl.NewRectangle(engine.player.Dest.X+48*6-130, engine.player.Dest.Y+100, 48, 32*2), rl.NewVector2(48, 32*2), 0, rl.White)
 		if engine.textBox.frameCountSpace % 2 == 0 {
-			rl.DrawTexturePro(engine.textBox.space, rl.NewRectangle(12*4, 12*5, 12, 12), rl.NewRectangle(engine.player.Dest.X+48*6-166, engine.player.Dest.Y+90, 12*2, 12*2), rl.NewVector2(12, 12), 0, rl.White)
+			rl.DrawTexturePro(engine.textBox.space, rl.NewRectangle(12*4, 12*5, 12, 12), rl.NewRectangle(engine.player.Dest.X+48*6-166, engine.player.Dest.Y+80, 12*2, 12*2), rl.NewVector2(12, 12), 0, rl.White)
 		} else {
-			rl.DrawTexturePro(engine.textBox.space, rl.NewRectangle(12*5, 12*5, 12, 12), rl.NewRectangle(engine.player.Dest.X+48*6-166, engine.player.Dest.Y+90, 12*2, 12*2), rl.NewVector2(12, 12), 0, rl.White)
+			rl.DrawTexturePro(engine.textBox.space, rl.NewRectangle(12*5, 12*5, 12, 12), rl.NewRectangle(engine.player.Dest.X+48*6-166, engine.player.Dest.Y+80, 12*2, 12*2), rl.NewVector2(12, 12), 0, rl.White)
 		}
 		if engine.textBox.frameCountText == len(engine.textBox.textPrint) && len(engine.textBox.textToPrint) > len(engine.textBox.textPrint) {
 			engine.textBox.textPrint += string(engine.textBox.textToPrint[engine.textBox.frameCountText])
@@ -142,7 +142,7 @@ func drawScene(engine *EngineStruct) {
 			engine.textBox.textWriting = false
 		}
 		if len(engine.textBox.textToPrint) > len(engine.textBox.textPrint) || !engine.textBox.textWriting {
-			rl.DrawTextEx(engine.fontText, engine.textBox.textPrint, rl.NewVector2(float32(engine.player.Dest.X-150), float32(engine.player.Dest.Y+65)), 11, 0, rl.Black)
+			rl.DrawTextEx(engine.fontText, engine.textBox.textPrint, rl.NewVector2(float32(engine.player.Dest.X-150), float32(engine.player.Dest.Y+55)), 11, 0, rl.Black)
 		}
 	}
 }

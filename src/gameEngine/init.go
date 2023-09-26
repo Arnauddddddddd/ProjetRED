@@ -206,7 +206,7 @@ func initt(engine *EngineStruct) {
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Totem", "special", "This totem allows anyone to regain \nall their vitality instantly", rl.LoadTexture("../texture/PropsInPixels_16x/totem.png"), 0, 5000, 0, true, true, true, 1})
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Axe", "By using this axe, you fight \nthe rest of the fight with it and will \ninflict an additional 150 damage on you.", rl.LoadTexture("../texture/PropsInPixels_16x/axe.png"), 0, 0, 0, false, true, false, 1})
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Flask", "By using this item, your damage will be \ndoubled during your fight, if you \ntook a fork or an ax before, this additional \ndamage will also be doubled", rl.LoadTexture("../texture/PropsInPixels_16x/flask.png"), engine.character.damageBase, 0, 0, false, true, true, 1})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Dead item", "dead", "By using this item, your damage will be \ndoubled during your fight, if you \ntook a fork or an ax before, this additional \ndamage will also be doubled", rl.LoadTexture("../texture/PropsInPixels_16x/dead2.png"), 0, 0, 0, false, false, true, 1})
+	//engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Dead item", "dead", "By using this item, your damage will be \ndoubled during your fight, if you \ntook a fork or an ax before, this additional \ndamage will also be doubled", rl.LoadTexture("../texture/PropsInPixels_16x/dead2.png"), 0, 0, 0, false, false, true, 1})
 	
 
 	engine.shopKeeper.Src = rl.NewRectangle(0, 0, 32, 32)

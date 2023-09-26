@@ -27,9 +27,9 @@ func shopSelector(engine *EngineStruct) {
 	line3 := false
 	for i := 0; i < len(engine.shopKeeper.items); i++ {
 		if i < 3 {
-			if rl.IsMouseButtonPressed(rl.MouseLeftButton) && int32(690 + 80*i) < rl.GetMouseX() && rl.GetMouseX() < int32(690 + 80*i +80) && int32(20+150) < rl.GetMouseY() && rl.GetMouseY() < int32(100+150) {
+			if rl.IsMouseButtonPressed(rl.MouseLeftButton) && int32(670 + 89*i) < rl.GetMouseX() && rl.GetMouseX() < int32(670 + 89*i +89) && int32(20+150) < rl.GetMouseY() && rl.GetMouseY() < int32(100+150) {
 				buy(engine, i)
-			} else if int32(690 + 80*i) < rl.GetMouseX() && rl.GetMouseX() < int32(690 + 80*i +80) && int32(20+150) < rl.GetMouseY() && rl.GetMouseY() < int32(100+150) {
+			} else if int32(670 + 89*i) < rl.GetMouseX() && rl.GetMouseX() < int32(670 + 89*i +89) && int32(20+150) < rl.GetMouseY() && rl.GetMouseY() < int32(100+150) {
 				engine.shopKeeper.showPrice[0] = 1
 				engine.shopKeeper.showPrice[1] = i
 				line1 = true
@@ -38,20 +38,22 @@ func shopSelector(engine *EngineStruct) {
 	}
 	if len(engine.shopKeeper.items) > 3 {
 		for j := 3; j < len(engine.shopKeeper.items); j++ {
-			if rl.IsMouseButtonPressed(rl.MouseLeftButton) && int32(690 + 80*(j-3)) < rl.GetMouseX() && rl.GetMouseX() < int32(690 + 80*(j-3)+80) && int32(100+150) < rl.GetMouseY() && rl.GetMouseY() < int32(180+150) {
-				buy(engine, j)
-			} else if int32(690 + 80*(j-3)) < rl.GetMouseX() && rl.GetMouseX() < int32(690 + 80*(j-3)+80) && int32(100+150) < rl.GetMouseY() && rl.GetMouseY() < int32(180+150) {
-				engine.shopKeeper.showPrice[0] = 1
-				engine.shopKeeper.showPrice[1] = j
-				line2 = true
+			if j < 6 {
+				if rl.IsMouseButtonPressed(rl.MouseLeftButton) && int32(670 + 89*(j-3)) < rl.GetMouseX() && rl.GetMouseX() < int32(670 + 89*(j-3)+89) && int32(100+150) < rl.GetMouseY() && rl.GetMouseY() < int32(189+150) {
+					buy(engine, j)
+				} else if int32(670 + 89*(j-3)) < rl.GetMouseX() && rl.GetMouseX() < int32(670 + 89*(j-3)+89) && int32(100+150) < rl.GetMouseY() && rl.GetMouseY() < int32(189+150) {
+					engine.shopKeeper.showPrice[0] = 1
+					engine.shopKeeper.showPrice[1] = j
+					line2 = true
+				}
 			}
 		}
 	}
 	if len(engine.shopKeeper.items) > 6 {
 		for k := 6; k < len(engine.shopKeeper.items); k++ {
-			if rl.IsMouseButtonPressed(rl.MouseLeftButton) && int32(690 + 80*(k-6)) < rl.GetMouseX() && rl.GetMouseX() < int32(690 + 80*(k-6) +80) && int32(180+150) < rl.GetMouseY() && rl.GetMouseY() < int32(260+150) {
+			if rl.IsMouseButtonPressed(rl.MouseLeftButton) && int32(670 + 89*(k-6)) < rl.GetMouseX() && rl.GetMouseX() < int32(670 + 89*(k-6) +89) && int32(189+150) < rl.GetMouseY() && rl.GetMouseY() < int32(260+160) {
 				buy(engine, k)
-			} else if int32(690 + 80*(k-6)) < rl.GetMouseX() && rl.GetMouseX() < int32(690 + 80*(k-6) +80) && int32(180+150) < rl.GetMouseY() && rl.GetMouseY() < int32(260+150) {
+			} else if int32(670 + 89*(k-6)) < rl.GetMouseX() && rl.GetMouseX() < int32(670 + 89*(k-6) +89) && int32(189+150) < rl.GetMouseY() && rl.GetMouseY() < int32(260+160) {
 				engine.shopKeeper.showPrice[0] = 1
 				engine.shopKeeper.showPrice[1] = k
 				line3 = true
