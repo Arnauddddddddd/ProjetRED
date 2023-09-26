@@ -15,6 +15,9 @@ func drawScene(engine *EngineStruct) {
 
 			if engine.bord.srcMap[i] == "g" {
 				engine.sprite.texture = engine.sprite.grass
+				engine.bord.tileSrc.X = 0
+				engine.bord.tileSrc.Y = 0
+				rl.DrawTexturePro(engine.sprite.grass, rl.NewRectangle(16*11, 32, 16, 16), engine.bord.tileDest, rl.NewVector2(engine.bord.tileDest.Width, engine.bord.tileDest.Height), 0, rl.White)
 			}
 			if engine.bord.srcMap[i] == "d" {
 				engine.sprite.texture = engine.sprite.donjon
@@ -40,14 +43,13 @@ func drawScene(engine *EngineStruct) {
 				engine.sprite.texture = engine.sprite.tilled
 				engine.bord.tileSrc.X = 0
 				engine.bord.tileSrc.Y = 0
-				rl.DrawTexturePro(engine.sprite.tilled, rl.NewRectangle(16, 32, 16, 16), engine.bord.tileDest, rl.NewVector2(engine.bord.tileDest.Width, engine.bord.tileDest.Height), 0, rl.White)
+				rl.DrawTexturePro(engine.sprite.tilled, rl.NewRectangle(16*11, 32, 16, 16), engine.bord.tileDest, rl.NewVector2(engine.bord.tileDest.Width, engine.bord.tileDest.Height), 0, rl.White)
 			}
 
 			if engine.bord.srcMap[i] == "h" || engine.bord.srcMap[i] == "f" { // si il y a une barrière ou une maison on met de l'herbe en dessous
 				engine.bord.tileSrc.X = 0
 				engine.bord.tileSrc.Y = 0
-				rl.DrawTexturePro(engine.sprite.house, rl.NewRectangle(16, 32, 16, 16), engine.bord.tileDest, rl.NewVector2(engine.bord.tileDest.Width, engine.bord.tileDest.Height), 0, rl.White)
-			}
+				rl.DrawTexturePro(engine.sprite.donjon, rl.NewRectangle(16, 64, 16, 16), engine.bord.tileDest, rl.NewVector2(engine.bord.tileDest.Width, engine.bord.tileDest.Height), 0, rl.White)			}
 
 			engine.bord.tileSrc.X = engine.bord.tileSrc.Width * float32((engine.bord.tileMap[i]-1)%int(engine.sprite.texture.Width/int32(engine.bord.tileSrc.Width)))
 			engine.bord.tileSrc.Y = engine.bord.tileSrc.Height * float32((engine.bord.tileMap[i]-1)/int(engine.sprite.texture.Width/int32(engine.bord.tileSrc.Width)))
