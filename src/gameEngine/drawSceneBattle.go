@@ -13,10 +13,13 @@ func drawSceneBattle(engine *EngineStruct) {
 	//rl.BeginMode2D(engine.cam)
 
 
-
 	rl.DrawTexture(engine.sprite.bgForest, 0, 0, rl.White)
-	rl.DrawText(strconv.Itoa(engine.character.hp), 50, 50, 30, rl.Black)
-	rl.DrawText(strconv.Itoa(engine.monster[engine.monsterBattle].hp), int32(engine.player.Dest.X)+600, int32(engine.player.Dest.Y)-400, 30, rl.Black)
+
+	rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*4, 0, 16*3, 16*2), rl.NewRectangle(210, 150, 16*3*3+20, 16*2*3), rl.NewVector2(16*3*3+20, 16*2*3), 0, rl.White)
+	rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*4, 0, 16*3, 16*2), rl.NewRectangle(1550, 150, 16*3*3+20, 16*2*3), rl.NewVector2(16*3*3+20, 16*2*3), 0, rl.White)
+
+	rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.character.hp), rl.NewVector2(112, 87), 26, 0, rl.Black)
+	rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.monster[engine.monsterBattle].hp), rl.NewVector2(1410, 87), 26, 0, rl.Black)
 
 	rl.DrawTexturePro(engine.monster[engine.monsterBattle].sprite, rl.NewRectangle(engine.monster[engine.monsterBattle].Src.X+float32(engine.monster[engine.monsterBattle].Xstart), engine.monster[engine.monsterBattle].Src.Y, engine.monster[engine.monsterBattle].Src.Width*-1, engine.monster[engine.monsterBattle].Src.Height), rl.NewRectangle(screenWidth-400-engine.monster[engine.monsterBattle].Dest.Width/2, screenHeight/2-50-engine.monster[engine.monsterBattle].Dest.Height/2, engine.monster[engine.monsterBattle].Dest.Width*6, engine.monster[engine.monsterBattle].Dest.Height*6), rl.NewVector2(engine.monster[engine.monsterBattle].Dest.Width, engine.monster[engine.monsterBattle].Dest.Height), 0, rl.White)
 

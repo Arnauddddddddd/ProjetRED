@@ -36,6 +36,11 @@ func updateBattle (engine *EngineStruct) {
 		if rl.IsMouseButtonPressed(rl.MouseLeftButton) &&  (1140 < rl.GetMouseX() && rl.GetMouseX() <  1492 && 758 < rl.GetMouseY() && rl.GetMouseY() < 840) {
 			fmt.Println(rl.GetMouseX())
 		}
+		if (1140 < rl.GetMouseX() && rl.GetMouseX() <  1492 && 758 < rl.GetMouseY() && rl.GetMouseY() < 840) {
+			engine.sprite.buttonBattleFattality = engine.sprite.buttonBattlePressed[1]
+		} else {
+			engine.sprite.buttonBattleFattality = engine.sprite.buttonBattlePressed[0]
+		}
 		if engine.monster[engine.monsterBattle].hp <= 0 {
 			engine.character.gold += engine.monster[engine.monsterBattle].goldLoot
 			engine.character.damage = engine.character.damageBase
