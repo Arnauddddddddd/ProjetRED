@@ -26,7 +26,7 @@ func loadMap(engine *EngineStruct, mapPath string ) {
 		} else if engine.bord.mapH == -1 {
 			engine.bord.mapH = m
 		} else if i < engine.bord.mapW * engine.bord.mapH+2 {
-			engine.bord.tileMap = append(engine.bord.tileMap, m)
+			engine.bord.tileMap = append(engine.bord.tileMap, m+1)
 		} else {
 			engine.bord.srcMap = append(engine.bord.srcMap, sliced[i])
 		}

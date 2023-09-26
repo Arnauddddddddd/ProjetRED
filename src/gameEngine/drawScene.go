@@ -34,10 +34,13 @@ func drawScene(engine *EngineStruct) {
 			}
 			if engine.bord.srcMap[i] == "w" {
 				engine.sprite.texture = engine.sprite.water
-				engine.bord.colisionList = append(engine.bord.colisionList, []float32{engine.bord.tileDest.X, engine.bord.tileDest.Y})
+				//engine.bord.colisionList = append(engine.bord.colisionList, []float32{engine.bord.tileDest.X, engine.bord.tileDest.Y})
 			}
 			if engine.bord.srcMap[i] == "t" {
 				engine.sprite.texture = engine.sprite.tilled
+				engine.bord.tileSrc.X = 0
+				engine.bord.tileSrc.Y = 0
+				rl.DrawTexturePro(engine.sprite.tilled, rl.NewRectangle(16, 32, 16, 16), engine.bord.tileDest, rl.NewVector2(engine.bord.tileDest.Width, engine.bord.tileDest.Height), 0, rl.White)
 			}
 
 			if engine.bord.srcMap[i] == "h" || engine.bord.srcMap[i] == "f" { // si il y a une barrière ou une maison on met de l'herbe en dessous

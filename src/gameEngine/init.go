@@ -175,12 +175,12 @@ func initt(engine *EngineStruct) {
 	//engine.monster = append(engine.monster, monsterStruct{"samurai", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/Samurai.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(800, 450, 64, 50), 0, 9, 0, 0, 8, 12})
 	engine.monster = append(engine.monster, monsterStruct{"demon", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/demon.png"), rl.NewRectangle(0, 0, 32, 42), rl.NewRectangle(1572, 2130, 32, 42), 0, 2, 8, 0, 9, 12})
 
-	engine.sprite.grass = rl.LoadTexture("../texture/res/Tilesets/Grass.png")
+	engine.sprite.grass = rl.LoadTexture("../texture/fantasy_ [version 2.0] (2)/fantasy_ [version 2.0]/forest_/forest_.png")
 	engine.sprite.donjon = rl.LoadTexture("../texture/DungeonTilesetII_v1.6/donjon.png")
 	engine.sprite.donjon2 = rl.LoadTexture("../texture/res/Tilesets/Dungeon_Tileset.png")
 	engine.sprite.house = rl.LoadTexture("../texture/res/Tilesets/Wooden House.png")
 	engine.sprite.water = rl.LoadTexture("../texture/res/Tilesets/Water.png")
-	engine.sprite.tilled = rl.LoadTexture("../texture/res/Tilesets/Tilled Dirt.png")
+	engine.sprite.tilled = rl.LoadTexture("../texture/fantasy_ [version 2.0] (2)/fantasy_ [version 2.0]/desert_/desert_.png")
 	engine.sprite.invBar = rl.LoadTexture("../texture/Retro Inventory/Original/Inventory_Example_04.png")
 	engine.sprite.heart = rl.LoadTexture("../texture/PropsInPixels_16x/heart.png")
 	engine.sprite.heartContainer = rl.LoadTexture("../texture/PropsInPixels_16x/heartContainer.png")
@@ -239,7 +239,7 @@ func initt(engine *EngineStruct) {
 	engine.musicPaused = false
 	rl.PlayMusicStream(engine.music)
 
-	engine.cam = rl.NewCamera2D(rl.NewVector2(float32(screenWidth/2), float32(screenHeight/2)), rl.NewVector2(float32(engine.player.Dest.X - (engine.player.Dest.Width / 2)), float32(engine.player.Dest.Y - (engine.player.Dest.Height/2))), 0.0, 3.5)
+	engine.cam = rl.NewCamera2D(rl.NewVector2(float32(screenWidth/2), float32(screenHeight/2)), rl.NewVector2(float32(engine.player.Dest.X - (engine.player.Dest.Width / 2)), float32(engine.player.Dest.Y - (engine.player.Dest.Height/2))), 0.0, 4.0)
 
-	loadMap(engine, "../map.txt")
+	loadMap(engine, "../map2.txt")
 }
