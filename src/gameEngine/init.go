@@ -198,13 +198,16 @@ func initt(engine *EngineStruct) {
 	engine.menu.Src = rl.NewRectangle(0, 0, 500, 267)
 	engine.menu.Dest = rl.NewRectangle(float32(screenWidth), float32(screenHeight), 1600, 900)
 
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 40, 0, true, true, true, 1})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Kit", "Kit", "A healing kit", rl.LoadTexture("../texture/PropsInPixels_16x/kit.png"), 0, 500, 0, true, true, false, 1})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Fork", "a strengting item", rl.LoadTexture("../texture/PropsInPixels_16x/fork.png"), 100, 0, 0, false, true, false,1})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Improvement Item", "Improvement", "A", rl.LoadTexture("../texture/PropsInPixels_16x/star.png"), 50, 50, 0, true, false, false,1})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Key", "special", "A very nice key", rl.LoadTexture("../texture/PropsInPixels_16x/key.png"), 50, 50, 0, false, false, false, 1})
-
-
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Potion", "Potion", "A simple magic potion that restores you 50 hp", rl.LoadTexture("../texture/PropsInPixels_16x/potion.png"), 0, 50, 0, true, true, true, 1})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Kit", "Kit", "This healing kit regenerates you 250 hp", rl.LoadTexture("../texture/PropsInPixels_16x/kit.png"), 0, 500, 0, true, true, true, 1})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Fork", "By using this fork, you fight \nthe rest of the fight with it and will \ninflict an additional 50 damage on you.", rl.LoadTexture("../texture/PropsInPixels_16x/fork.png"), 0, 0, 0, false, true, false,1})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Improvement Item", "Improvement", "This power allows you to permanently\n increase your damage and health by 10%.", rl.LoadTexture("../texture/PropsInPixels_16x/star.png"), 0, 0, 0, true, false, false,1})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Key", "special", "The key to access the devastated lands", rl.LoadTexture("../texture/PropsInPixels_16x/key.png"), 50, 50, 0, false, false, false, 1})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Totem", "special", "This totem allows anyone to regain \nall their vitality instantly", rl.LoadTexture("../texture/PropsInPixels_16x/totem.png"), 0, 5000, 0, true, true, true, 1})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Axe", "By using this axe, you fight \nthe rest of the fight with it and will \ninflict an additional 150 damage on you.", rl.LoadTexture("../texture/PropsInPixels_16x/axe.png"), 0, 0, 0, false, true, false, 1})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Flask", "By using this item, your damage will be \ndoubled during your fight, if you \ntook a fork or an ax before, this additional \ndamage will also be doubled", rl.LoadTexture("../texture/PropsInPixels_16x/flask.png"), engine.character.damageBase, 0, 0, false, true, true, 1})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Dead item", "dead", "By using this item, your damage will be \ndoubled during your fight, if you \ntook a fork or an ax before, this additional \ndamage will also be doubled", rl.LoadTexture("../texture/PropsInPixels_16x/dead2.png"), 0, 0, 0, false, false, true, 1})
+	
 
 	engine.shopKeeper.Src = rl.NewRectangle(0, 0, 32, 32)
 

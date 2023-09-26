@@ -102,7 +102,7 @@ func drawScene(engine *EngineStruct) {
 		if engine.shopKeeper.showPrice[0] == 1 && len(engine.shopKeeper.items) > engine.shopKeeper.showPrice[1] {
 			rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].price), rl.NewVector2(float32(engine.player.Dest.X-27), float32(engine.player.Dest.Y-50)), 10, 0, rl.Black)
 			rl.DrawTexture(engine.sprite.money, int32(engine.player.Dest.X)-7, int32(engine.player.Dest.Y)-55, rl.White)
-			rl.DrawTextEx(engine.fontText, engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].description, rl.NewVector2(float32(engine.player.Dest.X-48), float32(engine.player.Dest.Y+25)), 10, 0, rl.Black)
+			rl.DrawTextEx(engine.fontText, engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].description, rl.NewVector2(float32(engine.player.Dest.X-48)-50, float32(engine.player.Dest.Y+25)), 10, 0, rl.Black)
 		}
 	}
 

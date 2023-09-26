@@ -1,6 +1,8 @@
 package gameEngine
 
 import (
+	"fmt"
+
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
@@ -81,21 +83,33 @@ func update(engine *EngineStruct) {
 						engine.monster[i].deadTime = 0
 					}
 				}
-				if rl.CheckCollisionRecs(engine.player.Dest, engine.monster[i].Dest) && engine.monster[i].alive {
+				if (rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(engine.monster[i].Dest.X, engine.monster[i].Dest.Y - 32 - engine.monster[i].Dest.Height, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(engine.monster[i].Dest.X-32 - engine.monster[i].Dest.Width, engine.monster[i].Dest.Y - 32 - engine.monster[i].Dest.Height, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(engine.monster[i].Dest.X+32, engine.monster[i].Dest.Y, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(engine.monster[i].Dest.X-32 - engine.monster[i].Dest.Width, engine.monster[i].Dest.Y, 64, 64)))) && engine.monster[i].alive {
+					fmt.Println(engine.player.Dest)
 					engine.battle = true
 					engine.monsterBattle = i
+					// a remettre pour lancer les combats
 				}
 			}
 
-			if rl.CheckCollisionRecs(engine.player.Dest, engine.shopKeeper.Dest) || rl.CheckCollisionRecs(rl.NewRectangle(686, 1153, 32, 32),engine.player.Dest) {
+			if ((rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(engine.shopKeeper.Dest.X, engine.shopKeeper.Dest.Y - 32 - engine.shopKeeper.Dest.Height, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(engine.shopKeeper.Dest.X-32 - engine.shopKeeper.Dest.Width, engine.shopKeeper.Dest.Y - 32 - engine.shopKeeper.Dest.Height, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(engine.shopKeeper.Dest.X, engine.shopKeeper.Dest.Y, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(engine.shopKeeper.Dest.X-32 - engine.shopKeeper.Dest.Width, engine.shopKeeper.Dest.Y, 64, 64))))) ||
+				((rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(686, 1153 - 32 - engine.shopKeeper.Dest.Height, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(686- 32 - engine.shopKeeper.Dest.Width, 1153 - 32 - engine.shopKeeper.Dest.Height, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(686, engine.shopKeeper.Dest.Y, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(686 - engine.shopKeeper.Dest.Width, 1153, 64, 64))))) {
 				engine.shop = true
 			} else {
 				engine.shop = false
 			}
-
+			//686, 1153
 			if !engine.doorOpenKey {
 				if 1020 < engine.player.Dest.X && engine.player.Dest.X < 1130 && 1510 < engine.player.Dest.Y && engine.player.Dest.Y < 1590 {
-					for i := range engine.character.inventory {
+					for i := 0; i < len(engine.character.inventory); i++ {
 						if engine.character.inventory[i].name == "Key" {
 							engine.doorOpenKey = true
 							engine.character.inventory = append(engine.character.inventory[:i], engine.character.inventory[i+1:]...)

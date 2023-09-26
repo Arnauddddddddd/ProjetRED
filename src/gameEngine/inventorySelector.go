@@ -28,6 +28,12 @@ func inventoryEffect(engine *EngineStruct, u int) {
 		if engine.character.hp >= engine.character.hpMax {
 			engine.character.hp = engine.character.hpMax
 		}
+		if engine.character.inventory[u].gender == "Axe" {
+			engine.monster[engine.monsterBattle].hp -= 250
+		}
+		if engine.character.inventory[u].gender == "Fork" {
+			engine.monster[engine.monsterBattle].hp -= 100
+		}
 		engine.playerTurn = false
 		engine.character.inventory = append(engine.character.inventory[:u], engine.character.inventory[u+1:]...)
 
@@ -38,6 +44,7 @@ func inventoryEffect(engine *EngineStruct, u int) {
 			engine.character.hpMax += 50
 			engine.character.damageBase += 50
 			engine.character.damage += 50
+			engine.character.hp += 5000
 		}
 		if engine.character.hp >= engine.character.hpMax {
 			engine.character.hp = engine.character.hpMax
