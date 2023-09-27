@@ -73,6 +73,7 @@ type monsterStruct struct {
 	goldLoot int
 	increase int
 	where string
+	turn bool
 }
 
 type itemStruct struct {
@@ -164,30 +165,30 @@ func initt(engine *EngineStruct) {
 
 	engine.player.Speed = 1
 
-	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 900, true, rl.LoadTexture("../texture/monster/slime.png"), rl.NewRectangle(0, 0, -32, 32), rl.NewRectangle(1577, 1596, 32, 32), 0, 3, 0, 320, 8, 12, 6, "jungle"})
-	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 900, true, rl.LoadTexture("../texture/monster/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1437, 1448, 32, 32), 0, 3, 0, 0, 8, 12,  6,"jungle"})
-	engine.monster = append(engine.monster, monsterStruct{"l'escargos", 100, 100, 30, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(5, 370, 16, 30), rl.NewRectangle(1600, 860, 16, 30), 0, 7, 0, 367, 8, 25,  6,"jungle"})
-	engine.monster = append(engine.monster, monsterStruct{"l'escargos", 100, 100, 30, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(5, 370, 16, 30), rl.NewRectangle(1400, 800, 16, 30), 0, 7, 0, 367, 8, 25,  6,"jungle"})
-	engine.monster = append(engine.monster, monsterStruct{"el diablos", 30, 30, 30, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 64, 16, 16), rl.NewRectangle(1544, 778, 16, 16), 0, 7, 0, 367, 8, 15,  6,"jungle"})
-	engine.monster = append(engine.monster, monsterStruct{"blue knight", 100, 100, 50, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 100, 16, 32), rl.NewRectangle(1250, 930, 16, 32), 0, 5, 0, 128, 8, 50,  6,"jungle"})
+	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/monster/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1577, 1596, 32, 32), 0, 3, 0, 0, 8, 12, 6, "jungle", false})
+	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/monster/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1437, 1448, 32, 32), 0, 3, 0, 0, 8, 12,  6,"jungle", false})
+	engine.monster = append(engine.monster, monsterStruct{"l'escargos", 100, 100, 30, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(5, 370, 16, 30), rl.NewRectangle(1600, 860, 16, 30), 0, 7, 0, 2, 8, 25,  6,"jungle", false})
+	engine.monster = append(engine.monster, monsterStruct{"l'escargos", 100, 100, 30, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(5, 370, 16, 30), rl.NewRectangle(1400, 800, 16, 30), 0, 7, 0, 2, 8, 25,  6,"jungle", false})
+	engine.monster = append(engine.monster, monsterStruct{"el diablos", 30, 30, 30, 0, true, rl.LoadTexture("../texture/monsterdonjon2.2.png"), rl.NewRectangle(0, 64, 16, 16), rl.NewRectangle(1544, 778, 16, 16), 0, 7, 0, 0, 8, 15,  6,"jungle", false})
+	engine.monster = append(engine.monster, monsterStruct{"blue knight", 100, 100, 50, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 100, 16, 32), rl.NewRectangle(1250, 930, 16, 32), 0, 5, 0, 128, 8, 50,  6,"jungle", false})
 	
-	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(443, 1029, 64, 38), 0, 4, 0, 0, 8, 12, 6,"desert"})
-	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(399, 1185, 64, 38), 0, 4, 0, 0, 8, 12, 6,"desert"})
-	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(287, 1367, 64, 38), 0, 4, 0, 0, 8, 12, 6,"desert"})
-	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(700, 1370, 64, 38), 0, 4, 0, 0, 8, 12, 6,"desert"})
-	engine.monster = append(engine.monster, monsterStruct{"el diablos2", 30, 30, 30, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 272, 16, 24), rl.NewRectangle(923, 1310, 16, 24), 0, 7, 0, 367, 8, 15,  6,"desert"})
-	engine.monster = append(engine.monster, monsterStruct{"el diablos2", 30, 30, 30, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 272, 16, 24), rl.NewRectangle(409, 1425, 16, 24), 0, 7, 0, 367, 8, 15,  6,"desert"})
-	engine.monster = append(engine.monster, monsterStruct{"knight", 500, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(741, 929, 64, 50), 0, 2, 4, 3, 8, 12,  6,"desert"})
-	engine.monster = append(engine.monster, monsterStruct{"knight", 500, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(791, 929, 64, 50), 0, 2, 4, 3, 8, 12,  6,"desert"})
+	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(443, 1029, 64, 38), 0, 4, 0, 0, 8, 12,  6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(399, 1185, 64, 38), 0, 4, 0, 0, 8, 12,  6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(287, 1367, 64, 38), 0, 4, 0, 0, 8, 12,  6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(700, 1370, 64, 38), 0, 4, 0, 0, 8, 12,  6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"el diablos2", 30, 30, 30, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 272, 16, 24), rl.NewRectangle(923, 1310, 16, 24), 0, 7, 0, 368, 8, 15,  6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"el diablos2", 30, 30, 30, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 272, 16, 24), rl.NewRectangle(409, 1425, 16, 24), 0, 7, 0, 368, 8, 15,  6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"knight", 500, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(741, 929, 64, 50), 0, 2, 4, 3, 8, 12,  6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"knight", 500, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(791, 929, 64, 50), 0, 2, 4, 3, 8, 12,  6,"desert", false})
 	
-	engine.monster = append(engine.monster, monsterStruct{"demon", 800, 800, 80, 0, true, rl.LoadTexture("../texture/monster/demon.png"), rl.NewRectangle(0, 0, 32, 42), rl.NewRectangle(328, 768, 32, 42), 0, 2, 8, 0, 9, 12,  6,"dungeon"})
-	engine.monster = append(engine.monster, monsterStruct{"samurai", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/Samurai.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(507, 607, 64, 50), 0, 7, 0, 50, 12, 20,  6,"dungeon"})
-	engine.monster = append(engine.monster, monsterStruct{"goblin", 600, 600, 60, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 380, -32, 40), rl.NewRectangle(1113, 680, 32, 40), 0, 2, 0, 16+32, 16, 20,  6,"dungeon"})
-	engine.monster = append(engine.monster, monsterStruct{"goblin", 600, 600, 60, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 380, -32, 40), rl.NewRectangle(1113, 820, 32, 40), 0, 2, 0, 16, 16, 20,  6,"dungeon"})
-	engine.monster = append(engine.monster, monsterStruct{"golem", 600, 600, 60, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 326, -32, 40), rl.NewRectangle(931, 670, 32, 40), 0, 2, 0, 16, 12, 20,  6,"dungeon"})
-	engine.monster = append(engine.monster, monsterStruct{"knight", 1000, 1000, 100, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(335, 510, 64, 50), 0, 9, 9, 3, 8, 12,  6,"dungeon"})
+	engine.monster = append(engine.monster, monsterStruct{"demon", 800, 800, 80, 0, true, rl.LoadTexture("../texture/monster/demon.png"), rl.NewRectangle(0, 0, 32, 42), rl.NewRectangle(328, 768, 32, 42), 0, 2, 8, 0, 9, 12,  6,"dungeon", false})
+	engine.monster = append(engine.monster, monsterStruct{"samurai", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/Samurai.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(507, 607, 64, 50), 0, 7, 0, 50, 12, 20,  6,"dungeon", false})
+	engine.monster = append(engine.monster, monsterStruct{"goblin", 600, 600, 60, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 380, 32, 40), rl.NewRectangle(1113, 680, 32, 40), 0, 2, 0, 848, 16, 20,  6,"dungeon", true})
+	engine.monster = append(engine.monster, monsterStruct{"goblin", 600, 600, 60, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 380, 32, 40), rl.NewRectangle(1113, 820, 32, 40), 0, 2, 0, 848, 16, 20,  6,"dungeon", true})
+	engine.monster = append(engine.monster, monsterStruct{"golem", 600, 600, 60, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 326, 32, 40), rl.NewRectangle(931, 670, 32, 40), 0, 2, 0, 848, 12, 20,  6,"dungeon", true})
+	engine.monster = append(engine.monster, monsterStruct{"knight", 1000, 1000, 100, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(335, 510, 64, 50), 0, 9, 9, 3, 8, 12,  6,"dungeon", false})
 	
-	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/monster/slime.png"), rl.NewRectangle(0, 0, -32, 32), rl.NewRectangle(1577, 410, 265, 256), 0, 3, 0, 320, 8, 12,  6,"dungeon"})
+	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/monster/slime.png"), rl.NewRectangle(0, 0, -32, 32), rl.NewRectangle(1577, 410, 265, 256), 0, 3, 0, 320, 8, 12,  6,"dungeon", false})
 	
 
 	engine.sprite.grass = rl.LoadTexture("../texture/map/forest_.png")
@@ -198,6 +199,7 @@ func initt(engine *EngineStruct) {
 	engine.sprite.tilled = rl.LoadTexture("../texture/map/desert_.png")
 	engine.sprite.invBar = rl.LoadTexture("../texture/inventory/Inventory_Example_04.png")
 	engine.sprite.heart = rl.LoadTexture("../texture/shop/heart.png")
+
 	engine.sprite.money = rl.LoadTexture("../texture/shop/money.png")
 	engine.sprite.layer = rl.LoadTexture("../texture/calque.png")
 	engine.sprite.bgForest = rl.LoadTexture("../texture/battle/game_background_4.png")

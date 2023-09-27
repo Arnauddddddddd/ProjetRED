@@ -26,13 +26,16 @@ func drawSceneBattle(engine *EngineStruct) {
 
 	rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.character.hp), rl.NewVector2(112, 87), 26, 0, rl.Black)
 	rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.monster[engine.battle.monsterBattle].hp), rl.NewVector2(1410, 87), 26, 0, rl.Black)
-	var sign float32 = -1.0
-	if engine.monster[engine.battle.monsterBattle].Src.Width < 0 {
-		sign = 1.0
-	}
-	monsterSrc := rl.NewRectangle(engine.monster[engine.battle.monsterBattle].Src.X+float32(engine.monster[engine.battle.monsterBattle].Xstart), engine.monster[engine.battle.monsterBattle].Src.Y, engine.monster[engine.battle.monsterBattle].Src.Width*sign, engine.monster[engine.battle.monsterBattle].Src.Height)
+
+	var monsterSrc rl.Rectangle
 	monsterDest := rl.NewRectangle(screenWidth/2+300, screenHeight/2-engine.monster[engine.battle.monsterBattle].Src.Height/2, engine.monster[engine.battle.monsterBattle].Src.Width*float32(engine.monster[engine.battle.monsterBattle].increase), engine.monster[engine.battle.monsterBattle].Src.Height*float32(engine.monster[engine.battle.monsterBattle].increase))
+	if !engine.monster[engine.battle.monsterBattle].turn {
+		monsterSrc = rl.NewRectangle(engine.monster[engine.battle.monsterBattle].Src.X+float32(engine.monster[engine.battle.monsterBattle].Xstart), engine.monster[engine.battle.monsterBattle].Src.Y, engine.monster[engine.battle.monsterBattle].Src.Width*-1, engine.monster[engine.battle.monsterBattle].Src.Height)
+	} else {
+		monsterSrc = rl.NewRectangle(engine.monster[engine.battle.monsterBattle].Src.X+float32(engine.monster[engine.battle.monsterBattle].Xstart), engine.monster[engine.battle.monsterBattle].Src.Y, engine.monster[engine.battle.monsterBattle].Src.Width, engine.monster[engine.battle.monsterBattle].Src.Height)
+	}
 	rl.DrawTexturePro(engine.monster[engine.battle.monsterBattle].sprite, monsterSrc, monsterDest, rl.NewVector2(engine.monster[engine.battle.monsterBattle].Dest.Width, engine.monster[engine.battle.monsterBattle].Dest.Height), 0, rl.White)
+
 
 	engine.player.Src.X = 16*3
 	rl.DrawTexturePro(engine.player.Sprite, engine.player.Src, rl.NewRectangle(350, 500, engine.player.Dest.Width*6, engine.player.Dest.Height*6), rl.NewVector2(engine.player.Dest.Width, engine.player.Dest.Height), 0, rl.White)
