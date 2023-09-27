@@ -72,7 +72,7 @@ type monsterStruct struct {
 	Xstart int
 	speedFrame int
 	goldLoot float32
-	increase int
+	increase float32
 	where string
 	turn bool
 }
@@ -190,7 +190,7 @@ func initt(engine *EngineStruct) {
 	engine.monster = append(engine.monster, monsterStruct{"golem", 600, 600, 60, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 326, 32, 40), rl.NewRectangle(931, 670, 32, 40), 0, 2, 0, 848, 12, 20,  6,"dungeon", true})
 	engine.monster = append(engine.monster, monsterStruct{"knight", 1000, 1000, 100, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(335, 510, 64, 50), 0, 9, 9, 3, 8, 12,  6,"dungeon", false})
 	
-	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/monster/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1577, 410, 265, 256), 0, 3, 0, 320, 8, 12,  1,"dungeon", false})
+	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/monster/slime2.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1577, 410, 32*8, 32*8), 0, 3, 0, 320, 8, 12,  40,"dungeon", false})
 	
 
 	engine.sprite.grass = rl.LoadTexture("../texture/map/forest_.png")

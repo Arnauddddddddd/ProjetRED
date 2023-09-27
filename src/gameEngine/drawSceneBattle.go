@@ -30,15 +30,20 @@ func drawSceneBattle(engine *EngineStruct) {
 	rl.DrawTexturePro(engine.sprite.yellowHeart, rl.NewRectangle(0, 0, 16, 16), rl.NewRectangle(1575, 133, 16*4, 16*4), rl.NewVector2(16*4, 16*4), 0, rl.White)
 	rl.DrawTexturePro(engine.sprite.redHeart, rl.NewRectangle(0, 0, 16, 16), rl.NewRectangle(90, 133, 16*4, 16*4), rl.NewVector2(16*4, 16*4), 0, rl.White)
 
-	var monsterSrc rl.Rectangle
-	monsterDest := rl.NewRectangle(screenWidth/2+300, screenHeight/2-engine.monster[engine.battle.monsterBattle].Src.Height/2, engine.monster[engine.battle.monsterBattle].Src.Width*float32(engine.monster[engine.battle.monsterBattle].increase), engine.monster[engine.battle.monsterBattle].Src.Height*float32(engine.monster[engine.battle.monsterBattle].increase))
-	if !engine.monster[engine.battle.monsterBattle].turn {
-		monsterSrc = rl.NewRectangle(engine.monster[engine.battle.monsterBattle].Src.X+float32(engine.monster[engine.battle.monsterBattle].Xstart), engine.monster[engine.battle.monsterBattle].Src.Y, engine.monster[engine.battle.monsterBattle].Src.Width*-1, engine.monster[engine.battle.monsterBattle].Src.Height)
-	} else {
+	var monsterSrc, monsterDest rl.Rectangle
+	if engine.battle.monsterBattle == len(engine.monster)-1 {
+		monsterDest = rl.NewRectangle(screenWidth/2-250, screenHeight/2-650, engine.monster[engine.battle.monsterBattle].Src.Width*engine.monster[engine.battle.monsterBattle].increase, engine.monster[engine.battle.monsterBattle].Src.Height*engine.monster[engine.battle.monsterBattle].increase)
 		monsterSrc = rl.NewRectangle(engine.monster[engine.battle.monsterBattle].Src.X+float32(engine.monster[engine.battle.monsterBattle].Xstart), engine.monster[engine.battle.monsterBattle].Src.Y, engine.monster[engine.battle.monsterBattle].Src.Width, engine.monster[engine.battle.monsterBattle].Src.Height)
+	} else {
+		monsterDest = rl.NewRectangle(screenWidth/2+300, screenHeight/2-engine.monster[engine.battle.monsterBattle].Src.Height/2, engine.monster[engine.battle.monsterBattle].Src.Width*engine.monster[engine.battle.monsterBattle].increase, engine.monster[engine.battle.monsterBattle].Src.Height*engine.monster[engine.battle.monsterBattle].increase)
+		if !engine.monster[engine.battle.monsterBattle].turn {
+			monsterSrc = rl.NewRectangle(engine.monster[engine.battle.monsterBattle].Src.X+float32(engine.monster[engine.battle.monsterBattle].Xstart), engine.monster[engine.battle.monsterBattle].Src.Y, engine.monster[engine.battle.monsterBattle].Src.Width*-1, engine.monster[engine.battle.monsterBattle].Src.Height)
+		} else {
+			monsterSrc = rl.NewRectangle(engine.monster[engine.battle.monsterBattle].Src.X+float32(engine.monster[engine.battle.monsterBattle].Xstart), engine.monster[engine.battle.monsterBattle].Src.Y, engine.monster[engine.battle.monsterBattle].Src.Width, engine.monster[engine.battle.monsterBattle].Src.Height)
+		}
 	}
-	rl.DrawTexturePro(engine.monster[engine.battle.monsterBattle].sprite, monsterSrc, monsterDest, rl.NewVector2(engine.monster[engine.battle.monsterBattle].Dest.Width, engine.monster[engine.battle.monsterBattle].Dest.Height), 0, rl.White)
-
+	
+	rl.DrawTexturePro(engine.monster[engine.battle.monsterBattle].sprite, monsterSrc, monsterDest, rl.NewVector2(engine.monster[engine.battle.monsterBattle].Src.Width, engine.monster[engine.battle.monsterBattle].Src.Height), 0, rl.White)
 
 	engine.player.Src.X = 16*3
 	rl.DrawTexturePro(engine.player.Sprite, engine.player.Src, rl.NewRectangle(350, 500, engine.player.Dest.Width*6, engine.player.Dest.Height*6), rl.NewVector2(engine.player.Dest.Width, engine.player.Dest.Height), 0, rl.White)
