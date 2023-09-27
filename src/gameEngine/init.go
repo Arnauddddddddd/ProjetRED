@@ -58,9 +58,9 @@ type spriteStruct struct {
 
 type monsterStruct struct {
 	name string
-	hp int
-	hpMax int
-	damage int
+	hp float32
+	hpMax float32
+	damage float32
 	speed int
 	alive bool
 	sprite rl.Texture2D
@@ -71,7 +71,7 @@ type monsterStruct struct {
 	deadTime int
 	Xstart int
 	speedFrame int
-	goldLoot int
+	goldLoot float32
 	increase int
 	where string
 	turn bool
@@ -82,24 +82,24 @@ type itemStruct struct {
 	gender string
 	description string
 	sprite rl.Texture2D
-	damageUp int
-	hpUp int
-	speedUp int
+	damageUp float32
+	hpUp float32
+	speedUp float32
 	outBattle bool
 	battle bool
 	infinitySale bool
-	price int
+	price float32
 }
 
 type charcacterStruct struct {
 	name string
-	hp int
-	hpMax int
-	damage int
-	damageBase int
+	hp float32
+	hpMax float32
+	damage float32
+	damageBase float32
 	speed int
 	class string
-	gold int
+	gold float32
 	inventory []itemStruct
 	showInventory bool
 	showText bool
@@ -222,7 +222,7 @@ func initt(engine *EngineStruct) {
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Potion", "Potion", "A simple magic potion that restores you 50 hp", rl.LoadTexture("../texture/shop/potion.png"), 0, 50, 0, true, true, true, 1})
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Kit", "Kit", "This healing kit regenerates you 250 hp", rl.LoadTexture("../texture/shop/kit.png"), 0, 500, 0, true, true, true, 1})
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Fork", "By using this fork, you fight \nthe rest of the fight with it and will \ninflict an additional 50 damage on you.", rl.LoadTexture("../texture/shop/fork.png"), 0, 0, 0, false, true, false,1})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Improvement Item", "Improvement", "This power allows you to permanently\n increase your damage and health by 10%.", rl.LoadTexture("../texture/shop/star.png"), 0, 0, 0, true, false, false,1})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Improvement Item", "Improvement", "This power allows you to permanently\n increase your damage and health by 10%.", rl.LoadTexture("../texture/shop/star.png"), 0, 0, 0, true, false, true, 1})
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Key", "special", "The key to access the devastated lands", rl.LoadTexture("../texture/shop/key.png"), 50, 50, 0, false, false, false, 1})
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Totem", "special", "This totem allows anyone to regain \nall their vitality instantly", rl.LoadTexture("../texture/shop/totem.png"), 0, 5000, 0, true, true, true, 1})
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Axe", "By using this axe, you fight \nthe rest of the fight with it and will \ninflict an additional 150 damage on you.", rl.LoadTexture("../texture/shop/axe.png"), 0, 0, 0, false, true, false, 1})

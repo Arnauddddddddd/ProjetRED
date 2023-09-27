@@ -10,6 +10,9 @@ func buy(engine *EngineStruct, i int) {
 	if len(engine.character.inventory) < 8 && engine.character.gold >= engine.shopKeeper.items[i].price {
 		engine.character.inventory = append(engine.character.inventory, engine.shopKeeper.items[i])
 		engine.character.gold -= engine.shopKeeper.items[i].price
+		if engine.shopKeeper.items[i].gender == "Improvement" {
+			engine.shopKeeper.items[i].price *= 2
+		}
 		if !engine.shopKeeper.items[i].infinitySale {
 			engine.shopKeeper.items = append(engine.shopKeeper.items[:i], engine.shopKeeper.items[i+1:]...)
 		}

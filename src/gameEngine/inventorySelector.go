@@ -41,9 +41,9 @@ func inventoryEffect(engine *EngineStruct, u int) {
 		engine.character.hp += engine.character.inventory[u].hpUp
 		engine.player.Speed += float32(engine.character.inventory[u].speedUp)
 		if engine.character.inventory[u].gender == "Improvement" {
-			engine.character.hpMax += 50
-			engine.character.damageBase += 50
-			engine.character.damage += 50
+			engine.character.hpMax *= 1.3
+			engine.character.damageBase *= 1.3
+			engine.character.damage *= 1.3
 			engine.character.hp += 5000
 		}
 		if engine.character.hp >= engine.character.hpMax {

@@ -58,8 +58,8 @@ func drawScene(engine *EngineStruct) {
 	}
 
 	
-	rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.character.hp), rl.NewVector2(float32(engine.player.Dest.X)-183, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
-	rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.character.gold), rl.NewVector2(float32(engine.player.Dest.X)+140, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
+	rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.character.hp)), rl.NewVector2(float32(engine.player.Dest.X)-183, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
+	rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.character.gold)), rl.NewVector2(float32(engine.player.Dest.X)+140, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
 	rl.DrawTexture(engine.sprite.money, int32(engine.player.Dest.X)+165, int32(engine.player.Dest.Y)-118, rl.White)
 	rl.DrawTexture(engine.sprite.redHeart, int32(engine.player.Dest.X)-202, int32(engine.player.Dest.Y)-116, rl.White)
 
@@ -97,7 +97,7 @@ func drawScene(engine *EngineStruct) {
 		//rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.character.gold), rl.NewVector2(float32(engine.player.Dest.X)+178, float32(engine.player.Dest.Y)-133+50), 10, 0, rl.Black)
 		rl.DrawTexture(engine.sprite.money, int32(engine.player.Dest.X)+165, int32(engine.player.Dest.Y)-118, rl.White)
 		if engine.shopKeeper.showPrice[0] == 1 && len(engine.shopKeeper.items) > engine.shopKeeper.showPrice[1] {
-			rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].price), rl.NewVector2(float32(engine.player.Dest.X-27), float32(engine.player.Dest.Y-50)+50), 10, 0, rl.Black)
+			rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].price)), rl.NewVector2(float32(engine.player.Dest.X-27), float32(engine.player.Dest.Y-50)+50), 10, 0, rl.Black)
 			rl.DrawTexture(engine.sprite.money, int32(engine.player.Dest.X)-7, int32(engine.player.Dest.Y)-5, rl.White)
 			rl.DrawTextEx(engine.fontText, engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].description, rl.NewVector2(float32(engine.player.Dest.X-48)-50, float32(engine.player.Dest.Y+25)+50), 10, 0, rl.Black)
 		}

@@ -24,8 +24,8 @@ func drawSceneBattle(engine *EngineStruct) {
 	rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*4, 0, 16*3, 16*2), rl.NewRectangle(210, 130, 16*3*2+20, 16*2*2), rl.NewVector2(16*3*2+20, 16*2*2), 0, rl.White)
 	rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*4, 0, 16*3, 16*2), rl.NewRectangle(1505, 130, 16*3*2+20, 16*2*2), rl.NewVector2(16*3*2+20, 16*2*2), 0, rl.White)
 
-	rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.character.hp), rl.NewVector2(112, 87), 26, 0, rl.Black)
-	rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.monster[engine.battle.monsterBattle].hp), rl.NewVector2(1410, 87), 26, 0, rl.Black)
+	rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.character.hp)), rl.NewVector2(112, 87), 26, 0, rl.Black)
+	rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.monster[engine.battle.monsterBattle].hp)), rl.NewVector2(1410, 87), 26, 0, rl.Black)
 
 	rl.DrawTexturePro(engine.sprite.yellowHeart, rl.NewRectangle(0, 0, 16, 16), rl.NewRectangle(1575, 133, 16*4, 16*4), rl.NewVector2(16*4, 16*4), 0, rl.White)
 	rl.DrawTexturePro(engine.sprite.redHeart, rl.NewRectangle(0, 0, 16, 16), rl.NewRectangle(90, 133, 16*4, 16*4), rl.NewVector2(16*4, 16*4), 0, rl.White)
