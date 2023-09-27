@@ -1,7 +1,6 @@
 package gameEngine
 
 import (
-	"time"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 
@@ -73,7 +72,6 @@ func updateBattle(engine *EngineStruct) {
 					engine.playerTurn = false
 					engine.monster[engine.battle.monsterBattle].hp -= engine.character.damage
 					drawSceneBattle(engine)
-					time.Sleep(1 * time.Second)
 					engine.character.showText = true
 					engine.textBox.textToPrint = "Attention il attaque .. "
 					engine.textBox.textPrint = ""
@@ -101,12 +99,20 @@ func updateBattle(engine *EngineStruct) {
 					engine.playerTurn = true
 					engine.character.hp -= engine.monster[engine.battle.monsterBattle].damage
 					drawSceneBattle(engine)
-					time.Sleep(1 * time.Second)
 					engine.player.showHud = true
 				}
 			}
 		}
 	} else {
+		engine.framCount++
+
+		if engine.framCount%8 == 1 {
+			engine.monster[engine.battle.monsterBattle].frameCount++
+		}
+		if engine.monster[engine.battle.monsterBattle].frameCount > 3 {
+			engine.monster[engine.battle.monsterBattle].frameCount = 0
+		}
+		engine.monster[engine.battle.monsterBattle].Src.X = engine.monster[engine.battle.monsterBattle].Src.Width * float32(engine.monster[engine.battle.monsterBattle].frameCount)
 		text(engine)
 	}
 

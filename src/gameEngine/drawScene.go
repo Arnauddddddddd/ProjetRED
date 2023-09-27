@@ -70,7 +70,13 @@ func drawScene(engine *EngineStruct) {
 	}
 
 	rl.DrawTexturePro(engine.shopKeeper.sprite, engine.shopKeeper.Src, engine.shopKeeper.Dest, rl.NewVector2(engine.shopKeeper.Dest.Width, engine.shopKeeper.Dest.Height), 0, rl.White)
+	rl.DrawTextEx(engine.fontNum, "Shop", rl.NewVector2(float32(engine.shopKeeper.Dest.X-32), float32(engine.shopKeeper.Dest.Y-40)), 8, 0, rl.Black)
 	rl.DrawTexturePro(engine.shopKeeper.sprite, engine.shopKeeper.Src, rl.NewRectangle(686, 1153, 32, 32), rl.NewVector2(engine.shopKeeper.Dest.Width, engine.shopKeeper.Dest.Height), 0, rl.White)
+	rl.DrawTextEx(engine.fontNum, "Shop", rl.NewVector2(float32(686-32), float32(1153-40)), 8, 0, rl.Black)
+	rl.DrawTexturePro(engine.shopKeeper.sprite, engine.shopKeeper.Src, rl.NewRectangle(594, 780, 32, 32), rl.NewVector2(engine.shopKeeper.Dest.Width, engine.shopKeeper.Dest.Height), 0, rl.White)
+	rl.DrawTextEx(engine.fontNum, "Shop", rl.NewVector2(float32(594-32), float32(780-40)), 8, 0, rl.Black)
+	rl.DrawTexturePro(engine.shopKeeper.sprite, engine.shopKeeper.Src, rl.NewRectangle(1030, 340, 32, 32), rl.NewVector2(engine.shopKeeper.Dest.Width, engine.shopKeeper.Dest.Height), 0, rl.White)
+	rl.DrawTextEx(engine.fontNum, "Shop", rl.NewVector2(float32(1030-32), float32(340-40)), 8, 0, rl.Black)
 
 	
 	rl.DrawTexturePro(engine.player.Sprite, engine.player.Src, engine.player.Dest, rl.NewVector2(engine.player.Dest.Width, engine.player.Dest.Height), 0, rl.White)

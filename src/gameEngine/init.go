@@ -189,7 +189,7 @@ func initt(engine *EngineStruct) {
 	engine.monster = append(engine.monster, monsterStruct{"golem", 600, 600, 60, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 326, 32, 40), rl.NewRectangle(931, 670, 32, 40), 0, 2, 0, 848, 12, 20,  6,"dungeon", true})
 	engine.monster = append(engine.monster, monsterStruct{"knight", 1000, 1000, 100, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(335, 510, 64, 50), 0, 9, 9, 3, 8, 12,  6,"dungeon", false})
 	
-	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/monster/slime.png"), rl.NewRectangle(0, 0, -32, 32), rl.NewRectangle(1577, 410, 265, 256), 0, 3, 0, 320, 8, 12,  6,"dungeon", false})
+	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/monster/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1577, 410, 265, 256), 0, 3, 0, 320, 8, 12,  1,"dungeon", false})
 	
 
 	engine.sprite.grass = rl.LoadTexture("../texture/map/forest_.png")
@@ -257,5 +257,5 @@ func initt(engine *EngineStruct) {
 
 	engine.cam = rl.NewCamera2D(rl.NewVector2(float32(screenWidth/2), float32(screenHeight/2)), rl.NewVector2(float32(engine.player.Dest.X - (engine.player.Dest.Width / 2)), float32(engine.player.Dest.Y - (engine.player.Dest.Height/2))), 0.0, 4.0)
 
-	loadMap(engine, "../map2.txt")
+	loadMap(engine, "../map.txt")
 }

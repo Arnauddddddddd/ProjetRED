@@ -86,14 +86,14 @@ func update(engine *EngineStruct) {
 					rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(engine.monster[i].Dest.X - engine.monster[i].Dest.Width, engine.monster[i].Dest.Y - engine.monster[i].Dest.Height, 32, 32))) ||
 					rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(engine.monster[i].Dest.X, engine.monster[i].Dest.Y, 32, 32))) ||
 					rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(engine.monster[i].Dest.X - engine.monster[i].Dest.Width, engine.monster[i].Dest.Y, 32, 32)))) && engine.monster[i].alive {
-						//engine.battle.inBattle = true
-						//engine.battle.monsterBattle = i
-						//engine.player.showHud = true
-						//engine.playerTurn = true
+						engine.battle.inBattle = true
+						engine.battle.monsterBattle = i
+						engine.player.showHud = true
+						engine.playerTurn = true
 						// a remettre pour lancer les combats
 					}
 				}
-				if i == len(engine.monster)-1 {
+				if i == len(engine.monster)-1 && engine.monster[len(engine.monster)-1].alive {
 					if rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(1330, 100, 200, 400))) {
 						engine.battle.inBattle = true
 						engine.battle.monsterBattle = i
