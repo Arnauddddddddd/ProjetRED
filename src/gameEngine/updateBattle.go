@@ -79,7 +79,11 @@ func updateBattle(engine *EngineStruct) {
 					engine.textBox.textWriting = true
 				}
 				if engine.monster[engine.battle.monsterBattle].hp <= 0 {
-					engine.character.gold += engine.monster[engine.battle.monsterBattle].goldLoot
+					if engine.character.name == "Thief" {
+						engine.character.gold += (engine.monster[engine.battle.monsterBattle].goldLoot*1.1)
+					} else {
+						engine.character.gold += (engine.monster[engine.battle.monsterBattle].goldLoot)
+					}
 					engine.character.damage = engine.character.damageBase
 					engine.monster[engine.battle.monsterBattle].alive = false
 					engine.battle.inBattle = false

@@ -30,13 +30,6 @@ func classSelector(engine *EngineStruct) {
         engine.character.hpMax = 150
         engine.character.gold = 15
         engine.character.alive = true
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/shop/potion.png"), 0, 40, 0, true, true, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/shop/potion.png"), 0, 40, 0, true, true, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/shop/potion.png"), 0, 40, 0, true, true, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/shop/potion.png"), 0, 40, 0, true, true, true, 10})
-    
     }
     if rl.IsMouseButtonDown(rl.MouseLeftButton) && (screenWidth/2 - engine.sprite.buttonPlay.Width/2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth/2 + engine.sprite.buttonPlay.Width/2 && screenHeight/4 - engine.sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - engine.sprite.buttonPlay.Height/2 +  engine.sprite.buttonPlay.Height) {
         engine.menuSelector = false
@@ -48,12 +41,8 @@ func classSelector(engine *EngineStruct) {
         engine.character.hpMax = 150
         engine.character.gold = 15
         engine.character.alive = true
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/shop/potion.png"), 0, 40, 0, true, true, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/shop/potion.png"), 0, 40, 0, true, true, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/shop/potion.png"), 0, 40, 0, true, true, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/shop/potion.png"), 0, 40, 0, true, true, true, 10})
+        engine.character.inventory = append( engine.character.inventory, itemStruct{"Strengt item", "Fork", "By using this fork, you fight \nthe rest of the fight with it and will \ninflict an additional 50 damage on you.", rl.LoadTexture("../texture/shop/fork.png"), 0, 0, 0, false, true, false,1})
+        engine.character.inventory = append( engine.character.inventory, itemStruct{"Strengt item", "Fork", "By using this fork, you fight \nthe rest of the fight with it and will \ninflict an additional 50 damage on you.", rl.LoadTexture("../texture/shop/fork.png"), 0, 0, 0, false, true, false,1})
     }
     if rl.IsMouseButtonDown(rl.MouseLeftButton) && (screenWidth - engine.sprite.buttonPlay.Width*2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth - engine.sprite.buttonPlay.Width && screenHeight/4 - engine.sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - engine.sprite.buttonPlay.Height/2 +  engine.sprite.buttonPlay.Height) {
         engine.menuSelector = false
@@ -65,13 +54,13 @@ func classSelector(engine *EngineStruct) {
         engine.character.hpMax = 250
         engine.character.gold = 15
         engine.character.alive = true
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/shop/potion.png"), 0, 40, 0, true, true, true, 10})
         engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/shop/potion.png"), 0, 40, 0, true, true, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/shop/potion.png"), 0, 40, 0, true, true, true, 10})
         engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A healing potion", rl.LoadTexture("../texture/shop/potion.png"), 0, 40, 0, true, true, true, 10})
-    
+        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
+        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
+        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
+        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
+   
     }
 	if engine.sprite.buttonPlay.Width < rl.GetMouseX() && rl.GetMouseX() < engine.sprite.buttonPlay.Width*2 && screenHeight/4 - engine.sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - engine.sprite.buttonPlay.Height/2 +  engine.sprite.buttonPlay.Height{
         rl.DrawTexture(engine.sprite.buttonPlay, engine.sprite.buttonPlay.Width, screenHeight/4 - engine.sprite.buttonPlay.Height/2, rl.White)
