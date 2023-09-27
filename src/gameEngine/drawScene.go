@@ -95,7 +95,7 @@ func drawScene(engine *EngineStruct) {
 			rl.DrawTexture(engine.sprite.money, int32(engine.player.Dest.X)-7, int32(engine.player.Dest.Y)-5, rl.White)
 			rl.DrawTextEx(engine.fontText, engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].description, rl.NewVector2(float32(engine.player.Dest.X-48)-50, float32(engine.player.Dest.Y+25)+50), 10, 0, rl.Black)
 		}
-		rl.DrawTexture(engine.sprite.layer, int32(engine.player.Dest.X)-300, int32(engine.player.Dest.Y)-300+50, rl.White)
+		//rl.DrawTexture(engine.sprite.layer, int32(engine.player.Dest.X)-300, int32(engine.player.Dest.Y)-300+50, rl.White)
 		rl.DrawTexture(engine.sprite.invBar, int32(engine.player.Dest.X)-engine.sprite.invBar.Width/2 - int32(engine.player.Dest.Width / 2), int32(engine.player.Dest.Y)-engine.sprite.invBar.Height/2- int32(engine.player.Dest.Height / 2)+50, rl.White)
 		t = 0
 		slot2 = 0

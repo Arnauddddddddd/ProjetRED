@@ -17,8 +17,6 @@ type EngineStruct struct {
 	cam rl.Camera2D
 	menuSelector bool
 
-	battle bool
-	monsterBattle int
 	doorOpen bool
 	doorOpenKey bool
 
@@ -37,6 +35,7 @@ type EngineStruct struct {
 	shopKeeper shopStruct
 	menu menuStruct
 	textBox textBoxStruct
+	battle battleStruct
 
 }
 
@@ -51,7 +50,7 @@ func (engine *EngineStruct) Play() {
 	}
 
 	for engine.run {
-		if engine.battle {
+		if engine.battle.inBattle {
 			battle(engine)
 		} else {
 			inMap(engine)
