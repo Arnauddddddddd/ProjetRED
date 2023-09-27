@@ -11,15 +11,26 @@ func drawSceneBattle(engine *EngineStruct) {
 	rl.BeginDrawing()
 	rl.ClearBackground(engine.bgColor)
 
-	rl.DrawTexture(engine.sprite.bgForest, 0, 0, rl.White)
-
+	if engine.monster[engine.battle.monsterBattle].where == "jungle" {
+		rl.DrawTexture(engine.sprite.bgForest, 0, 0, rl.White)
+	}
+	if engine.monster[engine.battle.monsterBattle].where == "desert" {
+		rl.DrawTexture(engine.sprite.bgDesert, 0, 0, rl.White)
+	}
+	if engine.monster[engine.battle.monsterBattle].where == "dungeon" {
+		rl.DrawTexture(engine.sprite.bgDungeon, 0, 0, rl.White)
+	}
+	
 	rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*4, 0, 16*3, 16*2), rl.NewRectangle(210, 150, 16*3*3+20, 16*2*3), rl.NewVector2(16*3*3+20, 16*2*3), 0, rl.White)
 	rl.DrawTexturePro(engine.textBox.sprite, rl.NewRectangle(16*4, 0, 16*3, 16*2), rl.NewRectangle(1550, 150, 16*3*3+20, 16*2*3), rl.NewVector2(16*3*3+20, 16*2*3), 0, rl.White)
 
 	rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.character.hp), rl.NewVector2(112, 87), 26, 0, rl.Black)
 	rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.monster[engine.battle.monsterBattle].hp), rl.NewVector2(1410, 87), 26, 0, rl.Black)
-
-	monsterSrc := rl.NewRectangle(engine.monster[engine.battle.monsterBattle].Src.X+float32(engine.monster[engine.battle.monsterBattle].Xstart), engine.monster[engine.battle.monsterBattle].Src.Y, engine.monster[engine.battle.monsterBattle].Src.Width*-1, engine.monster[engine.battle.monsterBattle].Src.Height)
+	var sign float32 = -1.0
+	if engine.monster[engine.battle.monsterBattle].Src.Width < 0 {
+		sign = 1.0
+	}
+	monsterSrc := rl.NewRectangle(engine.monster[engine.battle.monsterBattle].Src.X+float32(engine.monster[engine.battle.monsterBattle].Xstart), engine.monster[engine.battle.monsterBattle].Src.Y, engine.monster[engine.battle.monsterBattle].Src.Width*sign, engine.monster[engine.battle.monsterBattle].Src.Height)
 	monsterDest := rl.NewRectangle(screenWidth/2+300, screenHeight/2-engine.monster[engine.battle.monsterBattle].Src.Height/2, engine.monster[engine.battle.monsterBattle].Src.Width*float32(engine.monster[engine.battle.monsterBattle].increase), engine.monster[engine.battle.monsterBattle].Src.Height*float32(engine.monster[engine.battle.monsterBattle].increase))
 	rl.DrawTexturePro(engine.monster[engine.battle.monsterBattle].sprite, monsterSrc, monsterDest, rl.NewVector2(engine.monster[engine.battle.monsterBattle].Dest.Width, engine.monster[engine.battle.monsterBattle].Dest.Height), 0, rl.White)
 
