@@ -86,10 +86,10 @@ func update(engine *EngineStruct) {
 					rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(engine.monster[i].Dest.X - engine.monster[i].Dest.Width, engine.monster[i].Dest.Y - engine.monster[i].Dest.Height, 32, 32))) ||
 					rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(engine.monster[i].Dest.X, engine.monster[i].Dest.Y, 32, 32))) ||
 					rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(engine.monster[i].Dest.X - engine.monster[i].Dest.Width, engine.monster[i].Dest.Y, 32, 32)))) && engine.monster[i].alive {
-						engine.battle.inBattle = true
-						engine.battle.monsterBattle = i
-						engine.player.showHud = true
-						engine.playerTurn = true
+						//engine.battle.inBattle = true
+						//engine.battle.monsterBattle = i
+						//engine.player.showHud = true
+						//engine.playerTurn = true
 						// a remettre pour lancer les combats
 					}
 				}
@@ -110,8 +110,16 @@ func update(engine *EngineStruct) {
 				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(engine.shopKeeper.Dest.X-32 - engine.shopKeeper.Dest.Width, engine.shopKeeper.Dest.Y, 64, 64))))) ||
 				((rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(686, 1153 - 32 - engine.shopKeeper.Dest.Height, 64, 64))) ||
 				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(686- 32 - engine.shopKeeper.Dest.Width, 1153 - 32 - engine.shopKeeper.Dest.Height, 64, 64))) ||
-				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(686, engine.shopKeeper.Dest.Y, 64, 64))) ||
-				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(686 - engine.shopKeeper.Dest.Width, 1153, 64, 64))))) {
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(686, 1153, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(686 - engine.shopKeeper.Dest.Width, 1153, 64, 64)))) ||
+				((rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(594, 780 - engine.shopKeeper.Dest.Height/2, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(594 - 32 - engine.shopKeeper.Dest.Width, 780 - 32 - engine.shopKeeper.Dest.Height, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(594, 780, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(594 - engine.shopKeeper.Dest.Width, 780, 64, 64))))) ||
+				((rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(1030, 340 - 32 - engine.shopKeeper.Dest.Height, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(1030 - 32 - engine.shopKeeper.Dest.Width, 340 - 32 - engine.shopKeeper.Dest.Height, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(1030, 340, 64, 64))) ||
+				rl.CheckCollisionRecs(engine.player.Dest, (rl.NewRectangle(1030 - engine.shopKeeper.Dest.Width, 340, 64, 64)))))) {
 				engine.shop = true
 			} else {
 				engine.shop = false
