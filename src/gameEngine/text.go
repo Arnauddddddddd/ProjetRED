@@ -8,7 +8,7 @@ func text(engine *EngineStruct) {
 	engine.framCount++
 
 	if engine.framCount % 100 == 1 { engine.textBox.frameCountSpace++ }
-	if engine.framCount % 5 == 1 { engine.textBox.frameCountText++ }
+	if engine.framCount % 3 == 1 { engine.textBox.frameCountText++ }
 
 	if rl.IsMouseButtonPressed(rl.MouseLeftButton) || rl.IsKeyPressed(rl.KeySpace){
 		if engine.textBox.textWriting {

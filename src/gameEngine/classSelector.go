@@ -16,9 +16,9 @@ func classSelector(engine *EngineStruct) {
 
 	rl.DrawTexturePro(engine.menu.sprite, engine.menu.Src, engine.menu.Dest, rl.NewVector2(engine.menu.Dest.Width, engine.menu.Dest.Height), 0, rl.White)
 
-    rl.DrawTextEx(engine.fontText, "Thief", rl.NewVector2(float32(engine.sprite.buttonPlay.Width-30), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+70)), 60, 0, rl.Black)
-    rl.DrawTextEx(engine.fontText, "Slayer", rl.NewVector2(float32(screenWidth/2 - engine.sprite.buttonPlay.Width/2-30), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+80)), 60, 0, rl.Black)
-    rl.DrawTextEx(engine.fontText, "Tank", rl.NewVector2(float32(screenWidth - engine.sprite.buttonPlay.Width*2-30), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+70)), 60, 0, rl.Black)
+    rl.DrawTextEx(engine.fontText, "Thief", rl.NewVector2(float32(engine.sprite.buttonPlay.Width-20), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+100)), 60, 0, rl.Black)
+    rl.DrawTextEx(engine.fontText, "Slayer", rl.NewVector2(float32(screenWidth/2 - engine.sprite.buttonPlay.Width/2-30), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+100)), 60, 0, rl.Black)
+    rl.DrawTextEx(engine.fontText, "Tank", rl.NewVector2(float32(screenWidth - engine.sprite.buttonPlay.Width*2-20), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+100)), 60, 0, rl.Black)
 
     if rl.IsMouseButtonDown(rl.MouseLeftButton) && (engine.sprite.buttonPlay.Width < rl.GetMouseX() && rl.GetMouseX() < engine.sprite.buttonPlay.Width*2 && screenHeight/4 - engine.sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - engine.sprite.buttonPlay.Height/2 + engine.sprite.buttonPlay.Height) {
         engine.menuSelector = false

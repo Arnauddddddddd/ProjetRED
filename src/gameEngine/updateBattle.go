@@ -4,7 +4,6 @@ import (
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 
-	"fmt"
 )
 
 func updateBattle(engine *EngineStruct) {
@@ -39,6 +38,9 @@ func updateBattle(engine *EngineStruct) {
 		} else {
 			if engine.playerTurn {
 				if rl.IsMouseButtonPressed(rl.MouseLeftButton) && (126 < rl.GetMouseX() && rl.GetMouseX() < 468 && 758 < rl.GetMouseY() && rl.GetMouseY() < 840) && engine.player.showHud{
+					if engine.battle.fatality != "true" {
+						engine.battle.fatality = "false"
+					}
 					engine.player.showHud = false
 					drawSceneBattle(engine)
 
@@ -59,7 +61,24 @@ func updateBattle(engine *EngineStruct) {
 					engine.battle.buttonBattleAttack = engine.battle.buttonBattlePressed[0]
 				}
 				if rl.IsMouseButtonPressed(rl.MouseLeftButton) && (1140 < rl.GetMouseX() && rl.GetMouseX() < 1492 && 758 < rl.GetMouseY() && rl.GetMouseY() < 840) {
-					fmt.Println(rl.GetMouseX())
+					if engine.battle.fatality == "true" {
+						engine.player.showHud = false
+						drawSceneBattle(engine)
+
+						engine.battle.fatality = engine.character.name
+
+						engine.character.showText = true
+						engine.textBox.textToPrint = "Vous utiliser votre fatality .. "
+						engine.textBox.textPrint = ""
+						engine.textBox.frameCountText = 0
+						engine.textBox.textWriting = true
+					} else {
+						engine.character.showText = true
+						engine.textBox.textToPrint = "Vous avez deja utiliser votre fatality .. "
+						engine.textBox.textPrint = ""
+						engine.textBox.frameCountText = 0
+						engine.textBox.textWriting = true
+					}
 				}
 				if 1140 < rl.GetMouseX() && rl.GetMouseX() < 1492 && 758 < rl.GetMouseY() && rl.GetMouseY() < 840 {
 					engine.battle.buttonBattleFattality = engine.battle.buttonBattlePressed[1]
@@ -70,7 +89,18 @@ func updateBattle(engine *EngineStruct) {
 					engine.battle.slash = false
 					engine.battle.slashFrameCount = 0
 					engine.playerTurn = false
-					engine.monster[engine.battle.monsterBattle].hp -= engine.character.damage
+
+					if engine.battle.fatality == "Slayer" {
+						engine.character.damage *= 1.10
+					} else if engine.battle.fatality == "Tank" {
+						engine.monster[engine.battle.monsterBattle].damage *= 0.90
+					} else if engine.battle.fatality == "Thief" {
+						engine.character.hp += engine.monster[engine.battle.monsterBattle].hp*0.1
+						engine.monster[engine.battle.monsterBattle].hp -= engine.monster[engine.battle.monsterBattle].hp*0.1
+					} else {
+						engine.monster[engine.battle.monsterBattle].hp -= engine.character.damage
+					}
+
 					drawSceneBattle(engine)
 					engine.character.showText = true
 					engine.textBox.textToPrint = "Attention il attaque .. "

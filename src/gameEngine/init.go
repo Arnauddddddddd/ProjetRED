@@ -143,6 +143,7 @@ type battleStruct struct {
 	slashSprite rl.Texture2D
 	slashFrameCount int
 	slashSrc rl.Rectangle
+	fatality string
 }
 
 func initt(engine *EngineStruct) {
