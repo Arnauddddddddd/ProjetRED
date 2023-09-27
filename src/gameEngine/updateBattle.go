@@ -53,7 +53,6 @@ func updateBattle(engine *EngineStruct) {
 				if !engine.character.showText && !engine.player.showHud && !engine.battle.slash {
 					engine.battle.slashFrameCount = 0
 					engine.battle.slash = true
-					engine.character.showText = false
 				}
 				if 126 < rl.GetMouseX() && rl.GetMouseX() < 468 && 758 < rl.GetMouseY() && rl.GetMouseY() < 840 {
 					engine.battle.buttonBattleAttack = engine.battle.buttonBattlePressed[1]

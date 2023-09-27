@@ -61,7 +61,7 @@ func drawScene(engine *EngineStruct) {
 	rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.character.hp), rl.NewVector2(float32(engine.player.Dest.X)-183, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
 	rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.character.gold), rl.NewVector2(float32(engine.player.Dest.X)+140, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
 	rl.DrawTexture(engine.sprite.money, int32(engine.player.Dest.X)+165, int32(engine.player.Dest.Y)-118, rl.White)
-	rl.DrawTexture(engine.sprite.heart, int32(engine.player.Dest.X)-202, int32(engine.player.Dest.Y)-117, rl.White)
+	rl.DrawTexture(engine.sprite.redHeart, int32(engine.player.Dest.X)-202, int32(engine.player.Dest.Y)-116, rl.White)
 
 	for i := 0; i < len(engine.monster); i++ {
 		if engine.monster[i].alive {

@@ -47,7 +47,8 @@ type spriteStruct struct {
 	buttonMenu rl.Texture2D
     buttonMenuPressed rl.Texture2D
 	invBar rl.Texture2D
-	heart rl.Texture2D
+	redHeart rl.Texture2D
+	yellowHeart rl.Texture2D
 	money rl.Texture2D
 	layer rl.Texture2D
 	bgForest rl.Texture2D
@@ -198,8 +199,9 @@ func initt(engine *EngineStruct) {
 	engine.sprite.water = rl.LoadTexture("../texture/map/Water.png")
 	engine.sprite.tilled = rl.LoadTexture("../texture/map/desert_.png")
 	engine.sprite.invBar = rl.LoadTexture("../texture/inventory/Inventory_Example_04.png")
-	engine.sprite.heart = rl.LoadTexture("../texture/shop/heart.png")
-
+	
+	engine.sprite.redHeart = rl.LoadTexture("../texture/shop/HeartsRed.png")
+	engine.sprite.yellowHeart = rl.LoadTexture("../texture/shop/HeartsYellow.png")
 	engine.sprite.money = rl.LoadTexture("../texture/shop/money.png")
 	engine.sprite.layer = rl.LoadTexture("../texture/calque.png")
 	engine.sprite.bgForest = rl.LoadTexture("../texture/battle/game_background_4.png")
