@@ -95,8 +95,8 @@ func (engine *EngineStruct) updateBattle() {
 					} else if engine.battle.fatality == "Tank" {
 						engine.monster[engine.battle.monsterBattle].damage *= 0.90
 					} else if engine.battle.fatality == "Thief" {
-						engine.character.hp += engine.monster[engine.battle.monsterBattle].hp*0.1
-						engine.monster[engine.battle.monsterBattle].hp -= engine.monster[engine.battle.monsterBattle].hp*0.1
+						engine.character.hp += engine.monster[engine.battle.monsterBattle].hp*0.30
+						engine.monster[engine.battle.monsterBattle].hp -= engine.monster[engine.battle.monsterBattle].hp*0.30
 					} else {
 						engine.monster[engine.battle.monsterBattle].hp -= engine.character.damage
 					}
@@ -110,7 +110,7 @@ func (engine *EngineStruct) updateBattle() {
 				}
 				if engine.monster[engine.battle.monsterBattle].hp <= 0 {
 					if engine.character.name == "Thief" {
-						engine.character.gold += (engine.monster[engine.battle.monsterBattle].goldLoot*1.1)
+						engine.character.gold += (engine.monster[engine.battle.monsterBattle].goldLoot*1.2)
 					} else {
 						engine.character.gold += (engine.monster[engine.battle.monsterBattle].goldLoot)
 					}
@@ -122,6 +122,7 @@ func (engine *EngineStruct) updateBattle() {
 				if engine.character.hp <= 0 {
 					engine.character.damage = engine.character.damageBase
 					engine.character.alive = false
+					engine.monster[engine.battle.monsterBattle].hp = engine.monster[engine.battle.monsterBattle].hpMax
 					engine.battle.inBattle = false
 					engine.character.showText = false
 				}
@@ -131,7 +132,9 @@ func (engine *EngineStruct) updateBattle() {
 					engine.battle.slashFrameCount = 0
 					engine.battle.slash = false
 					engine.playerTurn = true
-					engine.character.hp -= engine.monster[engine.battle.monsterBattle].damage
+					if engine.monster[engine.battle.monsterBattle].hp > 0 {
+						engine.character.hp -= engine.monster[engine.battle.monsterBattle].damage
+					}
 					engine.drawSceneBattle()
 					engine.player.showHud = true
 				}

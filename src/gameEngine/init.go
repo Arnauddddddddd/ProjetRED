@@ -162,7 +162,7 @@ func (engine *EngineStruct) init() { // initialisation général
 	engine.player.Src = rl.NewRectangle(0, 0, 16, 16)
 	engine.player.Dest = rl.NewRectangle(1057, 1633, 16, 16)
 
-	engine.player.Speed = 1
+	engine.player.Speed = 1.0
 
 
 	engine.initMonster()
@@ -183,32 +183,33 @@ func (engine *EngineStruct) init() { // initialisation général
 }
 
 func (engine *EngineStruct) initMonster() { // On initialise tout les monstres
-	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/monster/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1577, 1596, 32, 32), 0, 3, 0, 0, 8, 12, 6, "jungle", false})
-	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/monster/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1437, 1448, 32, 32), 0, 3, 0, 0, 8, 12,  6,"jungle", false})
-	engine.monster = append(engine.monster, monsterStruct{"l'escargos", 100, 100, 30, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(5, 370, 16, 30), rl.NewRectangle(1701, 1073, 16, 30), 0, 7, 0, 2, 8, 25,  6,"jungle", true})
-	engine.monster = append(engine.monster, monsterStruct{"l'escargos", 100, 100, 30, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(5, 370, 16, 30), rl.NewRectangle(1512, 800, 16, 30), 0, 7, 0, 2, 8, 25,  6,"jungle", true})
-	engine.monster = append(engine.monster, monsterStruct{"croco", 600, 600, 60, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 230, 16, 32), rl.NewRectangle(1631, 924, 16, 32), 0, 2, 0, 802, 16, 32,  6,"jungle", true})
-	engine.monster = append(engine.monster, monsterStruct{"wizard", 100, 100, 30, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(5, 138, 16, 25), rl.NewRectangle(1386, 910, 16, 25), 0, 7, 0, 128, 8, 25, 10,"jungle", false})
-	engine.monster = append(engine.monster, monsterStruct{"blue knight", 100, 100, 50, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 100, 16, 32), rl.NewRectangle(1250, 1100, 16, 32), 0, 5, 0, 128, 8, 50,  6,"jungle", false})
+
+	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/monster/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1577, 1596, 32, 32), 0, 3, 0, 0, 8, 50, 6, "jungle", false})
+	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/monster/slime.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1437, 1448, 32, 32), 0, 3, 0, 0, 8, 50, 6,"jungle", false})
+	engine.monster = append(engine.monster, monsterStruct{"l'escargos", 100, 100, 40, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(5, 370, 16, 30), rl.NewRectangle(1701, 1073, 16, 30), 0, 7, 0, 2, 8, 70, 6,"jungle", true})
+	engine.monster = append(engine.monster, monsterStruct{"l'escargos", 100, 100, 40, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(5, 370, 16, 30), rl.NewRectangle(1512, 800, 16, 30), 0, 7, 0, 2, 8, 70, 6,"jungle", true})
+	engine.monster = append(engine.monster, monsterStruct{"croco", 130, 130, 25, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 230, 16, 32), rl.NewRectangle(1631, 924, 16, 32), 0, 2, 0, 802, 16, 80, 6,"jungle", true})
+	engine.monster = append(engine.monster, monsterStruct{"wizard", 80, 80, 60, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(5, 138, 16, 25), rl.NewRectangle(1386, 910, 16, 25), 0, 7, 0, 128, 8, 100, 10,"jungle", false})
+	engine.monster = append(engine.monster, monsterStruct{"blue knight", 150, 150, 60, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 100, 16, 32), rl.NewRectangle(1250, 1100, 16, 32), 0, 5, 0, 128, 8, 200, 6,"jungle", false})
 	
-	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(443, 1029, 64, 38), 0, 4, 0, 0, 8, 12,  6,"desert", false})
-	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(399, 1185, 64, 38), 0, 4, 0, 0, 8, 12,  6,"desert", false})
-	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(287, 1367, 64, 38), 0, 4, 0, 0, 8, 12,  6,"desert", false})
-	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 120, 120, 80, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(700, 1370, 64, 38), 0, 4, 0, 0, 8, 12,  6,"desert", false})
-	engine.monster = append(engine.monster, monsterStruct{"el diablos2", 30, 30, 30, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 272, 16, 24), rl.NewRectangle(923, 1310, 16, 24), 0, 7, 0, 368, 8, 15,  6,"desert", false})
-	engine.monster = append(engine.monster, monsterStruct{"el diablos2", 30, 30, 30, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 272, 16, 24), rl.NewRectangle(409, 1425, 16, 24), 0, 7, 0, 368, 8, 15,  6,"desert", false})
-	engine.monster = append(engine.monster, monsterStruct{"knight", 500, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(741, 929, 64, 50), 0, 2, 4, 3, 8, 12,  6,"desert", false})
-	engine.monster = append(engine.monster, monsterStruct{"knight", 500, 200, 80, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(791, 929, 64, 50), 0, 2, 4, 3, 8, 12,  6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 200, 200, 60, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(443, 1029, 64, 38), 0, 4, 0, 0, 8, 300, 6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 200, 200, 60, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(399, 1185, 64, 38), 0, 4, 0, 0, 8, 300, 6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 200, 200, 60, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(287, 1367, 64, 38), 0, 4, 0, 0, 8, 300, 6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 200, 200, 60, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(700, 1370, 64, 38), 0, 4, 0, 0, 8, 300, 6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"el diablos2", 60, 60, 100, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 272, 16, 24), rl.NewRectangle(923, 1310, 16, 24), 0, 7, 0, 368, 8, 150,  6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"el diablos2", 60, 60, 100, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 272, 16, 24), rl.NewRectangle(409, 1425, 16, 24), 0, 7, 0, 368, 8, 150,  6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"knight", 500, 500, 90, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(741, 929, 64, 50), 0, 2, 4, 3, 8, 300, 6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"knight", 500, 500, 90, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(791, 929, 64, 50), 0, 2, 4, 3, 8, 300, 6,"desert", false})
 	
-	engine.monster = append(engine.monster, monsterStruct{"demon", 800, 800, 80, 0, true, rl.LoadTexture("../texture/monster/demon.png"), rl.NewRectangle(0, 0, 32, 42), rl.NewRectangle(328, 768, 32, 42), 0, 2, 8, 0, 9, 12,  6,"dungeon", false})
-	engine.monster = append(engine.monster, monsterStruct{"samurai", 200, 200, 80, 0, true, rl.LoadTexture("../texture/monster/Samurai.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(507, 607, 64, 50), 0, 7, 0, 50, 12, 20,  6,"dungeon", false})
-	engine.monster = append(engine.monster, monsterStruct{"goblin", 600, 600, 60, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 380, 32, 40), rl.NewRectangle(1113, 680, 32, 40), 0, 2, 0, 848, 16, 20,  6,"dungeon", true})
-	engine.monster = append(engine.monster, monsterStruct{"goblin", 600, 600, 60, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 380, 32, 40), rl.NewRectangle(1113, 820, 32, 40), 0, 2, 0, 848, 16, 20,  6,"dungeon", true})
-	engine.monster = append(engine.monster, monsterStruct{"golem", 600, 600, 60, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 326, 32, 40), rl.NewRectangle(931, 670, 32, 40), 0, 2, 0, 848, 12, 20,  6,"dungeon", true})
-	engine.monster = append(engine.monster, monsterStruct{"knight", 1000, 1000, 100, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(335, 510, 64, 50), 0, 9, 9, 3, 8, 12,  6,"dungeon", false})
+	engine.monster = append(engine.monster, monsterStruct{"demon", 600, 600, 98, 0, true, rl.LoadTexture("../texture/monster/demon.png"), rl.NewRectangle(0, 0, 32, 42), rl.NewRectangle(328, 768, 32, 42), 0, 2, 8, 0, 9, 450,  6,"dungeon", false})
+	engine.monster = append(engine.monster, monsterStruct{"samurai", 350, 350, 120, 0, true, rl.LoadTexture("../texture/monster/Samurai.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(507, 607, 64, 50), 0, 7, 0, 50, 12, 500,  6,"dungeon", false})
+	engine.monster = append(engine.monster, monsterStruct{"goblin", 700, 700, 100, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 380, 32, 40), rl.NewRectangle(1113, 680, 32, 40), 0, 2, 0, 848, 16, 500,  6,"dungeon", true})
+	engine.monster = append(engine.monster, monsterStruct{"goblin", 700, 700, 100, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 380, 32, 40), rl.NewRectangle(1113, 820, 32, 40), 0, 2, 0, 848, 16, 500,  6,"dungeon", true})
+	engine.monster = append(engine.monster, monsterStruct{"golem", 800, 800, 60, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 326, 32, 40), rl.NewRectangle(931, 670, 32, 40), 0, 2, 0, 848, 12, 700,  6,"dungeon", true})
+	engine.monster = append(engine.monster, monsterStruct{"knight", 999, 999, 200, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(335, 510, 64, 50), 0, 9, 9, 3, 1000, 12,  6,"dungeon", false})
 	
-	engine.monster = append(engine.monster, monsterStruct{"slime", 60, 60, 30, 0, true, rl.LoadTexture("../texture/monster/slime2.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1577, 410, 32*8, 32*8), 0, 3, 0, 320, 8, 12,  40,"dungeon", false})
-}
+	engine.monster = append(engine.monster, monsterStruct{"slime", 3000, 3000, 100, 0, true, rl.LoadTexture("../texture/monster/slime2.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1577, 410, 32*8, 32*8), 0, 3, 0, 320, 8, 12,  40,"dungeon", false})
+	}
 
 func (engine *EngineStruct) initSprite() { // On initialise toutes les texture / sprites
 	engine.sprite.grass = rl.LoadTexture("../texture/map/forest_.png")
@@ -246,14 +247,14 @@ func (engine *EngineStruct) initSprite() { // On initialise toutes les texture /
 }
 
 func (engine *EngineStruct) initShopKeeper() { // On initialise tout les items du shop
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Potion", "Potion", "A simple magic potion that restores you 50 hp", rl.LoadTexture("../texture/shop/potion.png"), 0, 50, 0, true, true, true, 1})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Kit", "Kit", "This healing kit regenerates you 250 hp", rl.LoadTexture("../texture/shop/kit.png"), 0, 500, 0, true, true, true, 1})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Fork", "By using this fork, you fight \nthe rest of the fight with it and will \ninflict an additional 50 damage on you.", rl.LoadTexture("../texture/shop/fork.png"), 0, 0, 0, false, true, false,1})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Improvement Item", "Improvement", "This power allows you to permanently\n increase your damage and health by 10%.", rl.LoadTexture("../texture/shop/star.png"), 0, 0, 0, true, false, true, 1})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Key", "special", "The key to access the devastated lands", rl.LoadTexture("../texture/shop/key.png"), 50, 50, 0, false, false, false, 1})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Totem", "special", "This totem allows anyone to regain \nall their vitality instantly", rl.LoadTexture("../texture/shop/totem.png"), 0, 5000, 0, true, true, true, 1})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Axe", "By using this axe, you fight \nthe rest of the fight with it and will \ninflict an additional 150 damage on you.", rl.LoadTexture("../texture/shop/axe.png"), 0, 0, 0, false, true, false, 1})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Flask", "By using this item, your damage will be \ndoubled during your fight, if you \ntook a fork or an ax before, this additional \ndamage will also be doubled", rl.LoadTexture("../texture/shop/flask.png"), engine.character.damageBase, 0, 0, false, true, true, 1})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Potion", "Potion", "A simple magic potion that restores you 50 hp", rl.LoadTexture("../texture/shop/potion.png"), 0, 50, 0, true, true, true, 20})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Kit", "Kit", "This healing kit regenerates you 250 hp", rl.LoadTexture("../texture/shop/kit.png"), 0, 250, 0, true, true, true, 200})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Fork", "By using this fork, you fight \nthe rest of the fight with it and will \ninflict an additional 50 damage on you.", rl.LoadTexture("../texture/shop/fork.png"), 0, 0, 0, false, true, true, 150})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Improvement Item", "Improvement", "This power allows you to permanently\n increase your damage and health by 10%.", rl.LoadTexture("../texture/shop/star.png"), 0, 0, 0, true, false, true, 150})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Key", "special", "The key to access the devastated lands", rl.LoadTexture("../texture/shop/key.png"), 50, 50, 0, false, false, false, 200})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Totem", "special", "This totem allows anyone to regain \nall their vitality instantly", rl.LoadTexture("../texture/shop/totem.png"), 0, 5000, 0, true, true, true, 1000})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Axe", "By using this axe, you fight \nthe rest of the fight with it and will \ninflict an additional 250 damage on you.", rl.LoadTexture("../texture/shop/axe.png"), 0, 0, 0, false, true, true, 500})
+	//engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Flask", "By using this item, your damage will be \ndoubled during your fight, if you \ntook a fork or an ax before, this additional \ndamage will also be doubled", rl.LoadTexture("../texture/shop/flask.png"), engine.character.damageBase, 0, 0, false, true, true, 1})
 	//engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Dead item", "dead", "By using this item, your damage will be \ndoubled during your fight, if you \ntook a fork or an ax before, this additional \ndamage will also be doubled", rl.LoadTexture("../texture/shop/dead2.png"), 0, 0, 0, false, false, true, 1})
 	
 	engine.battle.slashSrc = rl.NewRectangle(0, 0, 70, 39)

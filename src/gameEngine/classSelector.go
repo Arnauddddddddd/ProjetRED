@@ -25,43 +25,38 @@ func (engine *EngineStruct) classSelector() {
         engine.menuSelector = false
         engine.character.name = "Thief"
         engine.character.hp = 150
-        engine.character.damage = 50
-        engine.character.damageBase = 50
+        engine.character.damage = 30
+        engine.character.damageBase = 30
         engine.character.speed = 10
         engine.character.hpMax = 150
-        engine.character.gold = 15
+        engine.character.gold = 0
         engine.character.alive = true
     }
     if rl.IsMouseButtonDown(rl.MouseLeftButton) && (screenWidth/2 - engine.sprite.buttonPlay.Width/2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth/2 + engine.sprite.buttonPlay.Width/2 && screenHeight/4 - engine.sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - engine.sprite.buttonPlay.Height/2 +  engine.sprite.buttonPlay.Height) { // initialise le personage de la classe Slayer si on appuie sur le boutton
         engine.menuSelector = false
         engine.character.name = "Slayer"
         engine.character.hp = 150
-        engine.character.damage = 90
-        engine.character.damageBase = 90
+        engine.character.damage = 40
+        engine.character.damageBase = 40
         engine.character.speed = 10
         engine.character.hpMax = 150
-        engine.character.gold = 15
+        engine.character.gold = 0
         engine.character.alive = true
-        engine.character.inventory = append( engine.character.inventory, itemStruct{"Strengt item", "Fork", "By using this fork, you fight \nthe rest of the fight with it and will \ninflict an additional 50 damage on you.", rl.LoadTexture("../texture/shop/fork.png"), 0, 0, 0, false, true, false,1}) // ajoute les items spécifique à la classe dans l'inventaire du joueur
+        engine.character.inventory = append( engine.character.inventory, itemStruct{"Strengt item", "Fork", "By using this fork, you fight \nthe rest of the fight with it and will \ninflict an additional 50 damage on you.", rl.LoadTexture("../texture/shop/fork.png"), 0, 0, 0, false, true, false,1})
         engine.character.inventory = append( engine.character.inventory, itemStruct{"Strengt item", "Fork", "By using this fork, you fight \nthe rest of the fight with it and will \ninflict an additional 50 damage on you.", rl.LoadTexture("../texture/shop/fork.png"), 0, 0, 0, false, true, false,1})
     }
     if rl.IsMouseButtonDown(rl.MouseLeftButton) && (screenWidth - engine.sprite.buttonPlay.Width*2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth - engine.sprite.buttonPlay.Width && screenHeight/4 - engine.sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - engine.sprite.buttonPlay.Height/2 +  engine.sprite.buttonPlay.Height) { // initialise le personage de la classe Tank si on appuie sur le boutton
         engine.menuSelector = false
         engine.character.name = "Tank"
         engine.character.hp = 250
-        engine.character.damage = 50
-        engine.character.damageBase = 50
+        engine.character.damage = 30
+        engine.character.damageBase = 30
         engine.character.speed = 10
         engine.character.hpMax = 250
-        engine.character.gold = 15
+        engine.character.gold = 0
         engine.character.alive = true
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
-        engine.character.inventory = append(engine.character.inventory, itemStruct{"Red Bull", "Potion", "A speed potion", rl.LoadTexture("../texture/shop/RedBull.png"), 0, 0, 3, true, false, true, 10})
-   
+        engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A simple magic potion that restores you 50 hp", rl.LoadTexture("../texture/shop/potion.png"), 0, 50, 0, true, true, true, 20})
+        engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A simple magic potion that restores you 50 hp", rl.LoadTexture("../texture/shop/potion.png"), 0, 50, 0, true, true, true, 20})
     }
 
 	if engine.sprite.buttonPlay.Width < rl.GetMouseX() && rl.GetMouseX() < engine.sprite.buttonPlay.Width*2 && screenHeight/4 - engine.sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - engine.sprite.buttonPlay.Height/2 +  engine.sprite.buttonPlay.Height { // affiche le boutton enfoncer si on passe notre souris dessus 

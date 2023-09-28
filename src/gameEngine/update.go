@@ -75,7 +75,7 @@ func (engine *EngineStruct) update() {
 				engine.monster[i].Src.X = engine.monster[i].Src.Width * float32(engine.monster[i].frameCount)
 				if !engine.monster[i].alive {
 					engine.monster[i].deadTime++
-					if engine.monster[i].deadTime >= 1000 {
+					if engine.monster[i].deadTime >= 2000 {
 						engine.monster[i].alive = true
 						engine.monster[i].hp = engine.monster[i].hpMax
 						engine.monster[i].deadTime = 0

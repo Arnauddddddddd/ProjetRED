@@ -43,7 +43,7 @@ func (engine *EngineStruct) drawScene() {
 			}
 			if engine.bord.srcMap[i] == "w" {
 				engine.sprite.texture = engine.sprite.water
-				//engine.bord.colisionList = append(engine.bord.colisionList, []float32{engine.bord.tileDest.X, engine.bord.tileDest.Y})
+				engine.bord.colisionList = append(engine.bord.colisionList, []float32{engine.bord.tileDest.X, engine.bord.tileDest.Y})
 			}
 			if engine.bord.srcMap[i] == "t" {
 				engine.sprite.texture = engine.sprite.tilled
