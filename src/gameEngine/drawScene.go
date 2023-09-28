@@ -63,12 +63,6 @@ func (engine *EngineStruct) drawScene() {
 		}
 	}
 
-	
-	rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.character.hp)), rl.NewVector2(float32(engine.player.Dest.X)-183, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
-	rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.character.gold)), rl.NewVector2(float32(engine.player.Dest.X)+140, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
-	rl.DrawTexture(engine.sprite.money, int32(engine.player.Dest.X)+165, int32(engine.player.Dest.Y)-118, rl.White)
-	rl.DrawTexture(engine.sprite.redHeart, int32(engine.player.Dest.X)-202, int32(engine.player.Dest.Y)-116, rl.White)
-
 	for i := 0; i < len(engine.monster); i++ {
 		if engine.monster[i].alive {
 			rl.DrawTexturePro(engine.monster[i].sprite, rl.NewRectangle(engine.monster[i].Src.X+float32(engine.monster[i].Xstart), engine.monster[i].Src.Y, engine.monster[i].Src.Width, engine.monster[i].Src.Height), engine.monster[i].Dest, rl.NewVector2(engine.monster[i].Dest.Width, engine.monster[i].Dest.Height), 0, rl.White)
@@ -84,7 +78,11 @@ func (engine *EngineStruct) drawScene() {
 	rl.DrawTexturePro(engine.shopKeeper.sprite, engine.shopKeeper.Src, rl.NewRectangle(1030, 340, 32, 32), rl.NewVector2(engine.shopKeeper.Dest.Width, engine.shopKeeper.Dest.Height), 0, rl.White)
 	rl.DrawTextEx(engine.fontNum, "Shop", rl.NewVector2(float32(1030-32), float32(340-40)), 8, 0, rl.Black)
 
-	
+	rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.character.hp)), rl.NewVector2(float32(engine.player.Dest.X)-183, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
+	rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.character.gold)), rl.NewVector2(float32(engine.player.Dest.X)+135, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
+	rl.DrawTexture(engine.sprite.money, int32(engine.player.Dest.X)+165, int32(engine.player.Dest.Y)-118, rl.White)
+	rl.DrawTexture(engine.sprite.redHeart, int32(engine.player.Dest.X)-202, int32(engine.player.Dest.Y)-116, rl.White)
+
 	rl.DrawTexturePro(engine.player.Sprite, engine.player.Src, engine.player.Dest, rl.NewVector2(engine.player.Dest.Width, engine.player.Dest.Height), 0, rl.White)
 	if engine.shop && engine.character.showInventory {
 		rl.DrawTexture(engine.sprite.layer, int32(engine.player.Dest.X)-300, int32(engine.player.Dest.Y)-300, rl.White)
@@ -103,7 +101,7 @@ func (engine *EngineStruct) drawScene() {
 		//rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.character.gold), rl.NewVector2(float32(engine.player.Dest.X)+178, float32(engine.player.Dest.Y)-133+50), 10, 0, rl.Black)
 		rl.DrawTexture(engine.sprite.money, int32(engine.player.Dest.X)+165, int32(engine.player.Dest.Y)-118, rl.White)
 		if engine.shopKeeper.showPrice[0] == 1 && len(engine.shopKeeper.items) > engine.shopKeeper.showPrice[1] {
-			rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].price)), rl.NewVector2(float32(engine.player.Dest.X-27), float32(engine.player.Dest.Y-50)+50), 10, 0, rl.Black)
+			rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].price)), rl.NewVector2(float32(engine.player.Dest.X-47), float32(engine.player.Dest.Y-50)+50), 10, 0, rl.Black)
 			rl.DrawTexture(engine.sprite.money, int32(engine.player.Dest.X)-7, int32(engine.player.Dest.Y)-5, rl.White)
 			rl.DrawTextEx(engine.fontText, engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].description, rl.NewVector2(float32(engine.player.Dest.X-48)-50, float32(engine.player.Dest.Y+25)+50), 10, 0, rl.Black)
 		}

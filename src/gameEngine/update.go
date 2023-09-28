@@ -143,7 +143,6 @@ func (engine *EngineStruct) update() {
 					engine.doorOpen = false
 				}
 			}
-			
 
 			engine.cam.Target = rl.NewVector2(float32(engine.player.Dest.X - (engine.player.Dest.Width / 2)), float32(engine.player.Dest.Y - (engine.player.Dest.Height/2)))
 
