@@ -6,7 +6,7 @@ import (
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
-func buy(engine *EngineStruct, i int) {
+func (engine *EngineStruct) buy( i int) {
 	if len(engine.character.inventory) < 8 && engine.character.gold >= engine.shopKeeper.items[i].price {
 		engine.character.inventory = append(engine.character.inventory, engine.shopKeeper.items[i])
 		engine.character.gold -= engine.shopKeeper.items[i].price
@@ -24,14 +24,14 @@ func buy(engine *EngineStruct, i int) {
 	}
 }
 
-func shopSelector(engine *EngineStruct) {
+func (engine *EngineStruct) shopSelector() {
 	line1 := false
 	line2 := false
 	line3 := false
 	for i := 0; i < len(engine.shopKeeper.items); i++ {
 		if i < 3 {
 			if rl.IsMouseButtonPressed(rl.MouseLeftButton) && int32(670 + 89*i) < rl.GetMouseX() && rl.GetMouseX() < int32(670 + 89*i +89) && int32(20+150) < rl.GetMouseY() && rl.GetMouseY() < int32(100+150) {
-				buy(engine, i)
+				engine.buy(i)
 			} else if int32(670 + 89*i) < rl.GetMouseX() && rl.GetMouseX() < int32(670 + 89*i +89) && int32(20+150) < rl.GetMouseY() && rl.GetMouseY() < int32(100+150) {
 				engine.shopKeeper.showPrice[0] = 1
 				engine.shopKeeper.showPrice[1] = i
@@ -43,7 +43,7 @@ func shopSelector(engine *EngineStruct) {
 		for j := 3; j < len(engine.shopKeeper.items); j++ {
 			if j < 6 {
 				if rl.IsMouseButtonPressed(rl.MouseLeftButton) && int32(670 + 89*(j-3)) < rl.GetMouseX() && rl.GetMouseX() < int32(670 + 89*(j-3)+89) && int32(100+150) < rl.GetMouseY() && rl.GetMouseY() < int32(189+150) {
-					buy(engine, j)
+					engine.buy( j)
 				} else if int32(670 + 89*(j-3)) < rl.GetMouseX() && rl.GetMouseX() < int32(670 + 89*(j-3)+89) && int32(100+150) < rl.GetMouseY() && rl.GetMouseY() < int32(189+150) {
 					engine.shopKeeper.showPrice[0] = 1
 					engine.shopKeeper.showPrice[1] = j
@@ -55,7 +55,7 @@ func shopSelector(engine *EngineStruct) {
 	if len(engine.shopKeeper.items) > 6 {
 		for k := 6; k < len(engine.shopKeeper.items); k++ {
 			if rl.IsMouseButtonPressed(rl.MouseLeftButton) && int32(670 + 89*(k-6)) < rl.GetMouseX() && rl.GetMouseX() < int32(670 + 89*(k-6) +89) && int32(189+150) < rl.GetMouseY() && rl.GetMouseY() < int32(260+160) {
-				buy(engine, k)
+				engine.buy( k)
 			} else if int32(670 + 89*(k-6)) < rl.GetMouseX() && rl.GetMouseX() < int32(670 + 89*(k-6) +89) && int32(189+150) < rl.GetMouseY() && rl.GetMouseY() < int32(260+160) {
 				engine.shopKeeper.showPrice[0] = 1
 				engine.shopKeeper.showPrice[1] = k

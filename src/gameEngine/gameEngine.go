@@ -4,18 +4,18 @@ import (
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
-type EngineStruct struct {
+type EngineStruct struct { // création de la structure game engine dans laquels ce déroulera tout le jeu
 	run bool
 	bgColor rl.Color
 
 	framCount int
-	timer int
 
 	musicPaused bool
 	music rl.Music
 
 	cam rl.Camera2D
 	menuSelector bool
+	menuPlay bool
 
 	doorOpen bool
 	doorOpenKey bool
@@ -39,22 +39,24 @@ type EngineStruct struct {
 
 }
 
-func (engine *EngineStruct) Play() {
-	initt(engine)
-	for engine.run && !(rl.IsMouseButtonDown(rl.MouseLeftButton) && (screenWidth/2 - engine.sprite.buttonMenu.Width/2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth/2 + engine.sprite.buttonMenu.Width/2 && screenHeight/2 - engine.sprite.buttonMenu.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/2 + engine.sprite.buttonMenu.Height/2)) {
-		menu(engine)
+func (engine *EngineStruct) Play() { // fonction principale
+	
+	engine.init() // initialisation
+
+	for engine.run && engine.menuPlay { // affichage du menu tant qu'on a pas appuyer sur le bouton Play
+		engine.menuFunc()
 	}
 
-	for engine.run && engine.menuSelector {
-		classSelector(engine)
+	for engine.run && engine.menuSelector { // affichage du menu de classe tant qu'on a pas appuyer sur un bouton de classe
+		engine.classSelector()
 	}
 
-	for engine.run {
-		if engine.battle.inBattle {
-			battle(engine)
+	for engine.run { // boucle principale
+		if engine.battle.inBattle { // si on est en combat on affiche la scene de combat sinon on affiche la scene dans la map
+			engine.battleFunc()
 		} else {
-			inMap(engine)
+			engine.inMap()
 		}
 	}
-	quit(engine)
+	engine.quit() // unload toute les textures et fichiers ouvert
 }

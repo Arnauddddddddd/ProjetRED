@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func loadMap(engine *EngineStruct, mapPath string ) {
+func (engine *EngineStruct) loadMap( mapPath string ) {
 	file, err := ioutil.ReadFile(mapPath)
 	if err != nil {
 		fmt.Println(err)

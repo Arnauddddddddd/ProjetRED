@@ -4,7 +4,7 @@ import (
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
-func quit(engine *EngineStruct) {
+func (engine *EngineStruct) quit() {// on unload toute les textures et ferme la fenetre de jeu
 	rl.UnloadTexture(engine.sprite.grass)
 	rl.UnloadTexture(engine.sprite.donjon)
 	rl.UnloadTexture(engine.sprite.donjon2)

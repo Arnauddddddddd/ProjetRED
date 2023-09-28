@@ -4,7 +4,7 @@ import (
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
-func update(engine *EngineStruct) {
+func (engine *EngineStruct) update() {
 	engine.run = !rl.WindowShouldClose()
 	if !engine.character.showText {
 		if !engine.character.showInventory {
@@ -151,13 +151,13 @@ func update(engine *EngineStruct) {
 			engine.player.Up, engine.player.Down, engine.player.Right, engine.player.Left = false, false, false, false
 		} else {
 			if engine.shop {
-				shopSelector(engine)
+				engine.shopSelector()
 			} else {
-				inventorySelector(engine, 620, 365, 445, 455, 530 , 90)
+				engine.inventorySelector( 620, 365, 445, 455, 530 , 90)
 			}
 		}
 	} else {
-		text(engine)
+		engine.text()
 	}
 	rl.UpdateMusicStream(engine.music)
 	if engine.musicPaused {

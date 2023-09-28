@@ -6,7 +6,13 @@ import (
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
-func drawScene(engine *EngineStruct) {
+func (engine *EngineStruct) drawScene() {
+	rl.BeginDrawing()
+	rl.ClearBackground(engine.bgColor)
+
+	rl.BeginMode2D(engine.cam)
+
+
 	engine.bord.colisionList = [][]float32{}
 	for i := 0; i < len(engine.bord.tileMap); i++ {
 		if engine.bord.tileMap[i] != 0 {
@@ -151,4 +157,8 @@ func drawScene(engine *EngineStruct) {
 			rl.DrawTextEx(engine.fontText, engine.textBox.textPrint, rl.NewVector2(float32(engine.player.Dest.X-150), float32(engine.player.Dest.Y+55)), 11, 0, rl.Black)
 		}
 	}
+	
+
+	rl.EndMode2D()
+	rl.EndDrawing()
 }

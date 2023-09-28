@@ -6,7 +6,7 @@ import (
 
 )
 
-func updateBattle(engine *EngineStruct) {
+func (engine *EngineStruct) updateBattle() {
 
 	engine.run = !rl.WindowShouldClose()
 
@@ -42,7 +42,7 @@ func updateBattle(engine *EngineStruct) {
 						engine.battle.fatality = "false"
 					}
 					engine.player.showHud = false
-					drawSceneBattle(engine)
+					engine.drawSceneBattle()
 
 					engine.character.showText = true
 					engine.textBox.textToPrint = "Vous attaquez .. "
@@ -63,7 +63,7 @@ func updateBattle(engine *EngineStruct) {
 				if rl.IsMouseButtonPressed(rl.MouseLeftButton) && (1140 < rl.GetMouseX() && rl.GetMouseX() < 1492 && 758 < rl.GetMouseY() && rl.GetMouseY() < 840) {
 					if engine.battle.fatality == "true" {
 						engine.player.showHud = false
-						drawSceneBattle(engine)
+						engine.drawSceneBattle()
 
 						engine.battle.fatality = engine.character.name
 
@@ -101,7 +101,7 @@ func updateBattle(engine *EngineStruct) {
 						engine.monster[engine.battle.monsterBattle].hp -= engine.character.damage
 					}
 
-					drawSceneBattle(engine)
+					engine.drawSceneBattle()
 					engine.character.showText = true
 					engine.textBox.textToPrint = "Attention il attaque .. "
 					engine.textBox.textPrint = ""
@@ -132,7 +132,7 @@ func updateBattle(engine *EngineStruct) {
 					engine.battle.slash = false
 					engine.playerTurn = true
 					engine.character.hp -= engine.monster[engine.battle.monsterBattle].damage
-					drawSceneBattle(engine)
+					engine.drawSceneBattle()
 					engine.player.showHud = true
 				}
 			}
@@ -147,7 +147,7 @@ func updateBattle(engine *EngineStruct) {
 			engine.monster[engine.battle.monsterBattle].frameCount = 0
 		}
 		engine.monster[engine.battle.monsterBattle].Src.X = engine.monster[engine.battle.monsterBattle].Src.Width * float32(engine.monster[engine.battle.monsterBattle].frameCount)
-		text(engine)
+		engine.text()
 	}
 
 }

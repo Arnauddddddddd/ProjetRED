@@ -2,9 +2,9 @@ package gameEngine
 
 import "github.com/gen2brain/raylib-go/raylib"
 
-func input(engine *EngineStruct) {
-	if rl.IsKeyDown(rl.KeyW) || rl.IsKeyDown(rl.KeyUp) {
-		engine.player.Moving = true
+func (engine *EngineStruct) input() {
+	if rl.IsKeyDown(rl.KeyW) || rl.IsKeyDown(rl.KeyUp) { // si on appuie sur Z ou flèche du bas on change la direction (voir le spriteSheet) et on définit qu'on bouge
+		engine.player.Moving = true 
 		engine.player.Dir = 1
 		engine.player.Up = true
 	}
@@ -26,7 +26,7 @@ func input(engine *EngineStruct) {
 	if rl.IsKeyPressed(rl.KeyQ) {
 		engine.musicPaused = !engine.musicPaused
 	}
-	if rl.IsKeyPressed(rl.KeyE) {
+	if rl.IsKeyPressed(rl.KeyE) { // on affiche l'inventaire ou désaffiche l'inventaire en appuyant sur E
 		engine.character.showInventory = !engine.character.showInventory
 	}
 	if rl.IsKeyPressed(rl.KeyU) {

@@ -4,24 +4,24 @@ import (
 	"github.com/gen2brain/raylib-go/raylib"
 )
 
-func inventorySelector(engine *EngineStruct, coordx int, coordy int, cordy2 int, cordy3 int, cordy4 int, slotLen int) {
+func (engine *EngineStruct) inventorySelector(coordx int, coordy int, cordy2 int, cordy3 int, cordy4 int, slotLen int) { // check si on clique sur une case de l'inventaire
 	for i := 0; i < len(engine.character.inventory); i++ {
 		if i < 4 {
 			if rl.IsMouseButtonPressed(rl.MouseLeftButton) && int32((coordx) + slotLen*i) < rl.GetMouseX() && rl.GetMouseX() < int32((coordx) + slotLen*i+slotLen) && int32(365) < rl.GetMouseY() && rl.GetMouseY() < int32(cordy2) {
-				inventoryEffect(engine, i)
+				engine.inventoryEffect( i)
 			}
 		}
 	}
 	if len(engine.character.inventory) > 4 {
 		for j := 4; j < len(engine.character.inventory); j++ {
 			if rl.IsMouseButtonPressed(rl.MouseLeftButton) && int32((coordx) + slotLen*(j-4)) < rl.GetMouseX() && rl.GetMouseX() < int32(coordx + slotLen*(j-4)+ slotLen) && int32(cordy3) < rl.GetMouseY() && rl.GetMouseY() < int32(cordy4) {
-				inventoryEffect(engine, j)
+				engine.inventoryEffect( j)
 			}
 		}
 	}
 }
 
-func inventoryEffect(engine *EngineStruct, u int) {
+func (engine *EngineStruct) inventoryEffect(u int) { // applique les effect de l'item engine.character.inventory[u]
 	if engine.character.inventory[u].battle && engine.battle.inBattle { 
 		engine.character.damage += engine.character.inventory[u].damageUp
 		engine.character.hp += engine.character.inventory[u].hpUp

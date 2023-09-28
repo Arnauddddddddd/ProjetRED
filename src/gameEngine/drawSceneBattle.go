@@ -6,7 +6,7 @@ import (
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
-func drawSceneBattle(engine *EngineStruct) {
+func (engine *EngineStruct) drawSceneBattle() {
 
 	rl.BeginDrawing()
 	rl.ClearBackground(engine.bgColor)
