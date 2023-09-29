@@ -205,10 +205,10 @@ func (engine *EngineStruct) initMonster() { // On initialise tout les monstres
 	engine.monster = append(engine.monster, monsterStruct{"samurai", 350, 350, 120, 0, true, rl.LoadTexture("../texture/monster/Samurai.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(507, 607, 64, 50), 0, 7, 0, 50, 12, 500,  6,"dungeon", false})
 	engine.monster = append(engine.monster, monsterStruct{"goblin", 700, 700, 100, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 380, 32, 40), rl.NewRectangle(1113, 680, 32, 40), 0, 2, 0, 848, 16, 500,  6,"dungeon", true})
 	engine.monster = append(engine.monster, monsterStruct{"goblin", 700, 700, 100, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 380, 32, 40), rl.NewRectangle(1113, 820, 32, 40), 0, 2, 0, 848, 16, 500,  6,"dungeon", true})
-	engine.monster = append(engine.monster, monsterStruct{"golem", 800, 800, 60, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 326, 32, 40), rl.NewRectangle(931, 670, 32, 40), 0, 2, 0, 848, 12, 700,  6,"dungeon", true})
-	engine.monster = append(engine.monster, monsterStruct{"knight", 999, 999, 200, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(335, 510, 64, 50), 0, 9, 9, 3, 1000, 12,  6,"dungeon", false})
+	engine.monster = append(engine.monster, monsterStruct{"golem", 750, 750, 60, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 326, 32, 40), rl.NewRectangle(931, 670, 32, 40), 0, 2, 0, 848, 12, 700,  6,"dungeon", true})
+	engine.monster = append(engine.monster, monsterStruct{"knight", 800, 800, 50, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(335, 510, 64, 50), 0, 9, 9, 3, 10, 1000,  6,"dungeon", false})
 	
-	engine.monster = append(engine.monster, monsterStruct{"slime", 3000, 3000, 100, 0, true, rl.LoadTexture("../texture/monster/slime2.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1577, 410, 32*8, 32*8), 0, 3, 0, 320, 8, 12,  40,"dungeon", false})
+	engine.monster = append(engine.monster, monsterStruct{"slime", 999, 999, 200, 0, true, rl.LoadTexture("../texture/monster/slime2.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1577, 410, 32*8, 32*8), 0, 3, 0, 320, 8, 12,  40,"dungeon", false})
 	}
 
 func (engine *EngineStruct) initSprite() { // On initialise toutes les texture / sprites

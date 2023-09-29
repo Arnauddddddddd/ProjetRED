@@ -29,11 +29,10 @@ func (engine *EngineStruct) input() {
 	if rl.IsKeyPressed(rl.KeyE) { // on affiche l'inventaire ou désaffiche l'inventaire en appuyant sur E
 		engine.character.showInventory = !engine.character.showInventory
 	}
-	if rl.IsKeyPressed(rl.KeyU) {
-		engine.character.showText = !engine.character.showText
-		engine.textBox.textToPrint = "OUI OIUI LA FRANCE ! .."
-		engine.textBox.textPrint = ""
-		engine.textBox.frameCountText = 0
-		engine.textBox.textWriting = true
+	if rl.IsKeyDown(rl.KeyLeftShift) {
+		engine.player.Speed = 3
+		engine.bord.colisionList = [][]float32{}
+	} else {
+		engine.player.Speed = 1
 	}
 }
