@@ -100,6 +100,9 @@ func (engine *EngineStruct) updateBattle() {
 					} else {
 						engine.monster[engine.battle.monsterBattle].hp -= engine.character.damage
 					}
+					if engine.monster[engine.battle.monsterBattle].hp <= 0 {
+						engine.monster[engine.battle.monsterBattle].hp = 0
+					}
 
 					engine.drawSceneBattle()
 					engine.character.showText = true
@@ -109,6 +112,7 @@ func (engine *EngineStruct) updateBattle() {
 					engine.textBox.textWriting = true
 				}
 				if engine.monster[engine.battle.monsterBattle].hp <= 0 {
+					engine.monster[engine.battle.monsterBattle].hp = 0
 					if engine.character.name == "Thief" {
 						engine.character.gold += (engine.monster[engine.battle.monsterBattle].goldLoot*1.2)
 					} else {
@@ -120,6 +124,7 @@ func (engine *EngineStruct) updateBattle() {
 					engine.character.showText = false
 				}
 				if engine.character.hp <= 0 {
+					engine.character.hp = 0
 					engine.character.damage = engine.character.damageBase
 					engine.character.alive = false
 					engine.monster[engine.battle.monsterBattle].hp = engine.monster[engine.battle.monsterBattle].hpMax
@@ -134,6 +139,9 @@ func (engine *EngineStruct) updateBattle() {
 					engine.playerTurn = true
 					if engine.monster[engine.battle.monsterBattle].hp > 0 {
 						engine.character.hp -= engine.monster[engine.battle.monsterBattle].damage
+					}
+					if engine.character.hp <= 0 {
+						engine.character.hp = 0
 					}
 					engine.drawSceneBattle()
 					engine.player.showHud = true
