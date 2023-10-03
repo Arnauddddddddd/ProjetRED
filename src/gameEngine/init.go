@@ -1,7 +1,7 @@
 package gameEngine
 
 import (
-	"github.com/gen2brain/raylib-go/raylib"
+	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
 const (
@@ -198,17 +198,16 @@ func (engine *EngineStruct) initMonster() { // On initialise tout les monstres
 	engine.monster = append(engine.monster, monsterStruct{"Pigmen", 200, 200, 60, 0, true, rl.LoadTexture("../texture/monster/Pig_Big.png"), rl.NewRectangle(0, 60, 64, 38), rl.NewRectangle(700, 1370, 64, 38), 0, 4, 0, 0, 8, 300, 6,"desert", false})
 	engine.monster = append(engine.monster, monsterStruct{"el diablos2", 60, 60, 100, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 272, 16, 24), rl.NewRectangle(923, 1310, 16, 24), 0, 7, 0, 368, 8, 150,  6,"desert", false})
 	engine.monster = append(engine.monster, monsterStruct{"el diablos2", 60, 60, 100, 0, true, rl.LoadTexture("../texture/monster/donjon.png"), rl.NewRectangle(0, 272, 16, 24), rl.NewRectangle(409, 1425, 16, 24), 0, 7, 0, 368, 8, 150,  6,"desert", false})
-	engine.monster = append(engine.monster, monsterStruct{"knight", 500, 500, 90, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(741, 929, 64, 50), 0, 2, 4, 3, 8, 300, 6,"desert", false})
-	engine.monster = append(engine.monster, monsterStruct{"knight", 500, 500, 90, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(791, 929, 64, 50), 0, 2, 4, 3, 8, 300, 6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"knight", 500, 500, 90, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(741, 929, 64, 50), 0, 2, 4, 3, 8, 500, 6,"desert", false})
+	engine.monster = append(engine.monster, monsterStruct{"knight", 500, 500, 90, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(791, 929, 64, 50), 0, 2, 4, 3, 8, 500, 6,"desert", false})
 	
-	engine.monster = append(engine.monster, monsterStruct{"demon", 600, 600, 98, 0, true, rl.LoadTexture("../texture/monster/demon.png"), rl.NewRectangle(0, 0, 32, 42), rl.NewRectangle(328, 768, 32, 42), 0, 2, 8, 0, 9, 450,  6,"dungeon", false})
-	engine.monster = append(engine.monster, monsterStruct{"samurai", 350, 350, 120, 0, true, rl.LoadTexture("../texture/monster/Samurai.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(507, 607, 64, 50), 0, 7, 0, 50, 12, 500,  6,"dungeon", false})
-	engine.monster = append(engine.monster, monsterStruct{"goblin", 700, 700, 100, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 380, 32, 40), rl.NewRectangle(1113, 680, 32, 40), 0, 2, 0, 848, 16, 500,  6,"dungeon", true})
-	engine.monster = append(engine.monster, monsterStruct{"goblin", 700, 700, 100, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 380, 32, 40), rl.NewRectangle(1113, 820, 32, 40), 0, 2, 0, 848, 16, 500,  6,"dungeon", true})
-	engine.monster = append(engine.monster, monsterStruct{"golem", 750, 750, 60, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 326, 32, 40), rl.NewRectangle(931, 670, 32, 40), 0, 2, 0, 848, 12, 700,  6,"dungeon", true})
-	engine.monster = append(engine.monster, monsterStruct{"knight", 800, 800, 50, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(335, 510, 64, 50), 0, 9, 9, 3, 10, 1000,  6,"dungeon", false})
-	
-	engine.monster = append(engine.monster, monsterStruct{"slime", 999, 999, 200, 0, true, rl.LoadTexture("../texture/monster/slime2.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1577, 410, 32*8, 32*8), 0, 3, 0, 320, 8, 12,  40,"dungeon", false})
+	engine.monster = append(engine.monster, monsterStruct{"demon", 600, 600, 98, 0, true, rl.LoadTexture("../texture/monster/demon.png"), rl.NewRectangle(0, 0, 32, 42), rl.NewRectangle(328, 768, 32, 42), 0, 2, 8, 0, 9, 1000,  6,"dungeon", false})
+	engine.monster = append(engine.monster, monsterStruct{"goblin", 700, 700, 120, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 380, 32, 40), rl.NewRectangle(1113, 680, 32, 40), 0, 2, 0, 848, 16, 1500,  6,"dungeon", true})
+	engine.monster = append(engine.monster, monsterStruct{"goblin", 700, 700, 120, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 380, 32, 40), rl.NewRectangle(1113, 820, 32, 40), 0, 2, 0, 848, 16, 1500,  6,"dungeon", true})
+	engine.monster = append(engine.monster, monsterStruct{"golem", 750, 750, 170, 0, true, rl.LoadTexture("../texture/monster/donjon2.2.png"), rl.NewRectangle(0, 326, 32, 40), rl.NewRectangle(931, 670, 32, 40), 0, 2, 0, 848, 12, 1750,  6,"dungeon", true})
+	engine.monster = append(engine.monster, monsterStruct{"samurai", 800, 800, 200, 0, true, rl.LoadTexture("../texture/monster/Samurai.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(507, 607, 64, 50), 0, 7, 0, 50, 12, 2000,  6,"dungeon", false})
+	engine.monster = append(engine.monster, monsterStruct{"knight", 900, 800, 250, 0, true, rl.LoadTexture("../texture/monster/DarkKnight.png"), rl.NewRectangle(0, 50, 64, 50), rl.NewRectangle(335, 510, 64, 50), 0, 9, 9, 3, 10, 2000,  6,"dungeon", false})
+	engine.monster = append(engine.monster, monsterStruct{"slime", 999, 999, 400, 0, true, rl.LoadTexture("../texture/monster/slime2.png"), rl.NewRectangle(0, 0, 32, 32), rl.NewRectangle(1577, 410, 32*8, 32*8), 0, 3, 0, 320, 8, 12,  40,"dungeon", false})
 	}
 
 func (engine *EngineStruct) initSprite() { // On initialise toutes les texture / sprites
@@ -248,12 +247,10 @@ func (engine *EngineStruct) initSprite() { // On initialise toutes les texture /
 
 func (engine *EngineStruct) initShopKeeper() { // On initialise tout les items du shop
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Potion", "Potion", "A simple magic potion that restores you 50 hp", rl.LoadTexture("../texture/shop/potion.png"), 0, 50, 0, true, true, true, 20})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Kit", "Kit", "This healing kit regenerates you 250 hp", rl.LoadTexture("../texture/shop/kit.png"), 0, 250, 0, true, true, true, 200})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Fork", "By using this fork, you fight \nthe rest of the fight with it and will \ninflict an additional 50 damage on you.", rl.LoadTexture("../texture/shop/fork.png"), 0, 0, 0, false, true, true, 150})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Improvement Item", "Improvement", "This power allows you to permanently\n increase your damage and health by 10%.", rl.LoadTexture("../texture/shop/star.png"), 0, 0, 0, true, false, true, 150})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Fork", "Use this fork in combat to inflict \n100 hp on your opponent.", rl.LoadTexture("../texture/shop/fork.png"), 0, 0, 0, false, true, true, 100})
+	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Improvement Item", "Improvement", "EVOLVE : to permanently\n increase your damage and health by 20%.", rl.LoadTexture("../texture/shop/star.png"), 0, 0, 0, true, false, true, 100})
 	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Key", "special", "The key to access the devastated lands", rl.LoadTexture("../texture/shop/key.png"), 50, 50, 0, false, false, false, 200})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Totem", "special", "This totem allows anyone to regain \nall their vitality instantly", rl.LoadTexture("../texture/shop/totem.png"), 0, 5000, 0, true, true, true, 1000})
-	engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Axe", "By using this axe, you fight \nthe rest of the fight with it and will \ninflict an additional 250 damage on you.", rl.LoadTexture("../texture/shop/axe.png"), 0, 0, 0, false, true, true, 500})
+	
 	//engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Flask", "By using this item, your damage will be \ndoubled during your fight, if you \ntook a fork or an ax before, this additional \ndamage will also be doubled", rl.LoadTexture("../texture/shop/flask.png"), engine.character.damageBase, 0, 0, false, true, true, 1})
 	//engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Dead item", "dead", "By using this item, your damage will be \ndoubled during your fight, if you \ntook a fork or an ax before, this additional \ndamage will also be doubled", rl.LoadTexture("../texture/shop/dead2.png"), 0, 0, 0, false, false, true, 1})
 	

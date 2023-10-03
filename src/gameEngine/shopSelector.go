@@ -3,7 +3,7 @@ package gameEngine
 import (
 	"time"
 
-	"github.com/gen2brain/raylib-go/raylib"
+	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
 func (engine *EngineStruct) buy( i int) {
@@ -11,7 +11,7 @@ func (engine *EngineStruct) buy( i int) {
 		engine.character.inventory = append(engine.character.inventory, engine.shopKeeper.items[i])
 		engine.character.gold -= engine.shopKeeper.items[i].price
 		if engine.shopKeeper.items[i].gender == "Improvement" {
-			engine.shopKeeper.items[i].price *= 2
+			engine.shopKeeper.items[i].price *= 1.75
 		}
 		if !engine.shopKeeper.items[i].infinitySale {
 			engine.shopKeeper.items = append(engine.shopKeeper.items[:i], engine.shopKeeper.items[i+1:]...)

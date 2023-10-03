@@ -1,8 +1,6 @@
 package gameEngine
 
-import (
-	"github.com/gen2brain/raylib-go/raylib"
-)
+import 	rl "github.com/gen2brain/raylib-go/raylib"
 
 func (engine *EngineStruct) classSelector() {
 	engine.run = !rl.WindowShouldClose()
@@ -48,7 +46,7 @@ func (engine *EngineStruct) classSelector() {
     if rl.IsMouseButtonDown(rl.MouseLeftButton) && (screenWidth - engine.sprite.buttonPlay.Width*2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth - engine.sprite.buttonPlay.Width && screenHeight/4 - engine.sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - engine.sprite.buttonPlay.Height/2 +  engine.sprite.buttonPlay.Height) { // initialise le personage de la classe Tank si on appuie sur le boutton
         engine.menuSelector = false
         engine.character.name = "Tank"
-        engine.character.hp = 250
+        engine.character.hp = 200
         engine.character.damage = 30
         engine.character.damageBase = 30
         engine.character.speed = 10
@@ -59,23 +57,44 @@ func (engine *EngineStruct) classSelector() {
         engine.character.inventory = append(engine.character.inventory, itemStruct{"Heal Potion", "Potion", "A simple magic potion that restores you 50 hp", rl.LoadTexture("../texture/shop/potion.png"), 0, 50, 0, true, true, true, 20})
     }
 
+
+
 	if engine.sprite.buttonPlay.Width < rl.GetMouseX() && rl.GetMouseX() < engine.sprite.buttonPlay.Width*2 && screenHeight/4 - engine.sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - engine.sprite.buttonPlay.Height/2 +  engine.sprite.buttonPlay.Height { // affiche le boutton enfoncer si on passe notre souris dessus 
         rl.DrawTexture(engine.sprite.buttonPlay, engine.sprite.buttonPlay.Width, screenHeight/4 - engine.sprite.buttonPlay.Height/2, rl.White)
+        rl.DrawTextEx(engine.fontNum, "         HP : 150       Damages : 30     ", rl.NewVector2(float32(engine.sprite.buttonPlay.Width-20), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+350)), 30, 0, rl.Black) 
+        rl.DrawTextEx(engine.fontNum, "-You start without objects", rl.NewVector2(float32(engine.sprite.buttonPlay.Width-20), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+450)), 25, 0, rl.Black) 
+        rl.DrawTextEx(engine.fontNum, "-You gain 25% more gold after each fight", rl.NewVector2(float32(engine.sprite.buttonPlay.Width-20), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+500)), 25, 0, rl.Black) 
+        rl.DrawTextEx(engine.fontNum, "FATALITY : You steal 40% of the monster's life", rl.NewVector2(float32(engine.sprite.buttonPlay.Width-20), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+600)), 25, 0, rl.Black) 
+
     } else {
         rl.DrawTexture(engine.sprite.buttonPlayPressed, engine.sprite.buttonPlay.Width, screenHeight/4 - engine.sprite.buttonPlay.Height/2, rl.White)
     }
 
 	if screenWidth/2 - engine.sprite.buttonPlay.Width/2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth/2 + engine.sprite.buttonPlay.Width/2 && screenHeight/4 - engine.sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - engine.sprite.buttonPlay.Height/2 +  engine.sprite.buttonPlay.Height{ // affiche le boutton enfoncer si on passe notre souris dessus 
         rl.DrawTexture(engine.sprite.buttonPlay, screenWidth/2 - engine.sprite.buttonPlay.Width/2, screenHeight/4 - engine.sprite.buttonPlay.Height/2, rl.White)
+        rl.DrawTextEx(engine.fontNum, "         HP : 150       Damages : 40     ", rl.NewVector2(float32(engine.sprite.buttonPlay.Width-20), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+350)), 30, 0, rl.Black) 
+        rl.DrawTextEx(engine.fontNum, "-You start with two forks which inflict 100 damages", rl.NewVector2(float32(engine.sprite.buttonPlay.Width-20), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+450)), 25, 0, rl.Black) 
+        rl.DrawTextEx(engine.fontNum, "-You are more powerful (+33%)", rl.NewVector2(float32(engine.sprite.buttonPlay.Width-20), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+500)), 25, 0, rl.Black) 
+        rl.DrawTextEx(engine.fontNum, "FATALITY : After using, your damages inflict 50% more", rl.NewVector2(float32(engine.sprite.buttonPlay.Width-20), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+600)), 25, 0, rl.Black) 
+
     } else {
         rl.DrawTexture(engine.sprite.buttonPlayPressed, screenWidth/2 - engine.sprite.buttonPlay.Width/2, screenHeight/4 - engine.sprite.buttonPlay.Height/2, rl.White)
     }
 
 	if screenWidth - engine.sprite.buttonPlay.Width*2 < rl.GetMouseX() && rl.GetMouseX() < screenWidth - engine.sprite.buttonPlay.Width && screenHeight/4 - engine.sprite.buttonPlay.Height/2 < rl.GetMouseY() && rl.GetMouseY() < screenHeight/4 - engine.sprite.buttonPlay.Height/2 +  engine.sprite.buttonPlay.Height{ // affiche le boutton enfoncer si on passe notre souris dessus 
         rl.DrawTexture(engine.sprite.buttonPlay, screenWidth - engine.sprite.buttonPlay.Width*2, screenHeight/4 - engine.sprite.buttonPlay.Height/2, rl.White)
+        rl.DrawTextEx(engine.fontNum, "         HP : 200       Damages : 30     ", rl.NewVector2(float32(engine.sprite.buttonPlay.Width-20), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+350)), 30, 0, rl.Black) 
+        rl.DrawTextEx(engine.fontNum, "-You start with two heal potions which regen you 50 HP ", rl.NewVector2(float32(engine.sprite.buttonPlay.Width-20), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+450)), 25, 0, rl.Black) 
+        rl.DrawTextEx(engine.fontNum, "-You have more life (+33%)", rl.NewVector2(float32(engine.sprite.buttonPlay.Width-20), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+500)), 25, 0, rl.Black) 
+        rl.DrawTextEx(engine.fontNum, "FATALITY : After using, you take 40% less damages", rl.NewVector2(float32(engine.sprite.buttonPlay.Width-20), float32(screenHeight/4 - engine.sprite.buttonPlay.Height/2+600)), 25, 0, rl.Black) 
+
     } else {
         rl.DrawTexture(engine.sprite.buttonPlayPressed, screenWidth - engine.sprite.buttonPlay.Width*2, screenHeight/4 - engine.sprite.buttonPlay.Height/2, rl.White)
     }
+
+
+
+
 
 	rl.ClearBackground(engine.bgColor)
 	rl.EndDrawing()

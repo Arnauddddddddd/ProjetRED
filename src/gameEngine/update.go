@@ -1,7 +1,7 @@
 package gameEngine
 
 import (
-	"github.com/gen2brain/raylib-go/raylib"
+	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
 func (engine *EngineStruct) update() {
@@ -133,6 +133,9 @@ func (engine *EngineStruct) update() {
 						if engine.character.inventory[i].name == "Key" {
 							engine.doorOpenKey = true
 							engine.character.inventory = append(engine.character.inventory[:i], engine.character.inventory[i+1:]...)
+							engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Heal Kit", "Kit", "This healing kit regenerates you 250 hp", rl.LoadTexture("../texture/shop/kit.png"), 0, 250, 0, true, true, true, 200})
+							engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Strengt item", "Axe", "Use this axe in combat to inflict \n250 hp on your opponent.", rl.LoadTexture("../texture/shop/axe.png"), 0, 0, 0, false, true, true, 300})
+							engine.shopKeeper.items = append(engine.shopKeeper.items, itemStruct{"Totem", "special", "This totem allows anyone to regain \nall their vitality instantly", rl.LoadTexture("../texture/shop/totem.png"), 0, 5000, 0, true, true, true, 1000})
 						}
 					}
 				}

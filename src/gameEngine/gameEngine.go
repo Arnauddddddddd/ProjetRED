@@ -1,7 +1,7 @@
 package gameEngine
 
 import (
-	"github.com/gen2brain/raylib-go/raylib"
+	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
 type EngineStruct struct { // création de la structure game engine dans laquels ce déroulera tout le jeu

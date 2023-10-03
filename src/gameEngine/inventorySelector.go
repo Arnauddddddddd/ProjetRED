@@ -1,7 +1,7 @@
 package gameEngine
 
 import (
-	"github.com/gen2brain/raylib-go/raylib"
+	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
 func (engine *EngineStruct) inventorySelector(coordx int, coordy int, cordy2 int, cordy3 int, cordy4 int, slotLen int) { // check si on clique sur une case de l'inventaire
@@ -34,9 +34,6 @@ func (engine *EngineStruct) inventoryEffect(u int) { // applique les effect de l
 		if engine.character.inventory[u].gender == "Fork" {
 			engine.monster[engine.battle.monsterBattle].hp -= 100
 		}
-		if engine.monster[engine.battle.monsterBattle].hp <= 0 {
-			engine.monster[engine.battle.monsterBattle].hp = 0
-		}
 		engine.playerTurn = false
 		engine.character.inventory = append(engine.character.inventory[:u], engine.character.inventory[u+1:]...)
 
@@ -44,9 +41,9 @@ func (engine *EngineStruct) inventoryEffect(u int) { // applique les effect de l
 		engine.character.hp += engine.character.inventory[u].hpUp
 		engine.player.Speed += float32(engine.character.inventory[u].speedUp)
 		if engine.character.inventory[u].gender == "Improvement" {
-			engine.character.hpMax *= 1.3
-			engine.character.damageBase *= 1.3
-			engine.character.damage *= 1.3
+			engine.character.hpMax *= 1.2
+			engine.character.damageBase *= 1.2
+			engine.character.damage *= 1.2
 			engine.character.hp += 5000
 		}
 		if engine.character.hp >= engine.character.hpMax {

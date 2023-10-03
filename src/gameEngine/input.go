@@ -1,6 +1,6 @@
 package gameEngine
 
-import "github.com/gen2brain/raylib-go/raylib"
+import rl "github.com/gen2brain/raylib-go/raylib"
 
 func (engine *EngineStruct) input() {
 	if rl.IsKeyDown(rl.KeyW) || rl.IsKeyDown(rl.KeyUp) { // si on appuie sur Z ou flèche du bas on change la direction (voir le spriteSheet) et on définit qu'on bouge

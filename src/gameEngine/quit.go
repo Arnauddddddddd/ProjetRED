@@ -1,7 +1,7 @@
 package gameEngine
 
 import (
-	"github.com/gen2brain/raylib-go/raylib"
+	rl "github.com/gen2brain/raylib-go/raylib"
 )
 
 func (engine *EngineStruct) quit() {// on unload toute les textures et ferme la fenetre de jeu

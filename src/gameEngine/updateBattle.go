@@ -91,17 +91,17 @@ func (engine *EngineStruct) updateBattle() {
 					engine.playerTurn = false
 
 					if engine.battle.fatality == "Slayer" {
-						engine.character.damage *= 1.10
+						engine.character.damage *= 1.5
 					} else if engine.battle.fatality == "Tank" {
-						engine.monster[engine.battle.monsterBattle].damage *= 0.90
+						engine.monster[engine.battle.monsterBattle].damage *= 0.6
 					} else if engine.battle.fatality == "Thief" {
-						engine.character.hp += engine.monster[engine.battle.monsterBattle].hp*0.30
-						engine.monster[engine.battle.monsterBattle].hp -= engine.monster[engine.battle.monsterBattle].hp*0.30
+						engine.character.hp += engine.monster[engine.battle.monsterBattle].hp*0.4
+						if engine.character.hp > engine.character.hpMax {
+							engine.character.hp = engine.character.hpMax
+						}
+							engine.monster[engine.battle.monsterBattle].hp -= engine.monster[engine.battle.monsterBattle].hp*0.4
 					} else {
 						engine.monster[engine.battle.monsterBattle].hp -= engine.character.damage
-					}
-					if engine.monster[engine.battle.monsterBattle].hp <= 0 {
-						engine.monster[engine.battle.monsterBattle].hp = 0
 					}
 
 					engine.drawSceneBattle()
@@ -111,10 +111,9 @@ func (engine *EngineStruct) updateBattle() {
 					engine.textBox.frameCountText = 0
 					engine.textBox.textWriting = true
 				}
-				if engine.monster[engine.battle.monsterBattle].hp <= 0 {
-					engine.monster[engine.battle.monsterBattle].hp = 0
+				if engine.monster[engine.battle.monsterBattle].hp < 1 {
 					if engine.character.name == "Thief" {
-						engine.character.gold += (engine.monster[engine.battle.monsterBattle].goldLoot*1.2)
+						engine.character.gold += (engine.monster[engine.battle.monsterBattle].goldLoot*1.25)
 					} else {
 						engine.character.gold += (engine.monster[engine.battle.monsterBattle].goldLoot)
 					}
@@ -123,8 +122,7 @@ func (engine *EngineStruct) updateBattle() {
 					engine.battle.inBattle = false
 					engine.character.showText = false
 				}
-				if engine.character.hp <= 0 {
-					engine.character.hp = 0
+				if engine.character.hp < 1 {
 					engine.character.damage = engine.character.damageBase
 					engine.character.alive = false
 					engine.monster[engine.battle.monsterBattle].hp = engine.monster[engine.battle.monsterBattle].hpMax
@@ -139,9 +137,6 @@ func (engine *EngineStruct) updateBattle() {
 					engine.playerTurn = true
 					if engine.monster[engine.battle.monsterBattle].hp > 0 {
 						engine.character.hp -= engine.monster[engine.battle.monsterBattle].damage
-					}
-					if engine.character.hp <= 0 {
-						engine.character.hp = 0
 					}
 					engine.drawSceneBattle()
 					engine.player.showHud = true

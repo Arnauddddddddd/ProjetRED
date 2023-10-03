@@ -79,7 +79,18 @@ func (engine *EngineStruct) drawScene() {
 	rl.DrawTextEx(engine.fontNum, "Shop", rl.NewVector2(float32(1030-32), float32(340-40)), 8, 0, rl.Black)
 
 	rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.character.hp)), rl.NewVector2(float32(engine.player.Dest.X)-183, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
-	rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.character.gold)), rl.NewVector2(float32(engine.player.Dest.X)+135, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
+	if engine.character.gold >= 0 && engine.character.gold < 10 {
+		rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.character.gold)), rl.NewVector2(float32(engine.player.Dest.X)+155, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
+	}
+	if engine.character.gold >= 10 && engine.character.gold < 100 {
+		rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.character.gold)), rl.NewVector2(float32(engine.player.Dest.X)+145, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
+	}
+	if engine.character.gold < 1000 && engine.character.gold >= 100{
+		rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.character.gold)), rl.NewVector2(float32(engine.player.Dest.X)+135, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
+	}
+	if engine.character.gold > 999 {
+		rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.character.gold)), rl.NewVector2(float32(engine.player.Dest.X)+125, float32(engine.player.Dest.Y)-113), 10, 0, rl.Black)
+	}
 	rl.DrawTexture(engine.sprite.money, int32(engine.player.Dest.X)+165, int32(engine.player.Dest.Y)-118, rl.White)
 	rl.DrawTexture(engine.sprite.redHeart, int32(engine.player.Dest.X)-202, int32(engine.player.Dest.Y)-116, rl.White)
 
@@ -101,7 +112,16 @@ func (engine *EngineStruct) drawScene() {
 		//rl.DrawTextEx(engine.fontNum, strconv.Itoa(engine.character.gold), rl.NewVector2(float32(engine.player.Dest.X)+178, float32(engine.player.Dest.Y)-133+50), 10, 0, rl.Black)
 		rl.DrawTexture(engine.sprite.money, int32(engine.player.Dest.X)+165, int32(engine.player.Dest.Y)-118, rl.White)
 		if engine.shopKeeper.showPrice[0] == 1 && len(engine.shopKeeper.items) > engine.shopKeeper.showPrice[1] {
-			rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].price)), rl.NewVector2(float32(engine.player.Dest.X-47), float32(engine.player.Dest.Y-50)+50), 10, 0, rl.Black)
+			
+			if engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].price >= 10 && engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].price < 100 {
+				rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].price)), rl.NewVector2(float32(engine.player.Dest.X-47+20), float32(engine.player.Dest.Y-50)+50), 10, 0, rl.Black)
+			}
+			if engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].price < 1000 && engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].price >= 100{
+				rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].price)), rl.NewVector2(float32(engine.player.Dest.X-47+10), float32(engine.player.Dest.Y-50)+50), 10, 0, rl.Black)
+			}
+			if engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].price > 999 {
+				rl.DrawTextEx(engine.fontNum, strconv.Itoa(int(engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].price)), rl.NewVector2(float32(engine.player.Dest.X-47), float32(engine.player.Dest.Y-50)+50), 10, 0, rl.Black)
+			}
 			rl.DrawTexture(engine.sprite.money, int32(engine.player.Dest.X)-7, int32(engine.player.Dest.Y)-5, rl.White)
 			rl.DrawTextEx(engine.fontText, engine.shopKeeper.items[engine.shopKeeper.showPrice[1]].description, rl.NewVector2(float32(engine.player.Dest.X-48)-50, float32(engine.player.Dest.Y+25)+50), 10, 0, rl.Black)
 		}
